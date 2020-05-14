@@ -45,10 +45,9 @@ public class Menu {
 			});
 			MenuItem Logout = new MenuItem("_Logout");
 			Logout.setOnAction(e -> {
-				Driver.EmailStore = null;
+				Driver.StoreUName = null;
 				d.isLogin = false;
-				d.Login();
-
+				d.login();
 			});
 			Action.getItems().addAll(Home, Logout, Exit);
 			Manage.getItems().addAll(AddProduct, AddUser);
@@ -56,7 +55,7 @@ public class Menu {
 			PageTop.getChildren().add(myMenu);
 		} else {
 			MenuItem Login = new MenuItem("_Login");
-			Login.setOnAction(e -> d.Login());
+			Login.setOnAction(e -> d.login());
 			Action.getItems().addAll(Login, Exit);
 			myMenu.getMenus().add(Action);
 			PageTop.getChildren().add(myMenu);

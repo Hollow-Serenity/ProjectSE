@@ -10,7 +10,7 @@ public class Database {
 	public Connection Connect;
 	public PreparedStatement prestatement;
 	public ResultSet resultSet;
-		private final static String CONNECTION_URL = "jdbc:mysql://localhost/StoreManagement";
+		private final static String CONNECTION_URL = "jdbc:mysql://localhost/zeroxess";
 		public Database() {
 			try {
 				Connect = DriverManager.getConnection(CONNECTION_URL,"root","Vlekkie15");

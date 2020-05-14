@@ -63,9 +63,9 @@ public class Home {
 		LogoutBtn.setTooltip(new Tooltip("Logout"));
 		LogoutBtn.setOnAction(e->{
 			Driver d = new Driver();
-			Driver.EmailStore = null;
+			Driver.StoreUName = null;
 			d.isLogin = false;
-			d.Login();
+			d.login();
 		});
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 		

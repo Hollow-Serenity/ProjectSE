@@ -37,7 +37,7 @@ public class AddProducts {
 	    
 	    try {
 			db.prestatement = db.Connect.prepareStatement("SELECT * FROM Inventory WHERE Email = ?");
-			db.prestatement.setString(1, Driver.EmailStore);
+			db.prestatement.setString(1, Driver.StoreUName);
 			db.resultSet =  db.prestatement.executeQuery();
 			while (db.resultSet.next()) {
 				DataList.add(new Inventory(
@@ -108,7 +108,7 @@ public class AddProducts {
 				db.prestatement.setString(1, QuantityField.getText());
 				db.prestatement.setString(2, DateField.getText());
 				db.prestatement.setString(3, DetailsField.getText());
-				db.prestatement.setString(4, Driver.EmailStore);
+				db.prestatement.setString(4, Driver.StoreUName);
 				db.prestatement.executeUpdate();
 				DialogStage.hide();
 				AddProduct();

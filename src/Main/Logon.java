@@ -22,9 +22,9 @@ public class Logon {
 		VBox Center = new VBox();
 		TextField First = new TextField();
 		TextField Last = new TextField();
-		TextField Email = new TextField();
-		TextField Phone = new TextField();
+		TextField UName = new TextField();
 		TextField Password = new TextField();
+		TextField PasswordCheck = new TextField();
 		Database db = new Database();
 		
 		Alert a = new Alert(AlertType.INFORMATION); 	
@@ -34,53 +34,53 @@ public class Logon {
                 a.show(); 
             } 
         }; 
-        if(Driver.EmailStore == null) {
-			Button Logon = new Button("Add User");
-			Logon.setOnAction(e -> {
+
+        if(Driver.StoreUName == null) {
+			Button Register = new Button("Add User");
+			Register.setOnAction(e -> {
 				try {
-					db.prestatement = db.Connect.prepareStatement("INSERT INTO Users VALUES(?,?,?,?,?)");
-					db.prestatement.setString(1, Email.getText());
+					db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?)");
+					db.prestatement.setString(1, UName.getText());
 					db.prestatement.setString(2, First.getText());
 					db.prestatement.setString(3, Last.getText());
-					db.prestatement.setString(4, Phone.getText());
-					db.prestatement.setString(5, Password.getText());
+					db.prestatement.setString(4, Password.getText());
 					db.prestatement.executeUpdate();
 			        event.handle(new ActionEvent());
 					Driver D = new Driver();
-					D.Login();
+					D.login();
 	            	a.setContentText("User has been added");
 				} catch (SQLException e1) {
-	            	a.setContentText("Error while inserting data in Users!");
+	            	a.setContentText("Error while adding user!");
 				}
 				event.handle(new ActionEvent());
 			});
-			Center.getChildren().addAll(First, Last, Email, Phone, Password, Logon);
+			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Register);
         }
         else {
-			db.prestatement = db.Connect.prepareStatement("SELECT * FROM Users WHERE Email = ?");
-			db.prestatement.setString(1, Driver.EmailStore);
+			db.prestatement = db.Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
+			db.prestatement.setString(1, Driver.StoreUName);
 			db.resultSet =  db.prestatement.executeQuery();
 			while (db.resultSet.next()) {
-				Email.setDisable(true);
-				Email.setText(db.resultSet.getString(1));
+				UName.setDisable(true);
+				UName.setText(db.resultSet.getString(1));
 	        	First.setText(db.resultSet.getString(2));
 	        	Last.setText(db.resultSet.getString(3));
-	        	Phone.setText(db.resultSet.getString(4));
-	        	Password.setText(db.resultSet.getString(5));
+	        	Password.setText(db.resultSet.getString(4));
 			}
 			Button UpdateBtn = new Button("Edit User");
 			UpdateBtn.setOnAction(e -> {
 				try {
 					db.prestatement = db.Connect.prepareStatement(""
-							+ "UPDATE Users SET FirstName=?,"
-							+ "LastName=?, Phone=?,"
-							+ "Password=? WHERE Email = ?");
-					db.prestatement.setString(1, First.getText());
-					db.prestatement.setString(2, Last.getText());
-					db.prestatement.setString(3, Phone.getText());
+							+ "UPDATE users SET userName=?,"
+							+ "firstName=?, lastName=?,"
+							+ "password=? WHERE userName = ?");
+					db.prestatement.setString(1, UName.getText());
+					db.prestatement.setString(2, First.getText());
+					db.prestatement.setString(3, Last.getText());
 					db.prestatement.setString(4, Password.getText());
-					db.prestatement.setString(5, Email.getText());
+					db.prestatement.setString(5, Driver.StoreUName);
 					db.prestatement.executeUpdate();
+					Driver.StoreUName = UName.getText();
 	            	a.setContentText("User has been updated");
 	    			Home H = new Home();
 	    			H.Homes();
@@ -90,14 +90,14 @@ public class Logon {
 				}
 				event.handle(new ActionEvent());
 			});
-			Center.getChildren().addAll(First, Last, Email, Phone, Password, UpdateBtn);
+			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, UpdateBtn);
         }
         
 		First.setPromptText("First Name");
 		Last.setPromptText("Last Name");
-		Email.setPromptText("Email Address");
-		Phone.setPromptText("Phone Number");
+		UName.setPromptText("Username");
 		Password.setPromptText("Password");
+		PasswordCheck.setPromptText("Repeat password");
 		
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
