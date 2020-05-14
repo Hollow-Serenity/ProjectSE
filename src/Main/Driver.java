@@ -132,6 +132,7 @@ public class Driver extends Application {
 				db.resultSet = db.prestatement.executeQuery();
 				while (db.resultSet.next()) {
 					if (Password.getText().equals(db.resultSet.getString("password"))) {
+						StoreUName = UName.getText();
 						isLogin = true;
 						Home h = new Home();
 						h.Homes();

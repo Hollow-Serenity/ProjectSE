@@ -35,7 +35,7 @@ public class Logon {
             } 
         }; 
 
-        if(Driver.StoreUName == null) {
+        if(!Driver.isLogin) {
 			Button Register = new Button("Add User");
 			Register.setOnAction(e -> {
 				try {
@@ -59,9 +59,8 @@ public class Logon {
         else {
 			db.prestatement = db.Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
 			db.prestatement.setString(1, Driver.StoreUName);
-			db.resultSet =  db.prestatement.executeQuery();
+			db.resultSet = db.prestatement.executeQuery();
 			while (db.resultSet.next()) {
-				UName.setDisable(true);
 				UName.setText(db.resultSet.getString(1));
 	        	First.setText(db.resultSet.getString(2));
 	        	Last.setText(db.resultSet.getString(3));
