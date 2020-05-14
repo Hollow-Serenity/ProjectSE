@@ -30,7 +30,7 @@ public class Driver extends Application {
 
 	public static Boolean isLogin = false;
 	public static Stage Window;
-	public static String EmailStore;
+	public static String StoreUName;
 	public static Scene Scn;
 	public static BorderPane Layout;
 
@@ -48,9 +48,9 @@ public class Driver extends Application {
 	public void Login() {
 		Text Status = new Text();
 
-		TextField Email = new TextField();
-		Email.setPromptText("Email Address");
-		Email.getStyleClass().add("EmailAddress");
+		TextField UName = new TextField();
+		UName.setPromptText("User Name");
+		UName.getStyleClass().add("User Name");
 
 		PasswordField Password = new PasswordField();
 		Password.setPromptText("Password");
@@ -66,7 +66,7 @@ public class Driver extends Application {
 			}
 		});
 
-		Email.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
+		UName.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
 			if (e.getCode() == KeyCode.ENTER) {
 				LoginBtn.fire();
 			}
@@ -80,21 +80,12 @@ public class Driver extends Application {
 
 		LoginBtn.setOnAction(e -> {
 			try {
-				String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-				Pattern P = Pattern.compile(regex);
-				Matcher M = P.matcher(Email.getText());
-				if (!M.matches()) {
-					Status.setFill(Color.RED);
-					Status.setText("Invalild email format");
-					return;
-				}
 				Database db = new Database();
-				db.prestatement = db.Connect.prepareStatement("SELECT * FROM Users");
+				db.prestatement = db.Connect.prepareStatement("select * from users where userName = ?");
+				db.prestatement.setString(1, UName.getText());
 				db.resultSet = db.prestatement.executeQuery();
 				while (db.resultSet.next()) {
-					if (Email.getText().equals(db.resultSet.getObject(1))
-							&& Password.getText().equals(db.resultSet.getObject(5))) {
-						EmailStore = Email.getText();
+					if (Password.getText().equals(db.resultSet.getString("password"))) {
 						isLogin = true;
 						Home h = new Home();
 						h.Homes();
