@@ -1,13 +1,7 @@
 package Main;
 
 import java.sql.SQLException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import Main.Database;
-import Main.Home;
-import Main.Logon;
-import Main.Menu;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -26,7 +20,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class Driver extends Application {
+public class Login extends Application {
 
 	public static Boolean isLogin = false;
 	public static Stage Window;
@@ -46,6 +40,7 @@ public class Driver extends Application {
 	}
 	public void login() {
 		Text Status = new Text();
+		Status.setText("");
 
 		TextField UName = new TextField();
 		UName.setPromptText("Username");
@@ -57,7 +52,6 @@ public class Driver extends Application {
 
 		Button LoginBtn = new Button("Login");
 		LoginBtn.getStyleClass().addAll("LoginBtn", "WhiteTextColor");
-		Status.setText("");
 
 		Button Register = new Button("Sign up");
 		Register.getStyleClass().addAll("LogonBtn");
@@ -149,7 +143,7 @@ public class Driver extends Application {
 
 		Register.setOnAction(e -> {
 			try {
-				new Logon();
+				new Registration();
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}

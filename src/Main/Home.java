@@ -48,7 +48,7 @@ public class Home {
 			@Override
 			public void handle(ActionEvent event) {
 				try {
-					new Logon();
+					new Registration();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -62,8 +62,8 @@ public class Home {
 		LogoutBtn.setGraphic(LgIV);
 		LogoutBtn.setTooltip(new Tooltip("Logout"));
 		LogoutBtn.setOnAction(e->{
-			Driver d = new Driver();
-			Driver.StoreUName = null;
+			Login d = new Login();
+			Login.StoreUName = null;
 			d.isLogin = false;
 			d.login();
 		});
@@ -81,7 +81,7 @@ public class Home {
 		Center.setMaxHeight(screenBounds.getHeight()*0.75);
 		Center.setSpacing(20);
 		Menu m = new Menu();
-		Driver.Layout.setTop(m.Menu());
-		Driver.Layout.setCenter(Center);
+		Login.Layout.setTop(m.Menu());
+		Login.Layout.setCenter(Center);
 	}
 }

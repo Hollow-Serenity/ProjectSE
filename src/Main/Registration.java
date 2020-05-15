@@ -1,8 +1,7 @@
 package Main;
 
+import java.awt.*;
 import java.sql.SQLException;
-
-import com.mysql.cj.protocol.Resultset;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler; 
@@ -11,54 +10,69 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Logon {
+public class Registration {
 
 	public static Stage Window;
 
-	public Logon() throws Exception {
+	public Registration() throws Exception {
 
 		VBox Center = new VBox();
+		Text Status = new Text();
+		Status.setText("");
+		Status.setFill(Color.RED);
 		TextField First = new TextField();
 		TextField Last = new TextField();
 		TextField UName = new TextField();
 		TextField Password = new TextField();
 		TextField PasswordCheck = new TextField();
 		Database db = new Database();
-		
-		Alert a = new Alert(AlertType.INFORMATION); 	
-        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() { 
-            public void handle(ActionEvent e) 
-            { 
-                a.show(); 
-            } 
-        }; 
 
-        if(!Driver.isLogin) {
+        if(!Login.isLogin) {
 			Button Register = new Button("Add User");
 			Register.setOnAction(e -> {
-				try {
-					db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?)");
-					db.prestatement.setString(1, UName.getText());
-					db.prestatement.setString(2, First.getText());
-					db.prestatement.setString(3, Last.getText());
-					db.prestatement.setString(4, Password.getText());
-					db.prestatement.executeUpdate();
-			        event.handle(new ActionEvent());
-					Driver D = new Driver();
-					D.login();
-	            	a.setContentText("User has been added");
-				} catch (SQLException e1) {
-	            	a.setContentText("Error while adding user!");
+				if(Password.getText().equals(PasswordCheck.getText())
+						&& Password.getText().length() > 6
+						&& Password.getText().length() < 21
+						&& !UName.getText().equals("")
+						&& !First.getText().equals("")
+						&& !Last.getText().equals("")) {
+					try {
+						db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?)");
+						db.prestatement.setString(1, UName.getText());
+						db.prestatement.setString(2, First.getText());
+						db.prestatement.setString(3, Last.getText());
+						db.prestatement.setString(4, Password.getText());
+						db.prestatement.executeUpdate();
+						Login D = new Login();
+						D.login();
+					}
+					catch (SQLException e1) {
+						Status.setText("Error while adding user");
+					}
 				}
-				event.handle(new ActionEvent());
+				else {
+					if(!Password.getText().equals(PasswordCheck.getText())) {
+						Status.setText("Your password doesn't match");
+					}
+					else {
+						if (!(Password.getText().length() > 6) || !(Password.getText().length() < 21)) {
+							Status.setText("PW must be between 7 and 20 characters");
+						}
+						else {
+							Status.setText("Please fill in all fields");
+						}
+					}
+				}
 			});
-			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Register);
+			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Status, Register);
         }
         else {
 			db.prestatement = db.Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
-			db.prestatement.setString(1, Driver.StoreUName);
+			db.prestatement.setString(1, Login.StoreUName);
 			db.resultSet = db.prestatement.executeQuery();
 			while (db.resultSet.next()) {
 				UName.setText(db.resultSet.getString(1));
@@ -77,17 +91,15 @@ public class Logon {
 					db.prestatement.setString(2, First.getText());
 					db.prestatement.setString(3, Last.getText());
 					db.prestatement.setString(4, Password.getText());
-					db.prestatement.setString(5, Driver.StoreUName);
+					db.prestatement.setString(5, Login.StoreUName);
 					db.prestatement.executeUpdate();
-					Driver.StoreUName = UName.getText();
-	            	a.setContentText("User has been updated");
+					Login.StoreUName = UName.getText();
 	    			Home H = new Home();
 	    			H.Homes();
 				} catch (SQLException e1) {
 					System.out.println(e1.getMessage());
-	            	a.setContentText("Error while updating data in Users!");
+					Status.setText("Error while updating data in Users!");
 				}
-				event.handle(new ActionEvent());
 			});
 			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, UpdateBtn);
         }
@@ -103,7 +115,7 @@ public class Logon {
 		Center.setMaxHeight(400);
 		Center.setSpacing(10);
 		Menu m = new Menu();
-		Driver.Layout.setTop(m.Menu());
-		Driver.Layout.setCenter(Center);
+		Login.Layout.setTop(m.Menu());
+		Login.Layout.setCenter(Center);
 	}
 }
