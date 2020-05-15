@@ -131,7 +131,7 @@ public class Registration {
 		Last.setPromptText("Last Name");
 		UName.setPromptText("Username");
 		Password.setPromptText("Password");
-		PasswordCheck.setPromptText("Repeat password");
+		PasswordCheck.setPromptText("Repeat Password");
 		
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
