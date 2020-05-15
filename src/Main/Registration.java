@@ -29,12 +29,7 @@ public class Registration {
 			while(db.resultSet.next()) {
 				res = db.resultSet.getString(1);
 			}
-			if (res == null) {
-				return true;
-			}
-			else {
-				return false;
-			}
+			return res == null;
 		}
 		catch (SQLException e) {
 			return true;
