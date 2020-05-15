@@ -82,23 +82,43 @@ public class Registration {
 			}
 			Button UpdateBtn = new Button("Edit User");
 			UpdateBtn.setOnAction(e -> {
-				try {
-					db.prestatement = db.Connect.prepareStatement(""
-							+ "UPDATE users SET userName=?,"
-							+ "firstName=?, lastName=?,"
-							+ "password=? WHERE userName = ?");
-					db.prestatement.setString(1, UName.getText());
-					db.prestatement.setString(2, First.getText());
-					db.prestatement.setString(3, Last.getText());
-					db.prestatement.setString(4, Password.getText());
-					db.prestatement.setString(5, Login.StoreUName);
-					db.prestatement.executeUpdate();
-					Login.StoreUName = UName.getText();
-	    			Home H = new Home();
-	    			H.Homes();
-				} catch (SQLException e1) {
-					System.out.println(e1.getMessage());
-					Status.setText("Error while updating data in Users!");
+				if(Password.getText().equals(PasswordCheck.getText())
+				&& Password.getText().length() > 6
+				&& Password.getText().length() < 21
+				&& !UName.getText().equals("")
+				&& !First.getText().equals("")
+				&& !Last.getText().equals("")) {
+					try {
+						db.prestatement = db.Connect.prepareStatement(""
+								+ "UPDATE users SET userName=?,"
+								+ "firstName=?, lastName=?,"
+								+ "password=? WHERE userName = ?");
+						db.prestatement.setString(1, UName.getText());
+						db.prestatement.setString(2, First.getText());
+						db.prestatement.setString(3, Last.getText());
+						db.prestatement.setString(4, Password.getText());
+						db.prestatement.setString(5, Login.StoreUName);
+						db.prestatement.executeUpdate();
+						Login.StoreUName = UName.getText();
+						Home H = new Home();
+						H.Homes();
+					} catch (SQLException e1) {
+						System.out.println(e1.getMessage());
+						Status.setText("Error while updating data in Users!");
+					}
+				}
+				else {
+					if(!Password.getText().equals(PasswordCheck.getText())) {
+						Status.setText("Your password doesn't match");
+					}
+					else {
+						if (!(Password.getText().length() > 6) || !(Password.getText().length() < 21)) {
+							Status.setText("PW must be between 7 and 20 characters");
+						}
+						else {
+							Status.setText("Please fill in all fields");
+						}
+					}
 				}
 			});
 			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, UpdateBtn);
