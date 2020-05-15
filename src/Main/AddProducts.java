@@ -15,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import static java.lang.String.valueOf;
+
 public class AddProducts {
 
 	public static Stage Window;
@@ -22,36 +24,42 @@ public class AddProducts {
 	@SuppressWarnings("unchecked")
 	public void AddProduct() {
 
-		ObservableList<Inventory> DataList = FXCollections.observableArrayList();
-		TableView<Inventory> ProductTable = new TableView<Inventory>(DataList);
+		ObservableList<LiveStock> DataList = FXCollections.observableArrayList();
+		TableView<LiveStock> ProductTable = new TableView<LiveStock>(DataList);
 		
-		TableColumn<Inventory, Integer> LiveStockID = new TableColumn<Inventory, Integer>("Live Stock ID");
-		TableColumn<Inventory, Integer>  Quantity = new TableColumn<Inventory, Integer>("Quantity");
-		TableColumn<Inventory, String>  DateAdded = new TableColumn<Inventory, String>("Date Added");
-		TableColumn<Inventory, String>  Details = new TableColumn<Inventory, String>("Details");
-		
-		LiveStockID.setCellValueFactory(new PropertyValueFactory<>("LiveStockID"));
+		TableColumn<LiveStock, Integer> idlive_stock = new TableColumn<LiveStock, Integer>("Live Stock ID");
+		TableColumn<LiveStock, Integer>  Quantity = new TableColumn<LiveStock, Integer>("Quantity");
+		TableColumn<LiveStock, String>  DateAdded = new TableColumn<LiveStock, String>("Date Added");
+		TableColumn<LiveStock, String>  Details = new TableColumn<LiveStock, String>("Details");
+		TableColumn<LiveStock, Integer>  Weight = new TableColumn<LiveStock, Integer>("Weight");
+		TableColumn<LiveStock, Double>  Price = new TableColumn<LiveStock, Double>("Price");
+
+		idlive_stock.setCellValueFactory(new PropertyValueFactory<>("idlive_stock"));
 		Quantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
 		DateAdded.setCellValueFactory(new PropertyValueFactory<>("DateAdded"));
 		Details.setCellValueFactory(new PropertyValueFactory<>("Details"));
-	    
+		Weight.setCellValueFactory(new PropertyValueFactory<>("Weight"));
+		Price.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
 	    try {
-			db.prestatement = db.Connect.prepareStatement("SELECT * FROM Inventory WHERE Email = ?");
-			db.prestatement.setString(1, Driver.EmailStore);
+			db.prestatement = db.Connect.prepareStatement("SELECT * FROM livestock WHERE owner = ?");
+			db.prestatement.setString(1, Login.StoreUName);
 			db.resultSet =  db.prestatement.executeQuery();
 			while (db.resultSet.next()) {
-				DataList.add(new Inventory(
+				DataList.add(new LiveStock(
 						db.resultSet.getInt(1), 
 						db.resultSet.getInt(2),
 						db.resultSet.getString(3),  
-						db.resultSet.getString(4)
+						db.resultSet.getString(4),
+						db.resultSet.getInt(5),
+						db.resultSet.getDouble(6)
 				));
 			}
 		} catch (SQLException e1) {
 			System.out.println("Error while fetching data from Products!");
 		}
 				
-		ProductTable.getColumns().addAll(LiveStockID, Quantity, DateAdded, Details);
+		ProductTable.getColumns().addAll(idlive_stock, Quantity, DateAdded, Details, Weight, Price);
 		
 		VBox TableVB = new VBox();
 		TableVB.getChildren().add(ProductTable);
@@ -78,16 +86,20 @@ public class AddProducts {
 	    Center.setMaxWidth(1000);
 		Center.setSpacing(20);
 	    
-		Driver.Layout.setCenter(Center);
+		Login.Layout.setCenter(Center);
 	}
 	public void NewProduct() {	
 		Stage DialogStage = new Stage();
 		Label QuantityLabel = new Label("Quantity");
 		Label DateLabel = new Label("Date Added");
 		Label DetailsLabel = new Label("Details");
-		
+		Label WeightLabel = new Label("Weight");
+		Label PriceLabel = new Label("Price");
+
 		TextField QuantityField = new TextField();
 		TextField DateField = new TextField();
+		TextField WeightField = new TextField();
+		TextField PriceField = new TextField();
 		TextField DetailsField = new TextField();
 
 		DateField.setPromptText("dd-mm-yyyy");
@@ -96,7 +108,9 @@ public class AddProducts {
 		DialogNewProduct.getChildren().addAll(
 				QuantityLabel, QuantityField,
 				DateLabel, DateField,
-				DetailsLabel, DetailsField
+				DetailsLabel, DetailsField,
+				WeightLabel, WeightField,
+				PriceLabel, PriceField
 		);
 		
 		HBox ButtonBox = new HBox();
@@ -104,11 +118,13 @@ public class AddProducts {
 		Button EnterBtn = new Button("Enter");
 		EnterBtn.setOnAction(e->{			
 			try {
-				db.prestatement = db. Connect.prepareStatement("INSERT INTO Inventory(Quantity, DateAdded, Details, Email) VALUES(?,?,?,?)");
+				db.prestatement = db. Connect.prepareStatement("INSERT INTO LiveStock(quantity, dateAdded, details, weight, price, owner) VALUES(?,?,?,?,?,?)");
 				db.prestatement.setString(1, QuantityField.getText());
 				db.prestatement.setString(2, DateField.getText());
 				db.prestatement.setString(3, DetailsField.getText());
-				db.prestatement.setString(4, Driver.EmailStore);
+				db.prestatement.setString(4, WeightField.getText());
+				db.prestatement.setString(5, PriceField.getText());
+				db.prestatement.setString(6, Login.StoreUName);
 				db.prestatement.executeUpdate();
 				DialogStage.hide();
 				AddProduct();
@@ -135,32 +151,40 @@ public class AddProducts {
 		DialogScn.getStylesheets().add(getClass().getResource("../css/application.css").toExternalForm());
 		DialogStage.setScene(DialogScn);
 				
-		DialogStage.setTitle("Add New Inventory");
+		DialogStage.setTitle("Add New LiveStock");
 		DialogStage.show();
 	}	
 	
-	public void UpdateProduct(Inventory P) {
+	public void UpdateProduct(LiveStock P) {
 		if(P != null) {
 			Stage DialogStage = new Stage();
 			Label QuantityLabel = new Label("Quantity");
 			Label DateLabel = new Label("Date Added");
 			Label DetailsLabel = new Label("Details");
+			Label WeightLabel = new Label("Weight");
+			Label PriceLabel = new Label("Price");
 
 			TextField QuantityField = new TextField();
 			TextField DateField = new TextField();
 			TextField DetailsField = new TextField();
+			TextField WeightField = new TextField();
+			TextField PriceField = new TextField();
 
 			DateField.setPromptText("dd-mm-yyyy");
 
 			QuantityField.setText(P.getQuantity() + "");
 			DateField.setText(P.getDateAdded());
 			DetailsField.setText(P.getDetails());
-			
+			WeightField.setText(valueOf(P.getWeight()));
+			PriceField.setText(valueOf(P.getPrice()));
+
 			VBox DialogNewProduct = new VBox();
 			DialogNewProduct.getChildren().addAll(
 					QuantityLabel, QuantityField,
 					DateLabel, DateField,
-					DetailsLabel, DetailsField
+					DetailsLabel, DetailsField,
+					WeightLabel, WeightField,
+					PriceLabel, PriceField
 			);
 			
 			HBox ButtonBox = new HBox();
@@ -169,12 +193,14 @@ public class AddProducts {
 			UpdateBtn.setOnAction(e->{			
 				try {
 					db.prestatement = db.Connect.prepareStatement(""
-							+ "UPDATE Inventory SET Quantity=?,"
-							+ "DateAdded=?, Details=? WHERE LiveStockID = ?");
+							+ "UPDATE LiveStock SET Quantity=?,"
+							+ "dateAdded=?, Details=?, Weight=?, Price=? WHERE idlive_stock = ?");
 					db.prestatement.setString(1, QuantityField.getText());
 					db.prestatement.setString(2, DateField.getText());
 					db.prestatement.setString(3, DetailsField.getText());
-					db.prestatement.setInt(4, P.LiveStockID);
+					db.prestatement.setString(4, WeightField.getText());
+					db.prestatement.setString(5, PriceField.getText());
+					db.prestatement.setInt(6, P.idlive_stock);
 					db.prestatement.executeUpdate();
 					DialogStage.hide();
 					AddProduct();
@@ -201,40 +227,44 @@ public class AddProducts {
 			DialogScn.getStylesheets().add(getClass().getResource("../css/application.css").toExternalForm());
 			DialogStage.setScene(DialogScn);
 					
-			DialogStage.setTitle("Add New Inventory");
+			DialogStage.setTitle("Add New LiveStock");
 			DialogStage.show();			
 		}
 		else
 			AddProduct();
 	}
 	
-	public void DeleteProduct(Inventory P) {	
+	public void DeleteProduct(LiveStock P) {
 		if(P != null) {
 			try {
-				db.prestatement = db.Connect.prepareStatement("DELETE FROM Inventory WHERE LiveStockID = ?");
-				db.prestatement.setInt(1, P.LiveStockID);
+				db.prestatement = db.Connect.prepareStatement("DELETE FROM LiveStock WHERE idlive_stock = ?");
+				db.prestatement.setInt(1, P.idlive_stock);
 				db.prestatement.executeUpdate();
 				AddProduct();
 			} catch (SQLException e1) {
-				System.out.println("Error while deleteing data from Inventory!");
+				System.out.println("Error while deleteing data from LiveStock!");
 			}			
 		}
 		else
 			AddProduct();
 	}
-	public class Inventory{
-		private int LiveStockID;
+	public class LiveStock{
+		private int idlive_stock;
 		private int Quantity;
 		private String DateAdded;
 		private String Details;
-		public Inventory(int liveStockID, int quantity, String dateAdded, String details){
-			LiveStockID = liveStockID;
+		private Integer Weight;
+		private Double Price;
+		public LiveStock(int liveStockID, int quantity, String dateAdded, String details, Integer weight, Double price){
+			idlive_stock = liveStockID;
 			Quantity = quantity;
 			DateAdded = dateAdded;
 			Details = details;
+			Weight = weight;
+			Price = price;
 		}
-		public int getLiveStockID(){
-			return LiveStockID;
+		public int getidlive_stock(){
+			return idlive_stock;
 		}
 		public int getQuantity(){
 			return Quantity;
@@ -245,6 +275,15 @@ public class AddProducts {
 		public String getDetails(){
 			return Details;
 		}
+
+		public Integer getWeight(){
+			return Weight;
+		}
+
+		public Double getPrice(){
+			return Price;
+		}
+
 	};
 
 }
