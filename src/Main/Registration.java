@@ -4,7 +4,9 @@ import java.awt.*;
 import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler; 
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -32,7 +34,8 @@ public class Registration {
 		Database db = new Database();
 
         if(!Login.isLogin) {
-			Button Register = new Button("Add User");
+			Button Register = new Button("Register");
+			Register.setAlignment(Pos.BASELINE_CENTER);
 			Register.setOnAction(e -> {
 				if(Password.getText().equals(PasswordCheck.getText())
 						&& Password.getText().length() > 6
@@ -80,7 +83,7 @@ public class Registration {
 	        	Last.setText(db.resultSet.getString(3));
 	        	Password.setText(db.resultSet.getString(4));
 			}
-			Button UpdateBtn = new Button("Edit User");
+			Button UpdateBtn = new Button("Update account");
 			UpdateBtn.setOnAction(e -> {
 				if(Password.getText().equals(PasswordCheck.getText())
 				&& Password.getText().length() > 6

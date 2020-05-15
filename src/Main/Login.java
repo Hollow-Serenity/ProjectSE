@@ -35,6 +35,7 @@ public class Login extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Window = primaryStage;
+		primaryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
 		login();
 		Window.setTitle("Inventory System");
 	}
