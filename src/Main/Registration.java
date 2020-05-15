@@ -121,7 +121,7 @@ public class Registration {
 					}
 				}
 			});
-			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, UpdateBtn);
+			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Status, UpdateBtn);
         }
         
 		First.setPromptText("First Name");
