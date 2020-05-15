@@ -20,6 +20,27 @@ public class Registration {
 
 	public static Stage Window;
 
+	public Boolean checkUName(Database db, String UName) {
+		try {
+			String res = null;
+			db.prestatement = db.Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
+			db.prestatement.setString(1, UName);
+			db.resultSet = db.prestatement.executeQuery();
+			while(db.resultSet.next()) {
+				res = db.resultSet.getString(1);
+			}
+			if (res == null) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		catch (SQLException e) {
+			return true;
+		}
+	}
+
 	public Registration() throws Exception {
 
 		VBox Center = new VBox();
@@ -42,7 +63,8 @@ public class Registration {
 						&& Password.getText().length() < 21
 						&& !UName.getText().equals("")
 						&& !First.getText().equals("")
-						&& !Last.getText().equals("")) {
+						&& !Last.getText().equals("")
+						&& checkUName(db, UName.getText())) {
 					try {
 						db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?)");
 						db.prestatement.setString(1, UName.getText());
@@ -58,7 +80,7 @@ public class Registration {
 					}
 				}
 				else {
-					if(!Password.getText().equals(PasswordCheck.getText())) {
+					if (!Password.getText().equals(PasswordCheck.getText())) {
 						Status.setText("Your password doesn't match");
 					}
 					else {
@@ -66,7 +88,12 @@ public class Registration {
 							Status.setText("PW must be between 7 and 20 characters");
 						}
 						else {
-							Status.setText("Please fill in all fields");
+							if (!checkUName(db, UName.getText())) {
+								Status.setText("This username already exists");
+							}
+							else {
+								Status.setText("Please fill in all fields");
+							}
 						}
 					}
 				}
@@ -86,11 +113,12 @@ public class Registration {
 			Button UpdateBtn = new Button("Update account");
 			UpdateBtn.setOnAction(e -> {
 				if(Password.getText().equals(PasswordCheck.getText())
-				&& Password.getText().length() > 6
-				&& Password.getText().length() < 21
-				&& !UName.getText().equals("")
-				&& !First.getText().equals("")
-				&& !Last.getText().equals("")) {
+						&& Password.getText().length() > 6
+						&& Password.getText().length() < 21
+						&& !UName.getText().equals("")
+						&& !First.getText().equals("")
+						&& !Last.getText().equals("")
+						&& checkUName(db, UName.getText())) {
 					try {
 						db.prestatement = db.Connect.prepareStatement(""
 								+ "UPDATE users SET userName=?,"
@@ -119,7 +147,12 @@ public class Registration {
 							Status.setText("PW must be between 7 and 20 characters");
 						}
 						else {
-							Status.setText("Please fill in all fields");
+							if (!checkUName(db, UName.getText())) {
+								Status.setText("This username already exists");
+							}
+							else {
+								Status.setText("Please fill in all fields");
+							}
 						}
 					}
 				}
