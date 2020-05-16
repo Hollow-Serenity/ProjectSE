@@ -248,7 +248,7 @@ public class AddProducts {
 		else
 			AddProduct();
 	}
-	public class LiveStock{
+	public static class LiveStock{
 		private int idlive_stock;
 		private int Quantity;
 		private String DateAdded;
