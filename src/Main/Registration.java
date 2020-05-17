@@ -20,6 +20,25 @@ public class Registration {
 
 	public static Stage Window;
 
+<<<<<<< HEAD
+=======
+	public Boolean checkUName(Database db, String UName) {
+		try {
+			String res = null;
+			db.prestatement = db.Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
+			db.prestatement.setString(1, UName);
+			db.resultSet = db.prestatement.executeQuery();
+			while(db.resultSet.next()) {
+				res = db.resultSet.getString(1);
+			}
+			return res == null;
+		}
+		catch (SQLException e) {
+			return true;
+		}
+	}
+
+>>>>>>> feature/login
 	public Registration() throws Exception {
 
 		VBox Center = new VBox();
@@ -33,7 +52,11 @@ public class Registration {
 		TextField PasswordCheck = new TextField();
 		Database db = new Database();
 
+<<<<<<< HEAD
 		if(!Login.isLogin) {
+=======
+        if(!Login.isLogin) {
+>>>>>>> feature/login
 			Button Register = new Button("Register");
 			Register.setAlignment(Pos.BASELINE_CENTER);
 			Register.setOnAction(e -> {
@@ -42,7 +65,12 @@ public class Registration {
 						&& Password.getText().length() < 21
 						&& !UName.getText().equals("")
 						&& !First.getText().equals("")
+<<<<<<< HEAD
 						&& !Last.getText().equals("")) {
+=======
+						&& !Last.getText().equals("")
+						&& checkUName(db, UName.getText())) {
+>>>>>>> feature/login
 					try {
 						db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?)");
 						db.prestatement.setString(1, UName.getText());
@@ -58,7 +86,11 @@ public class Registration {
 					}
 				}
 				else {
+<<<<<<< HEAD
 					if(!Password.getText().equals(PasswordCheck.getText())) {
+=======
+					if (!Password.getText().equals(PasswordCheck.getText())) {
+>>>>>>> feature/login
 						Status.setText("Your password doesn't match");
 					}
 					else {
@@ -66,22 +98,42 @@ public class Registration {
 							Status.setText("PW must be between 7 and 20 characters");
 						}
 						else {
+<<<<<<< HEAD
 							Status.setText("Please fill in all fields");
+=======
+							if (!checkUName(db, UName.getText())) {
+								Status.setText("This username already exists");
+							}
+							else {
+								Status.setText("Please fill in all fields");
+							}
+>>>>>>> feature/login
 						}
 					}
 				}
 			});
 			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Status, Register);
+<<<<<<< HEAD
 		}
 		else {
+=======
+        }
+        else {
+>>>>>>> feature/login
 			db.prestatement = db.Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
 			db.prestatement.setString(1, Login.StoreUName);
 			db.resultSet = db.prestatement.executeQuery();
 			while (db.resultSet.next()) {
 				UName.setText(db.resultSet.getString(1));
+<<<<<<< HEAD
 				First.setText(db.resultSet.getString(2));
 				Last.setText(db.resultSet.getString(3));
 				Password.setText(db.resultSet.getString(4));
+=======
+	        	First.setText(db.resultSet.getString(2));
+	        	Last.setText(db.resultSet.getString(3));
+	        	Password.setText(db.resultSet.getString(4));
+>>>>>>> feature/login
 			}
 			Button UpdateBtn = new Button("Update account");
 			UpdateBtn.setOnAction(e -> {
@@ -90,7 +142,12 @@ public class Registration {
 						&& Password.getText().length() < 21
 						&& !UName.getText().equals("")
 						&& !First.getText().equals("")
+<<<<<<< HEAD
 						&& !Last.getText().equals("")) {
+=======
+						&& !Last.getText().equals("")
+						&& checkUName(db, UName.getText())) {
+>>>>>>> feature/login
 					try {
 						db.prestatement = db.Connect.prepareStatement(""
 								+ "UPDATE users SET userName=?,"
@@ -119,20 +176,38 @@ public class Registration {
 							Status.setText("PW must be between 7 and 20 characters");
 						}
 						else {
+<<<<<<< HEAD
 							Status.setText("Please fill in all fields");
+=======
+							if (!checkUName(db, UName.getText())) {
+								Status.setText("This username already exists");
+							}
+							else {
+								Status.setText("Please fill in all fields");
+							}
+>>>>>>> feature/login
 						}
 					}
 				}
 			});
 			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Status, UpdateBtn);
+<<<<<<< HEAD
 		}
 
+=======
+        }
+        
+>>>>>>> feature/login
 		First.setPromptText("First Name");
 		Last.setPromptText("Last Name");
 		UName.setPromptText("Username");
 		Password.setPromptText("Password");
 		PasswordCheck.setPromptText("Repeat Password");
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> feature/login
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
 		Center.setMaxHeight(400);
@@ -141,4 +216,8 @@ public class Registration {
 		Login.Layout.setTop(m.Menu());
 		Login.Layout.setCenter(Center);
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> feature/login

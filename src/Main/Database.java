@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Database {
-	public Connection Connect = null;
-	public PreparedStatement prestatement = null;
-	public ResultSet resultSet = null;
+	public Connection Connect;
+	public PreparedStatement prestatement;
+	public ResultSet resultSet;
 		private final static String CONNECTION_URL = "jdbc:mysql://localhost/zeroxess";
 		public Database() {
 			try {
-				Connect = DriverManager.getConnection(CONNECTION_URL,"root","d1i2n3o4");
+				Connect = DriverManager.getConnection(CONNECTION_URL,"root","Vlekkie15");
 			} catch (SQLException e) {
 				System.out.println("Cannot Connect to the Database:  " + e.getMessage());
 			}
