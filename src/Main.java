@@ -1,24 +1,4 @@
-
-import javafx.application.Application;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.util.Stack;
-
-public class Main extends Application {
-
-    Stage window;
-    Scene scene1, scene2;
-
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        window = primaryStage;
+/*window = primaryStage;
         Label label1 = new Label("Resolutie 1");
         Button button1 = new Button("Ga naar resolutie 2");
         button1.setOnAction(e -> window.setScene(scene2));
@@ -36,8 +16,23 @@ public class Main extends Application {
 
         window.setScene(scene1);
         window.setTitle("Titel");
-        window.show();
+        window.show();*/
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Scene1.fxml"));
+        Scene scene = new Scene(root,800,600);
+        scene.getStylesheets().add("GUI/Light.css");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
 

@@ -1,0 +1,15 @@
+.button{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+#btnSignIn{
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+}
+.button:hover {
+    -fx-background-color: rgb(64,64,64);
+    -fx-cursor: hand;
+}
+.button:pressed {
+    -fx-background-color: gray;
+}

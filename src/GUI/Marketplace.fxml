@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Marketplace">
+    <children>
+        <Pane prefHeight="400.0" prefWidth="190.0" style="-fx-background-color: rgb(0,0,0);">
+            <children>
+                <ImageView fitHeight="120.0" fitWidth="155.0" layoutX="35.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Kumbaya-Logo.png" />
+                    </image>
+                </ImageView>
+                <Button layoutY="155.0" mnemonicParsing="false" onAction="#btnHomeClick" prefHeight="25.0" prefWidth="190.0" text="Home"/>
+                <Button layoutY="209.0" mnemonicParsing="false" onAction="#btnContactsClick" prefHeight="25.0" prefWidth="190.0" text="Contacts" />
+                <Button layoutY="262.0" mnemonicParsing="false" onAction="#btnLivestockClick" prefHeight="25.0" prefWidth="190.0" text="Livestock" />
+                <Label alignment="CENTER" layoutY="321.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: gray;" text="Marketplace" textFill="WHITE"/>
+            </children></Pane>
+        <Label layoutX="202.0" layoutY="14.0" text="Market">
+            <font>
+                <Font name="System Bold" size="38.0" />
+            </font></Label>
+    </children>
+</AnchorPane>
+
