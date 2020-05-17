@@ -33,7 +33,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Contacts.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Scene1.fxml"));
         Scene scene = new Scene(root,800,600);
         scene.getStylesheets().add("GUI/Light.css");
         primaryStage.setScene(scene);
