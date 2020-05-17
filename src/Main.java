@@ -22,17 +22,23 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.beans.Observable;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 
 public class Main extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GUI/Scene1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/Contacts.fxml"));
         Scene scene = new Scene(root,800,600);
         scene.getStylesheets().add("GUI/Light.css");
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
 
 

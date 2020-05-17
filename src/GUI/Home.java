@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+
 import java.io.IOException;
 
 public class Home {
@@ -37,6 +38,15 @@ public class Home {
         scene5.getStylesheets().add("GUI/Light.css");
         Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(scene5);
+        window.show();
+    }
+
+    public void btnSignOffClick(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
+        Scene scene = new Scene(root, 800, 600);
+        scene.getStylesheets().add("GUI/Light.css");
+        Stage window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setScene(scene);
         window.show();
     }
 }

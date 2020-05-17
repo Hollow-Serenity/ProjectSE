@@ -13,3 +13,17 @@
 .button:pressed {
     -fx-background-color: gray;
 }
+#btnSignOff{
+    -fx-background-color: #ff0000;
+}
+#btnSignOff:hover{
+    -fx-background-color: rgb(151, 12, 12);
+}
+#btnSignOff:pressed{
+    -fx-background-color: rgb(102, 4, 4);
+}
+#lblSignUp:hover{
+    -fx-cursor: hand;
+    -fx-text-fill: dodgerblue;
+    -fx-underline: true;
+}
