@@ -1,19 +1,18 @@
-import javafx.application.Application;
+package Main;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-public class UserAddContactGui extends Application {
-    @Override
-    public void start(Stage stage) throws Exception {
+public class UserAddContactGui {
+
+    public void userAdd() {
         User user = new User(); //
 
         Label firstNameLabel = new Label("First name");
@@ -48,12 +47,9 @@ public class UserAddContactGui extends Application {
         vBox.setAlignment(Pos.CENTER);
         vBox.setMinSize(300, 200);
 
-        Scene scene = new Scene(vBox);
-        stage.setScene(scene);
-        stage.setMinWidth(350);
-        stage.setMinHeight(250);
-        stage.centerOnScreen();
-        stage.show();
+        Login.Layout.setCenter(vBox);
     }
+
+
 }
 
