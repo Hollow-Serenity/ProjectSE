@@ -1,7 +1,6 @@
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class ManageContact {
     public ManageContact() throws SQLException {
@@ -30,17 +29,6 @@ public class ManageContact {
             }
         }
         return contactIdExists;
-    }
-
-    public void addUser(String userName, String firstName, String lastName, String password) throws SQLException {
-        if(!userExists(userName)) {
-            PreparedStatement preparedStatement1 = DbUtil.getConnection().prepareStatement("INSERT INTO users(userName, firstName, lastName, password) VALUES(?, ?, ?, ?)");
-            preparedStatement1.setString(1, userName);
-            preparedStatement1.setString(2, firstName);
-            preparedStatement1.setString(3, lastName);
-            preparedStatement1.setString(4, password);
-            preparedStatement1.executeUpdate();
-        }
     }
 
     //Inserts contact in table "contacts"

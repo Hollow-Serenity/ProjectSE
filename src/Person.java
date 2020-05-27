@@ -1,6 +1,6 @@
 import java.sql.SQLException;
 
-class Person extends Contact {
+public class Person extends Contact {
     private String firstName;
     private String lastName;
 

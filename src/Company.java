@@ -1,6 +1,6 @@
 import java.sql.SQLException;
 
-class Company extends Contact {
+public class Company extends Contact {
     private String companyName;
 
     public Company(String companyName, String phoneNumber) throws SQLException {

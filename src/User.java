@@ -1,7 +1,7 @@
 import java.sql.SQLException;
 
 public class User {
-    private static String userName;
+    private static String userName = "u";
     private static String firstName;
     private static String lastName;
     private static String password;

@@ -1,6 +1,3 @@
-import com.mysql.cj.jdbc.result.CachedResultSetMetaDataImpl;
-
-import javax.sql.rowset.CachedRowSet;
 import java.sql.*;
 
 public class DbUtil {
