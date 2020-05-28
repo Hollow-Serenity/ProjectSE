@@ -43,13 +43,24 @@ public class Menu {
 					System.out.println("SQL Error");
 				}
 			});
+			MenuItem Specializations = new MenuItem("_Specialization");
+			Specializations.setOnAction(e -> {
+				try {
+					new Specialization();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			});
+			if (Login.isDoctor == false) {
+				Specializations.setVisible(false);
+			}
 			MenuItem Logout = new MenuItem("_Logout");
 			Logout.setOnAction(e -> {
 				Login.StoreUName = null;
 				d.isLogin = false;
 				d.login();
 			});
-			Action.getItems().addAll(Home, Logout, Exit);
+			Action.getItems().addAll(Home, Specializations, Logout, Exit);
 			Manage.getItems().addAll(AddProduct, AddUser);
 			myMenu.getMenus().addAll(Action, Manage);
 			PageTop.getChildren().add(myMenu);

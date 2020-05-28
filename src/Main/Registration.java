@@ -10,6 +10,7 @@ import javafx.geometry.VPos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -36,6 +37,15 @@ public class Registration {
 		}
 	}
 
+	public String isDoctorToString(String doctor) {
+		if (doctor.equals("Doctor")) {
+			return "T";
+		}
+		else {
+			return "F";
+		}
+	}
+
 	public Registration() throws Exception {
 
 		VBox Center = new VBox();
@@ -47,6 +57,9 @@ public class Registration {
 		TextField UName = new TextField();
 		TextField Password = new TextField();
 		TextField PasswordCheck = new TextField();
+		ChoiceBox<String> Doctor = new ChoiceBox<>();
+		Doctor.getItems().addAll("Standard user","Doctor");
+		Doctor.setValue("Standard user");
 		Database db = new Database();
 
         if(!Login.isLogin) {
@@ -60,12 +73,14 @@ public class Registration {
 						&& !First.getText().equals("")
 						&& !Last.getText().equals("")
 						&& checkUName(db, UName.getText())) {
+					Login.isDoctor = Doctor.getValue().equals("Doctor");
 					try {
-						db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?)");
+						db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?)");
 						db.prestatement.setString(1, UName.getText());
 						db.prestatement.setString(2, First.getText());
 						db.prestatement.setString(3, Last.getText());
 						db.prestatement.setString(4, Password.getText());
+						db.prestatement.setString(5, isDoctorToString(Doctor.getValue()));
 						db.prestatement.executeUpdate();
 						Login D = new Login();
 						D.login();
@@ -93,7 +108,7 @@ public class Registration {
 					}
 				}
 			});
-			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Status, Register);
+			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, Register);
         }
         else {
 			db.prestatement = db.Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
@@ -152,7 +167,7 @@ public class Registration {
 					}
 				}
 			});
-			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Status, UpdateBtn);
+			Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, UpdateBtn);
         }
         
 		First.setPromptText("First Name");

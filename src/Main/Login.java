@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 public class Login extends Application {
 
 	public static Boolean isLogin = false;
+	public static Boolean isDoctor = false;
 	public static Stage Window;
 	public static String StoreUName;
 	public static Scene Scn;
@@ -127,6 +128,9 @@ public class Login extends Application {
 				db.resultSet = db.prestatement.executeQuery();
 				while (db.resultSet.next()) {
 					if (Password.getText().equals(db.resultSet.getString("password"))) {
+						if (db.resultSet.getString("isDoctor").equals("T")) {
+							isDoctor = true;
+						}
 						StoreUName = UName.getText();
 						isLogin = true;
 						Home h = new Home();
