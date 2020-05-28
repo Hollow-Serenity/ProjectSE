@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserAddContactCompanyGui extends Application {
-    Label addedContactLabel = new Label();
+    private Label addedContactLabel = new Label();
 
     private void populate(TableView tableView) throws SQLException {
         DbUtil.dbConnect();
