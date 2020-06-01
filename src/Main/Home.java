@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
@@ -94,11 +95,15 @@ public class Home {
         UAIV.setFitHeight(50);
         UserAddBtn.setGraphic(UAIV);
         UserAddBtn.setTooltip(new Tooltip("Add User"));
-        UserAddContactGui userAdd = new UserAddContactGui();
         UserAddBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                userAdd.userAdd();
+                Stage stage = new Stage();
+                try {
+                    new ContactTypeGui();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

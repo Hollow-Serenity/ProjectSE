@@ -1,3 +1,5 @@
+package Main;
+
 import java.sql.SQLException;
 
 public class Company extends Contact {

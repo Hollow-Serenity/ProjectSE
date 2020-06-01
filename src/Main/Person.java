@@ -1,3 +1,7 @@
+package Main;
+
+import Main.Contact;
+
 import java.sql.SQLException;
 
 public class Person extends Contact {
