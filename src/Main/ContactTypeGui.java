@@ -1,3 +1,7 @@
+package Main;
+
+import Main.UserAddContactCompanyGui;
+import Main.UserAddContactPersonGui;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
