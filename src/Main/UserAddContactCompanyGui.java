@@ -1,20 +1,17 @@
 package Main;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserAddContactCompanyGui extends Application {
+public class UserAddContactCompanyGui {
     private Label addedContactLabel = new Label();
 
     private void populate(TableView tableView) throws SQLException {
@@ -40,8 +37,7 @@ public class UserAddContactCompanyGui extends Application {
         populate(tableView);
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
+    public UserAddContactCompanyGui() throws Exception {
         Label companyNameLabel = new Label("Company name");
         TextField companyNameTextField = new TextField();
         Label phoneNumberLabel = new Label("Phone number");
@@ -101,11 +97,8 @@ public class UserAddContactCompanyGui extends Application {
         vBox.setAlignment(Pos.CENTER_LEFT);
         vBox.setMinSize(800, 800);
 
-        Scene scene = new Scene(vBox);
-        stage.setScene(scene);
-        stage.setMinWidth(800);
-        stage.setMinHeight(800);
-        stage.centerOnScreen();
-        stage.show();
+        Menu m = new Menu();
+        Login.Layout.setTop(m.Menu());
+        Login.Layout.setCenter(vBox);
     }
 }
