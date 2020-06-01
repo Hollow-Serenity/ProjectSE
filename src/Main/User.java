@@ -3,7 +3,7 @@ package Main;
 import java.sql.SQLException;
 
 public class User {
-    private static String userName = "u";
+    private static String userName = Login.StoreUName;
     private static String firstName;
     private static String lastName;
     private static String password;

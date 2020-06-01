@@ -95,13 +95,12 @@ public class Home {
         UAIV.setFitHeight(50);
         UserAddBtn.setGraphic(UAIV);
         UserAddBtn.setTooltip(new Tooltip("Add User"));
-        ContactTypeGui userAdd = new ContactTypeGui();
         UserAddBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Stage stage = new Stage();
                 try {
-                    userAdd.start(stage);
+                    new ContactTypeGui();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
