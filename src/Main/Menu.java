@@ -51,8 +51,17 @@ public class Menu {
 					e1.printStackTrace();
 				}
 			});
+			MenuItem Conditions = new MenuItem("_Conditions");
+			Conditions.setOnAction(e -> {
+				try {
+					new Condition();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			});
 			if (Login.isDoctor == false) {
 				Specializations.setVisible(false);
+				Conditions.setVisible(false);
 			}
 			MenuItem Logout = new MenuItem("_Logout");
 			Logout.setOnAction(e -> {
@@ -60,7 +69,7 @@ public class Menu {
 				d.isLogin = false;
 				d.login();
 			});
-			Action.getItems().addAll(Home, Specializations, Logout, Exit);
+			Action.getItems().addAll(Home, Specializations, Conditions, Logout, Exit);
 			Manage.getItems().addAll(AddProduct, AddUser);
 			myMenu.getMenus().addAll(Action, Manage);
 			PageTop.getChildren().add(myMenu);
