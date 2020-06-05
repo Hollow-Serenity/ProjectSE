@@ -58,6 +58,7 @@ public class Menu {
 			Logout.setOnAction(e -> {
 				Login.StoreUName = null;
 				d.isLogin = false;
+				d.isDoctor = false;
 				d.login();
 			});
 			Action.getItems().addAll(Home, Specializations, Logout, Exit);

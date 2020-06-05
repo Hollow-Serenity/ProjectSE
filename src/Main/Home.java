@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
@@ -24,6 +23,7 @@ public class Home {
         Button LogoutBtn = new Button("Logout");
         Button MarketBtn = new Button("Market");
         Button UserAddBtn = new Button("Add User");
+        Button appointmentdBtn = new Button("Appointment");
 
         InventoryBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         Image APImg = new Image(getClass().getResourceAsStream("../Images/AddProduct.png"));
@@ -95,22 +95,39 @@ public class Home {
         UAIV.setFitHeight(50);
         UserAddBtn.setGraphic(UAIV);
         UserAddBtn.setTooltip(new Tooltip("Add User"));
+        UserAddContactGui userAdd = new UserAddContactGui();
         UserAddBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Stage stage = new Stage();
-                try {
-                    new ContactTypeGui();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                userAdd.userAdd();
+            }
+        });
+        
+        appointmentdBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
+        Image appImg = new Image(getClass().getResourceAsStream("../Images/AddUser.png"));
+        ImageView appIV = new ImageView(appImg);
+        appIV.setFitWidth(50);
+        appIV.setFitHeight(50);
+        appointmentdBtn.setGraphic(appIV);
+        appointmentdBtn.setTooltip(new Tooltip("Make Appointment"));
+//        AddAppointment addApp = new AddAppointment();
+        ViewAppointment viewApp = new ViewAppointment();
+        appointmentdBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            	viewApp.ViewAppointment();
             }
         });
 
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         HBox RowOne = new HBox();
         RowOne.setSpacing(20);
-        RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, LogoutBtn);
+        if(Login.isDoctor) {
+        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, LogoutBtn);
+        }else {
+        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, appointmentdBtn, LogoutBtn);
+        }
+        
         RowOne.setAlignment(Pos.CENTER);
 
 
