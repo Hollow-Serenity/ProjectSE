@@ -106,14 +106,19 @@ public class Home {
         UAIV.setFitHeight(50);
         UserAddBtn.setGraphic(UAIV);
         UserAddBtn.setTooltip(new Tooltip("Add User"));
-        UserAddContactGui userAdd = new UserAddContactGui();
         UserAddBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                userAdd.userAdd();
+                Stage stage = new Stage();
+                try {
+                    new ContactTypeGui();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
-        
+
+
         appointmentdBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         Image appImg = new Image(getClass().getResourceAsStream("../Images/AddUser.png"));
         ImageView appIV = new ImageView(appImg);
