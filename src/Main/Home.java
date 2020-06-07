@@ -1,21 +1,31 @@
 package Main;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Home {
-
+	HBox tableVBox = new HBox();
     @SuppressWarnings("static-access")
     public void Homes() throws SQLException {
         Button InventoryBtn = new Button("Add Inventory");
@@ -69,6 +79,7 @@ public class Home {
             Login d = new Login();
             Login.StoreUName = null;
             d.isLogin = false;
+            d.isDoctor = false;
             d.login();
         });
 
@@ -129,11 +140,18 @@ public class Home {
         }
         
         RowOne.setAlignment(Pos.CENTER);
-
-
+        
+        showReservedSlots();
+        
+        tableVBox.setAlignment(Pos.CENTER);
+//        tableVBox.setPrefWidth(100);
         VBox Center = new VBox();
         //Center.setAlignment(Pos.CENTER);
-        Center.getChildren().addAll(RowOne);
+        if(Login.isDoctor) {
+        	Center.getChildren().addAll(RowOne, tableVBox);
+        }else {
+        	Center.getChildren().addAll(RowOne);
+        }
         Center.getStyleClass().addAll("HomeVBox");
         Center.setMaxWidth(screenBounds.getWidth() * 0.95);
         Center.setMaxHeight(screenBounds.getHeight() * 0.75);
@@ -144,5 +162,68 @@ public class Home {
         Login.Layout.setCenter(Center);
 
 
+    }
+    
+    public void showReservedSlots() {
+		Stage stage = new Stage();
+        ObservableList<Appointment> DataList = FXCollections.observableArrayList();
+        TableView<Appointment> AppointmentTable = new TableView<Appointment>(DataList);
+
+        TableColumn<Appointment, Integer> srNo = new TableColumn<Appointment, Integer>("Sr.#");
+        TableColumn<Appointment, String> date = new TableColumn<Appointment, String>("Date");
+        TableColumn<Appointment, Time> sTime = new TableColumn<Appointment, Time>("Start Time");
+        TableColumn<Appointment, Time> eTime = new TableColumn<Appointment, Time>("End Time");
+        TableColumn<Appointment, String> pName = new TableColumn<Appointment, String>("Patient Name");
+        
+        srNo.setCellValueFactory(new PropertyValueFactory<>("appCount"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        sTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+        eTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+        pName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
+        
+        
+        
+        
+        try {
+        	Database db = new Database();
+        	String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE DESC, time DESC LIMIT 3";
+            db.prestatement = db.Connect.prepareStatement(query);
+            db.prestatement.setString(1, Login.StoreUName);
+            
+            db.resultSet = db.prestatement.executeQuery();
+            int count = 1;
+            while (db.resultSet.next()) {
+            	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
+            	Appointment app = new Appointment();
+            	app.setAppCount(count);
+            	
+            	Date dd = db.resultSet.getDate(1);
+            	String appDate = formatter.format(dd);
+            	app.setDate(appDate);
+            	app.setTime(db.resultSet.getTime(2));
+            	app.setEndTime(db.resultSet.getTime(3));
+            	
+            	
+            	String firstName = db.resultSet.getString(4);
+            	String lastName = db.resultSet.getString(5);
+            	
+            	String patientName = firstName + " " + lastName;
+            	app.setPatientName(patientName);
+            	
+            	DataList.add(app);
+            	count++;
+            }
+        } catch (Exception e1) {
+            System.out.println("Error while fetching data from Appointment!");
+            e1.printStackTrace();
+        }
+        
+        AppointmentTable.getColumns().addAll(srNo, pName, date, sTime, eTime);
+        
+        tableVBox.getChildren().add(AppointmentTable);
+        
+//        tableVBox.setMinWidth(100);
+
+        HBox ButtonBox = new HBox();
     }
 }
