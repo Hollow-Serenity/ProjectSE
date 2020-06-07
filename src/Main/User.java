@@ -1,60 +1,58 @@
 package Main;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class User {
-    //Inserts contact in table "contacts"
-    public void addContact(String firstName, String lastName, String phoneNumber) throws SQLException {
-        Database database = new Database();
+    private static String userName = Login.StoreUName;
+    private static String firstName;
+    private static String lastName;
+    private static String password;
+    private static ManageContact manageContact;
 
-        String query = "INSERT INTO contacts(idcontact, contactFirstName, contactLastName, phoneNumber, businessCheck) VALUES(?, ?, ?, ?, ?)";
-        PreparedStatement preparedStatement = database.Connect.prepareStatement(query);
-
-        String query1 = "SELECT * FROM contacts";
-        Statement statement = database.Connect.createStatement();
-        ResultSet resultSet = statement.executeQuery(query1);
-
-        //Increment the id of the contact by 1
-        int idNumber = 0;
-        while (resultSet.next()) {
-            idNumber++;
+    static {
+        try {
+            manageContact = new ManageContact();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        preparedStatement.setInt(1, idNumber);
-        preparedStatement.setString(2, firstName);
-        preparedStatement.setString(3, lastName);
-        preparedStatement.setString(4, phoneNumber);
-        preparedStatement.setInt(5, 0);
-
-        preparedStatement.executeUpdate();
     }
 
-    //Deletes a contact with a specific contactId from table "contacts"
-    public void deleteContact(Integer idContact) throws SQLException {
-        Database database = new Database();
-
-        String query = "DELETE FROM contacts WHERE idcontact = ?";
-        PreparedStatement preparedStatement = database.Connect.prepareStatement(query);
-        preparedStatement.setInt(1, idContact);
-
-        preparedStatement.executeUpdate();
+    public User() throws SQLException {
     }
 
-    //Returns a string with all contacts
-    public String allContacts() throws SQLException {
-        Database database = new Database();
+    public static void addPerson(Person person) throws SQLException {
+        manageContact.addContactPersonTo(userName, person);
+    }
 
-        Statement statement = database.Connect.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM contacts");
+    public static void addCompany(Company company) throws SQLException {
+        manageContact.addContactCompanyTo(userName, company);
+    }
 
-        StringBuilder stringBuilder = new StringBuilder();
-        while (resultSet.next()) {
-            String string = resultSet.getString(1) + ", " + resultSet.getString(2) + ", " + resultSet.getString(3) + ", " + resultSet.getString(4) + "\n";
-            stringBuilder.append(string);
-        }
-        return stringBuilder.toString();
+    public static String getUserName() {
+        return userName;
+    }
+    public static void setUserName(String userName) {
+        User.userName = userName;
+    }
+
+    public static String getFirstName() {
+        return firstName;
+    }
+    public static void setFirstName(String firstName) {
+        User.firstName = firstName;
+    }
+
+    public static String getLastName() {
+        return lastName;
+    }
+    public static void setLastName(String lastName) {
+        User.lastName = lastName;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+    public static void setPassword(String password) {
+        User.password = password;
     }
 }
