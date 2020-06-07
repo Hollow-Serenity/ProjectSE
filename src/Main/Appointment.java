@@ -10,6 +10,8 @@ public class Appointment {
 	private Time time;
 	private Time endTime;
 	private int appCount;
+	private String patientName;
+	
 	
 	public Appointment(){
 		
@@ -64,5 +66,11 @@ public class Appointment {
 	}
 	public void setAppCount(int appCount) {
 		this.appCount = appCount;
+	}
+	public String getPatientName() {
+		return patientName;
+	}
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 }
