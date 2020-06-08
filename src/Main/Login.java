@@ -22,26 +22,12 @@ import javafx.stage.Stage;
 
 public class Login extends Application {
 
-	private static Boolean isLogin = false;
-	private static Boolean isDoctor = false;
-	private static String StoreUName;
-
-	private static Database db = new Database();
-
-	private static Stage Window;
-	private static Scene Scn;
-	private static BorderPane Layout = new BorderPane();
-	private static Menu m = new Menu();
-
-	private static Label CName = new Label("Welcome to zeroXess");
-	private static Label LoginLbl = new Label("Login");
-
-	private Text Status = new Text();
-	private TextField UName = new TextField();
-	private PasswordField Password = new PasswordField();
-
-	private static Button LoginBtn = new Button("Login");
-	private static Button Register = new Button("Sign up");
+	public static Boolean isLogin = false;
+	public static Boolean isDoctor = false;
+	public static Stage Window;
+	public static String StoreUName;
+	public static Scene Scn;
+	public static BorderPane Layout;
 
 	public static void main(String[] args) {
 		launch(args);
@@ -52,28 +38,33 @@ public class Login extends Application {
 		Window = primaryStage;
 		primaryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
 		login();
-		Window.setTitle("ZeroXess");
+		Window.setTitle("Inventory System");
 	}
+	public void login() {
+		Text Status = new Text();
+		Status.setText("");
 
-	public void setStyles() {
+		TextField UName = new TextField();
 		UName.setPromptText("Username");
 		UName.getStyleClass().add("Username");
 
+		PasswordField Password = new PasswordField();
 		Password.setPromptText("Password");
 		Password.getStyleClass().add("Password");
 
+		Button LoginBtn = new Button("Login");
 		LoginBtn.getStyleClass().addAll("LoginBtn", "WhiteTextColor");
 
+		Button Register = new Button("Sign up");
 		Register.getStyleClass().addAll("LogonBtn");
 
+		VBox CompanyInformation = new VBox();
+		Label CName = new Label("Welcome to zeroXess");
 		CName.getStyleClass().add("CName");
 		CName.getStyleClass().add("WhiteTextColor");
 
+		Label LoginLbl = new Label("Login");
 		LoginLbl.getStyleClass().addAll("LoginHeading");
-	}
-
-	private VBox getCompanyInfoBox() {
-		VBox CIBox = new VBox();
 
 		Line Hr = new Line(0, 0, 100, 0);
 		Hr.setStrokeWidth(5);
@@ -83,139 +74,84 @@ public class Login extends Application {
 		Label CDesc = new Label("Lorem Ipsum is simply dummy text\n " + "of the printing and typesetting industry.\n"
 				+ "Lorem Ipsum has been the industry's\n" + "standard dummy text ever since the 1500s,\n"
 				+ "printer took a galley of type and to\n" + "make a type specimen book.");
-		CDesc.getStyleClass().add("WhiteTextColor");
 
-		CIBox.getChildren().addAll(CName, Hr, CDesc);
-		CIBox.getStyleClass().add("BlueVbox");
-		CIBox.setSpacing(20);
-
-		return CIBox;
-	}
-
-	private VBox getLoginBox() {
 		VBox LoginBox = new VBox();
-
 		LoginBox.getStyleClass().add("WhiteVbox");
 		LoginBox.getChildren().addAll(LoginLbl, Status, UName, Password, LoginBtn, Register);
 		LoginBox.setSpacing(20);
 
-
-		return LoginBox;
-	}
-
-	private HBox getCenterBox(VBox ci, VBox login) {
 		HBox CenterBox = new HBox();
 		CenterBox.getStyleClass().add("CenterHbox");
-		CenterBox.getChildren().addAll(ci, login);
-		return CenterBox;
-	}
+		CenterBox.getChildren().addAll(CompanyInformation, LoginBox);
 
-	private void initiate() {
+		Layout = new BorderPane();
+		Menu m = new Menu();
+		Layout.setTop(m.Menu());
+		Layout.setCenter(CenterBox);
+
+		CDesc.getStyleClass().add("WhiteTextColor");
+
+		CompanyInformation.getChildren().addAll(CName, Hr, CDesc);
+		CompanyInformation.getStyleClass().add("BlueVbox");
+		CompanyInformation.setSpacing(20);
+
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 		Scn = new Scene(Layout, screenBounds.getWidth(), screenBounds.getHeight());
 		Scn.getStylesheets().add(getClass().getResource("../css/application.css").toExternalForm());
 		Window.setScene(Scn);
 		Window.setMaximized(true);
 		Window.show();
-	}
 
-	private void keyEvent(KeyEvent e) {
-		if (e.getCode() == KeyCode.ENTER) {
-			LoginBtn.fire();
-		}
-	}
-
-	private void doctorCheck() throws SQLException {
-		if (db.resultSet.getString("isDoctor").equals("T")) {
-			isDoctor = true;
-		}
-	}
-
-	private void saveInfo() throws SQLException {
-		StoreUName = UName.getText();
-		isLogin = true;
-		doctorCheck();
-	}
-
-	private Boolean loginCheck() throws SQLException {
-		return  Password.getText().equals(db.resultSet.getString("password"));
-	}
-
-	private void loginAttempt() {
-		try {
-			db.prestatement = db.Connect.prepareStatement("select * from users where userName = ?");
-			db.prestatement.setString(1, UName.getText());
-			db.resultSet = db.prestatement.executeQuery();
-			while (db.resultSet.next()) {
-				if(loginCheck()) {
-					saveInfo();
-					Password.setText("");
-					UName.setText("");
-					Status.setText("");
-					Home h = new Home();
-					h.Homes();
-					break;
-				}
-				else {
-					Status.setFill(Color.RED);
-					Status.setText("Your username or password is incorrect");
-				}
+		Password.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
+			if (e.getCode() == KeyCode.ENTER) {
+				LoginBtn.fire();
 			}
-		}
-		catch (SQLException e1) {
-			System.out.println("Error while fetching data");
-		}
-	}
+		});
 
-	private void startRegistration() {
-		try {
-			new Registration();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+		UName.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
+			if (e.getCode() == KeyCode.ENTER) {
+				LoginBtn.fire();
+			}
+		});
 
-	public void login() {
-		setStyles();
+		LoginBtn.addEventHandler(KeyEvent.KEY_PRESSED, e -> {
+			if (e.getCode() == KeyCode.ENTER) {
+				LoginBtn.fire();
+			}
+		});
 
-		VBox CompanyInformation = getCompanyInfoBox();
-		VBox LoginBox = getLoginBox();
-		HBox CenterBox = getCenterBox(CompanyInformation, LoginBox);
+		LoginBtn.setOnAction(e -> {
+			try {
+				Database db = new Database();
+				db.prestatement = db.Connect.prepareStatement("select * from users where userName = ?");
+				db.prestatement.setString(1, UName.getText());
+				db.resultSet = db.prestatement.executeQuery();
+				while (db.resultSet.next()) {
+					if (Password.getText().equals(db.resultSet.getString("password"))) {
+						if (db.resultSet.getString("isDoctor").equals("T")) {
+							isDoctor = true;
+						}
+						StoreUName = UName.getText();
+						isLogin = true;
+						Home h = new Home();
+						h.Homes();
+						break;
+					}
+				}
+				Status.setFill(Color.RED);
+				Status.setText("Your username or password is incorrect");
+			}
+			catch (SQLException e1) {
+				System.out.println("Error while fetching data");
+			}
+		});
 
-		Layout.setTop(m.Menu());
-		Layout.setCenter(CenterBox);
-
-		initiate();
-
-		Password.addEventHandler(KeyEvent.KEY_PRESSED, e -> keyEvent(e));
-		UName.addEventHandler(KeyEvent.KEY_PRESSED, e -> keyEvent(e));
-		LoginBtn.addEventHandler(KeyEvent.KEY_PRESSED, e -> keyEvent(e));
-
-		LoginBtn.setOnAction(e -> loginAttempt());
-		Register.setOnAction(e -> startRegistration());
-	}
-
-	public static String getUName() {
-		return StoreUName;
-	}
-	public static Boolean getIsLogin() {
-		return isLogin;
-	}
-	public static Boolean getIsDoctor() {
-		return isDoctor;
-	}
-
-	public static BorderPane getLayout() {
-		return Layout;
-	}
-
-	public static void setUName(String UName) {
-		StoreUName = UName;
-	}
-	public static void setIsLogin(Boolean login) {
-		isLogin = login;
-	}
-	public static void setIsDoctor(Boolean doctor) {
-		isDoctor = doctor;
+		Register.setOnAction(e -> {
+			try {
+				new Registration();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		});
 	}
 }

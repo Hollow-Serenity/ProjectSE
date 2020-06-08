@@ -3,7 +3,6 @@ package Main;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -25,9 +24,8 @@ public class ContactTypeGui {
         vBox.getChildren().addAll(chooseLabel, hBox);
 
         Menu m = new Menu();
-        BorderPane layout = Login.getLayout();
-        layout.setTop(m.Menu());
-        layout.setCenter(vBox);
+        Login.Layout.setTop(m.Menu());
+        Login.Layout.setCenter(vBox);
 
         personButton.setOnAction(actionEvent -> {
             try {

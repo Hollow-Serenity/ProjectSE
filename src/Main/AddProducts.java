@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -41,7 +40,7 @@ public class AddProducts {
 
         try {
             db.prestatement = db.Connect.prepareStatement("SELECT * FROM livestock WHERE owner = ?");
-            db.prestatement.setString(1, Login.getUName());
+            db.prestatement.setString(1, Login.StoreUName);
             db.resultSet = db.prestatement.executeQuery();
             while (db.resultSet.next()) {
                 DataList.add(new LiveStock(
@@ -84,7 +83,7 @@ public class AddProducts {
         Center.setMaxWidth(1000);
         Center.setSpacing(20);
 
-        Login.getLayout().setCenter(Center);
+        Login.Layout.setCenter(Center);
     }
 
     public void NewProduct() {
@@ -123,7 +122,7 @@ public class AddProducts {
                 db.prestatement.setString(3, DetailsField.getText());
                 db.prestatement.setString(4, WeightField.getText());
                 db.prestatement.setString(5, PriceField.getText());
-                db.prestatement.setString(6, Login.getUName());
+                db.prestatement.setString(6, Login.StoreUName);
                 db.prestatement.executeUpdate();
                 DialogStage.hide();
                 AddProduct();
