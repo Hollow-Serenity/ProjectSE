@@ -163,7 +163,7 @@ public class Login extends Application {
 			}
 		}
 		catch (SQLException e1) {
-			System.out.println("Error while fetching data");
+			Status.setText("Error while fetching data");
 		}
 	}
 

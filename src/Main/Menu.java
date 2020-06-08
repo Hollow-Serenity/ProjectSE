@@ -5,11 +5,8 @@ import java.sql.SQLException;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class Menu {
-
-	public static Stage Window;
 
 	public VBox Menu() {
 		MenuBar myMenu = new MenuBar();
@@ -20,7 +17,7 @@ public class Menu {
 		Login d = new Login();
 		if (Login.getIsLogin()) {
 			javafx.scene.control.Menu Manage = new javafx.scene.control.Menu("_Manage");
-			
+
 			AddProducts ap = new AddProducts();
 			MenuItem AddProduct = new MenuItem("_Add Products");
 			AddProduct.setOnAction(e -> {
@@ -51,8 +48,17 @@ public class Menu {
 					e1.printStackTrace();
 				}
 			});
+			MenuItem Conditions = new MenuItem("_Conditions");
+			Conditions.setOnAction(e -> {
+				try {
+					new Condition();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			});
 			if (!Login.getIsDoctor()) {
 				Specializations.setVisible(false);
+				Conditions.setVisible(false);
 			}
 			MenuItem Logout = new MenuItem("_Logout");
 			Logout.setOnAction(e -> {
@@ -61,7 +67,7 @@ public class Menu {
 				Login.setIsDoctor(false);
 				d.login();
 			});
-			Action.getItems().addAll(Home, Specializations, Logout, Exit);
+			Action.getItems().addAll(Home, Specializations, Conditions, Logout, Exit);
 			Manage.getItems().addAll(AddProduct, AddUser);
 			myMenu.getMenus().addAll(Action, Manage);
 			PageTop.getChildren().add(myMenu);
