@@ -8,26 +8,25 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class Registration {
 
 	private static VBox Center;
 
-	private static Database db = new Database();
+	private static final Database db = new Database();
 
-	private static Text Status = new Text();
+	private static final Text Status = new Text();
 
-	private static TextField First = new TextField();
-	private static TextField Last = new TextField();
-	private static TextField UName = new TextField();
-	private static TextField Password = new TextField();
-	private static TextField PasswordCheck = new TextField();
+	private static final TextField First = new TextField();
+	private static final TextField Last = new TextField();
+	private static final TextField UName = new TextField();
+	private static final TextField Password = new TextField();
+	private static final TextField PasswordCheck = new TextField();
 
-	private static ChoiceBox<String> Doctor = new ChoiceBox<>();
+	private static final ChoiceBox<String> Doctor = new ChoiceBox<>();
 
-	private static Button Register = new Button("Register");
-	private static Button UpdateBtn = new Button("Update account");
+	private static final Button Register = new Button("Register");
+	private static final Button UpdateBtn = new Button("Update account");
 
 	public Boolean checkUName(Database db, String UName) {
 		try {
