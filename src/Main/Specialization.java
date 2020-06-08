@@ -40,8 +40,8 @@ public class Specialization {
         Center.setMaxHeight(400);
         Center.setSpacing(10);
         Menu m = new Menu();
-        Login.Layout.setTop(m.Menu());
-        Login.Layout.setCenter(Center);
+        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setCenter(Center);
 
         confirmAdd.setOnAction(e -> addSpecialization());
         confirmRemove.setOnAction(e -> removeSpecialization());
@@ -51,7 +51,7 @@ public class Specialization {
         try {
             db.prestatement = db.Connect.prepareStatement("INSERT INTO user_specialization VALUES (?,?)");
             db.prestatement.setString(1, addSpecializationBox.getValue());
-            db.prestatement.setString(2, Login.StoreUName);
+            db.prestatement.setString(2, Login.getUName());
             db.prestatement.executeUpdate();
             Home H = new Home();
             H.Homes();
@@ -65,7 +65,7 @@ public class Specialization {
         try{
             db.prestatement = db.Connect.prepareStatement("DELETE FROM user_specialization WHERE specializationID = ? AND userID = ?");
             db.prestatement.setString(1, removeSpecializationBox.getValue());
-            db.prestatement.setString(2, Login.StoreUName);
+            db.prestatement.setString(2, Login.getUName());
             db.prestatement.execute();
             Home H = new Home();
             H.Homes();

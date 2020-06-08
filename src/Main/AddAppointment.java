@@ -220,7 +220,7 @@ public class AddAppointment {
 				db.prestatement.setTime(4, java.sql.Time.valueOf(time));
 
 				
-				db.prestatement.setString(5, Login.StoreUName);
+				db.prestatement.setString(5, Login.getUName());
 				db.prestatement.executeUpdate();
 				
 				JOptionPane.showMessageDialog(null, "Record Save Succesfully");

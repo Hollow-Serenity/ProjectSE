@@ -77,9 +77,9 @@ public class Home {
         LogoutBtn.setTooltip(new Tooltip("Logout"));
         LogoutBtn.setOnAction(e -> {
             Login d = new Login();
-            Login.StoreUName = null;
-            d.isLogin = false;
-            d.isDoctor = false;
+            Login.setUName(null);
+            Login.setIsLogin(false);
+            Login.setIsDoctor(false);
             d.login();
         });
 
@@ -138,7 +138,7 @@ public class Home {
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         HBox RowOne = new HBox();
         RowOne.setSpacing(20);
-        if(Login.isDoctor) {
+        if(Login.getIsDoctor()) {
         	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, LogoutBtn);
         }else {
         	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, appointmentdBtn, LogoutBtn);
@@ -152,7 +152,7 @@ public class Home {
 //        tableVBox.setPrefWidth(100);
         VBox Center = new VBox();
         //Center.setAlignment(Pos.CENTER);
-        if(Login.isDoctor) {
+        if(Login.getIsDoctor()) {
         	Center.getChildren().addAll(RowOne, tableVBox);
         }else {
         	Center.getChildren().addAll(RowOne);
@@ -163,8 +163,8 @@ public class Home {
         Center.setSpacing(20);
 
         Menu m = new Menu();
-        Login.Layout.setTop(m.Menu());
-        Login.Layout.setCenter(Center);
+        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setCenter(Center);
 
 
     }
@@ -193,7 +193,7 @@ public class Home {
         	Database db = new Database();
         	String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE DESC, time DESC LIMIT 3";
             db.prestatement = db.Connect.prepareStatement(query);
-            db.prestatement.setString(1, Login.StoreUName);
+            db.prestatement.setString(1, Login.getUName());
             
             db.resultSet = db.prestatement.executeQuery();
             int count = 1;

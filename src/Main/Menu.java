@@ -18,7 +18,7 @@ public class Menu {
 		Exit.setOnAction(e -> System.exit(0));
 		VBox PageTop = new VBox();
 		Login d = new Login();
-		if (Login.isLogin) {
+		if (Login.getIsLogin()) {
 			javafx.scene.control.Menu Manage = new javafx.scene.control.Menu("_Manage");
 			
 			AddProducts ap = new AddProducts();
@@ -51,14 +51,14 @@ public class Menu {
 					e1.printStackTrace();
 				}
 			});
-			if (Login.isDoctor == false) {
+			if (!Login.getIsDoctor()) {
 				Specializations.setVisible(false);
 			}
 			MenuItem Logout = new MenuItem("_Logout");
 			Logout.setOnAction(e -> {
-				Login.StoreUName = null;
-				d.isLogin = false;
-				d.isDoctor = false;
+				Login.setUName(null);
+				Login.setIsLogin(false);
+				Login.setIsDoctor(false);
 				d.login();
 			});
 			Action.getItems().addAll(Home, Specializations, Logout, Exit);
