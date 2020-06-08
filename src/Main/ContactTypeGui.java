@@ -24,8 +24,8 @@ public class ContactTypeGui {
         vBox.getChildren().addAll(chooseLabel, hBox);
 
         Menu m = new Menu();
-        Login.Layout.setTop(m.Menu());
-        Login.Layout.setCenter(vBox);
+        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setCenter(vBox);
 
         personButton.setOnAction(actionEvent -> {
             try {
