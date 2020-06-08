@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -11,14 +12,17 @@ import java.sql.SQLException;
 
 public class Condition {
     private static final Database db = new Database();
+
     private static final Label conditionTXT = new Label("Please specify the condition");
     private static final Label patientIDTXT = new Label("Please enter your patient's username");
+
     private static final TextField conditionTF = new TextField();
     private static final TextField patientIDTF = new TextField();
+
     private static final Button confirmAdd = new Button("Add");
     private static final Button confirmRemove = new Button("Remove");
 
-    public Condition() throws Exception{
+    public Condition() {
         VBox Center = new VBox(20);
         HBox hBox = new HBox(40);
 
@@ -36,8 +40,9 @@ public class Condition {
         hBox.setMaxSize(400,20);
 
         Menu m = new Menu();
-        Login.Layout.setTop(m.Menu());
-        Login.Layout.setCenter(Center);
+        BorderPane layout = Login.getLayout();
+        layout.setTop(m.Menu());
+        layout.setCenter(Center);
 
         confirmAdd.setOnAction(e -> addCondition());
         confirmRemove.setOnAction(e -> removeCondition());

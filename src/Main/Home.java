@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
@@ -67,8 +68,9 @@ public class Home {
         LogoutBtn.setTooltip(new Tooltip("Logout"));
         LogoutBtn.setOnAction(e -> {
             Login d = new Login();
-            Login.StoreUName = null;
-            d.isLogin = false;
+            Login.setUName(null);
+            Login.setIsLogin(false);
+            Login.setIsDoctor(false);
             d.login();
         });
 
@@ -123,8 +125,9 @@ public class Home {
         Center.setSpacing(20);
 
         Menu m = new Menu();
-        Login.Layout.setTop(m.Menu());
-        Login.Layout.setCenter(Center);
+        BorderPane layout = Login.getLayout();
+        layout.setTop(m.Menu());
+        layout.setCenter(Center);
 
 
     }
