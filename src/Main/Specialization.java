@@ -3,18 +3,17 @@ package Main;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.sql.SQLException;
 
 public class Specialization {
     private static final Database db = new Database();
-    private static final Label addSpecializationTXT = new Label("Please specify you specialization");
-    private static final Label removeSpecializationTXT = new Label("Please specify the specialization you'd like to remove");
-    private static final ChoiceBox<String> addSpecializationBox = addSpecializationChoiceBox();
-    private static final ChoiceBox<String> removeSpecializationBox = addSpecializationChoiceBox();
-    private static final Button confirmAdd = new Button("Add specialization");
-    private static final Button confirmRemove = new Button("Remove specialization");
+    private static final Label addSpecializationTXT = new Label("Please specify your specialization");
+    private static final ChoiceBox<String> specializationBox = addSpecializationChoiceBox();
+    private static final Button confirmAdd = new Button("Add");
+    private static final Button confirmRemove = new Button("Remove");
 
     public static ChoiceBox<String> addSpecializationChoiceBox() {
         ChoiceBox<String> specializations = new ChoiceBox<>();
@@ -33,12 +32,19 @@ public class Specialization {
     }
 
     public Specialization() throws Exception {
-        VBox Center = new VBox();
-        Center.getChildren().addAll(addSpecializationTXT, addSpecializationBox, confirmAdd, removeSpecializationTXT, removeSpecializationBox, confirmRemove);
+        VBox Center = new VBox(20);
+        HBox hBox = new HBox(40);
+
+        hBox.getChildren().addAll(confirmAdd, confirmRemove);
+        Center.getChildren().addAll(addSpecializationTXT, specializationBox, hBox);
+
         Center.getStyleClass().add("hbox");
+        hBox.getStyleClass().add("hbox");
+
         Center.setMaxWidth(400);
         Center.setMaxHeight(400);
-        Center.setSpacing(10);
+        hBox.setMaxSize(400,20);
+
         Menu m = new Menu();
         Login.getLayout().setTop(m.Menu());
         Login.getLayout().setCenter(Center);
@@ -50,7 +56,7 @@ public class Specialization {
     public void addSpecialization() {
         try {
             db.prestatement = db.Connect.prepareStatement("INSERT INTO user_specialization VALUES (?,?)");
-            db.prestatement.setString(1, addSpecializationBox.getValue());
+            db.prestatement.setString(1, specializationBox.getValue());
             db.prestatement.setString(2, Login.getUName());
             db.prestatement.executeUpdate();
             Home H = new Home();
@@ -64,7 +70,7 @@ public class Specialization {
     public void removeSpecialization() {
         try{
             db.prestatement = db.Connect.prepareStatement("DELETE FROM user_specialization WHERE specializationID = ? AND userID = ?");
-            db.prestatement.setString(1, removeSpecializationBox.getValue());
+            db.prestatement.setString(1, specializationBox.getValue());
             db.prestatement.setString(2, Login.getUName());
             db.prestatement.execute();
             Home H = new Home();
@@ -73,6 +79,5 @@ public class Specialization {
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
         }
-
     }
 }
