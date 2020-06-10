@@ -34,7 +34,7 @@ public class Menu {
 			MenuItem Home = new MenuItem("_Home");
 			Home.setOnAction(e -> {
 				try {
-					Main.Home h = new Home();
+					Home h = new Home();
 					h.Homes();
 				} catch (SQLException e1) {
 					System.out.println("SQL Error");
