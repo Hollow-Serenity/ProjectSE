@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import java.util.Random;
 
 public class Display extends Application {
+    private HBox hBox = readingAssignment();
+    private Button button = new Button("randomize");
+
     private HBox readingAssignment() {
         Assignments assignments = new Assignments();
 
@@ -15,24 +18,30 @@ public class Display extends Application {
         int randInt = random.nextInt(assignments.allStories().size());
 
         Story story = assignments.allStories().get(randInt);
+
         return story.display();
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        HBox hBox = readingAssignment();
-
-        Button button = new Button("randomize");
+    public void display() {
         hBox.getChildren().add(button);
 
         button.setOnAction(actionEvent -> {
-            HBox hBox1 = readingAssignment();
-            hBox1.getChildren().add(button);
+            hBox = readingAssignment();
 
-            Scene scene = new Scene(hBox1);
-            stage.setScene(scene);
-            stage.show();
+            //hBox.getChildren().add(button);
+
+            //Scene scene = new Scene(hBox1);
+            //stage.setScene(scene);
+            //stage.show();
         });
+
+        //Scene scene = new Scene(hBox);
+        //stage.setScene(scene);
+        //stage.show();
+    }
+    @Override
+    public void start(Stage stage) throws Exception {
+        display();
 
         Scene scene = new Scene(hBox);
         stage.setScene(scene);
