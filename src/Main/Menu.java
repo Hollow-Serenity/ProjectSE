@@ -5,11 +5,8 @@ import java.sql.SQLException;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class Menu {
-
-	public static Stage Window;
 
 	public VBox Menu() {
 		MenuBar myMenu = new MenuBar();
@@ -18,9 +15,9 @@ public class Menu {
 		Exit.setOnAction(e -> System.exit(0));
 		VBox PageTop = new VBox();
 		Login d = new Login();
-		if (Login.isLogin) {
+		if (Login.getIsLogin()) {
 			javafx.scene.control.Menu Manage = new javafx.scene.control.Menu("_Manage");
-			
+
 			AddProducts ap = new AddProducts();
 			MenuItem AddProduct = new MenuItem("_Add Products");
 			AddProduct.setOnAction(e -> {
@@ -51,17 +48,26 @@ public class Menu {
 					e1.printStackTrace();
 				}
 			});
-			if (Login.isDoctor == false) {
+			MenuItem Conditions = new MenuItem("_Conditions");
+			Conditions.setOnAction(e -> {
+				try {
+					new Condition();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			});
+			if (!Login.getIsDoctor()) {
 				Specializations.setVisible(false);
+				Conditions.setVisible(false);
 			}
 			MenuItem Logout = new MenuItem("_Logout");
 			Logout.setOnAction(e -> {
-				Login.StoreUName = null;
-				d.isLogin = false;
-				d.isDoctor = false;
+				Login.setUName(null);
+				Login.setIsLogin(false);
+				Login.setIsDoctor(false);
 				d.login();
 			});
-			Action.getItems().addAll(Home, Specializations, Logout, Exit);
+			Action.getItems().addAll(Home, Specializations, Conditions, Logout, Exit);
 			Manage.getItems().addAll(AddProduct, AddUser);
 			myMenu.getMenus().addAll(Action, Manage);
 			PageTop.getChildren().add(myMenu);

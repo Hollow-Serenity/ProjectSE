@@ -42,7 +42,7 @@ public class ViewAppointment {
 
         try {
             db.prestatement = db.Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ?");
-            db.prestatement.setString(1, Login.StoreUName);
+            db.prestatement.setString(1, Login.getUName());
             db.resultSet = db.prestatement.executeQuery();
             int count = 1;
             while (db.resultSet.next()) {
@@ -98,7 +98,7 @@ public class ViewAppointment {
         Center.setMaxWidth(1000);
         Center.setSpacing(20);
 
-        Login.Layout.setCenter(Center);
+        Login.getLayout().setCenter(Center);
     } 
 
 }

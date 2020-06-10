@@ -40,7 +40,7 @@ public class AddProducts {
 
         try {
             db.prestatement = db.Connect.prepareStatement("SELECT * FROM livestock WHERE owner = ?");
-            db.prestatement.setString(1, Login.StoreUName);
+            db.prestatement.setString(1, Login.getUName());
             db.resultSet = db.prestatement.executeQuery();
             while (db.resultSet.next()) {
                 DataList.add(new LiveStock(
@@ -83,7 +83,7 @@ public class AddProducts {
         Center.setMaxWidth(1000);
         Center.setSpacing(20);
 
-        Login.Layout.setCenter(Center);
+        Login.getLayout().setCenter(Center);
     }
 
     public void NewProduct() {
@@ -122,7 +122,7 @@ public class AddProducts {
                 db.prestatement.setString(3, DetailsField.getText());
                 db.prestatement.setString(4, WeightField.getText());
                 db.prestatement.setString(5, PriceField.getText());
-                db.prestatement.setString(6, Login.StoreUName);
+                db.prestatement.setString(6, Login.getUName());
                 db.prestatement.executeUpdate();
                 DialogStage.hide();
                 AddProduct();

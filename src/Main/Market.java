@@ -15,7 +15,7 @@ public class Market {
 
     public void Market() {
         Menu m = new Menu();
-        Login.Layout.setTop(m.Menu());
+        Login.getLayout().setTop(m.Menu());
 
         window = new Stage();
         Label label1 = new Label("Marketplace");
@@ -23,7 +23,7 @@ public class Market {
         Button buttonBuy = new Button("Buy");
         VBox layout1 = new VBox(20);
         layout1.getChildren().addAll(label1, buttonSell, buttonBuy);
-        Login.Layout.setCenter(layout1);
+        Login.getLayout().setCenter(layout1);
 
         Label labelSell = new Label("Sell");
         Label Select = new Label("Select your Lifestock");
@@ -36,17 +36,17 @@ public class Market {
 
         Button ConfirmSell = new Button("Confirm");
         Button buttonBack1 = new Button("Back to main menu");
-        buttonBack1.setOnAction(e -> Login.Layout.setCenter(layout1));
+        buttonBack1.setOnAction(e -> Login.getLayout().setCenter(layout1));
 
         VBox layout2 = new VBox(20);
         layout2.getChildren().addAll(labelSell, Select, name, quant, price, ConfirmSell, buttonBack1);
-        buttonSell.setOnAction(e -> Login.Layout.setCenter(layout2));
+        buttonSell.setOnAction(e -> Login.getLayout().setCenter(layout2));
 
         //Confirm Sold
         Label label = new Label("");
         Label Confirm = new Label("Listing confirmed.");
         Button buttonBack2 = new Button("Back to main menu");
-        buttonBack2.setOnAction(e -> Login.Layout.setCenter(layout1));
+        buttonBack2.setOnAction(e -> Login.getLayout().setCenter(layout1));
         VBox layoutConfirm = new VBox(20);
         layoutConfirm.getChildren().addAll(label, Confirm, buttonBack2);
 
@@ -57,7 +57,7 @@ public class Market {
             String xyz = x + " " + y + " " + z;
             System.out.println("Sell Confirmed: " + xyz);
             label.setText(xyz);
-            Login.Layout.setCenter(layoutConfirm);
+            Login.getLayout().setCenter(layoutConfirm);
         });
 
         //BuyPage
@@ -71,21 +71,21 @@ public class Market {
         Price.setPromptText("Your bid");
         Button ConfirmBid = new Button("Confirm Bid");
         Button buttonBack3 = new Button("Back to main menu");
-        buttonBack3.setOnAction(e -> Login.Layout.setCenter(layout1));
+        buttonBack3.setOnAction(e -> Login.getLayout().setCenter(layout1));
 
         VBox layout3 = new VBox(20);
         layout3.getChildren().addAll(labelBuy, LabelSelect, Name, Quant, Price, ConfirmBid, buttonBack3);
-        buttonBuy.setOnAction(e -> Login.Layout.setCenter(layout3));
+        buttonBuy.setOnAction(e -> Login.getLayout().setCenter(layout3));
 
         //bid Confirm
         Label ConBid = new Label("Bid Confirmed.");
         Button buttonBack4 = new Button("Back to main menu");
-        buttonBack4.setOnAction(e -> Login.Layout.setCenter(layout1));
+        buttonBack4.setOnAction(e -> Login.getLayout().setCenter(layout1));
         VBox layout4 = new VBox(20);
         layout4.getChildren().addAll(ConBid, buttonBack4);
 
         ConfirmBid.setOnAction((ActionEvent e) -> {
-            Login.Layout.setCenter(layout4);
+            Login.getLayout().setCenter(layout4);
         });
 
     }
