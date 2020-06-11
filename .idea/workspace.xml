@@ -43,6 +43,7 @@
       <change beforePath="$PROJECT_DIR$/src/Main/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/ManageContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ManageContact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Medical_Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Medical_Platform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Registration.java" afterDir="false" />
@@ -80,7 +81,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Display">
+  <component name="RunManager" selected="Application.Login">
     <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Display" />
       <module name="ProjectSE" />
