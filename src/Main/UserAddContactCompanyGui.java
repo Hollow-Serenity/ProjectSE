@@ -98,7 +98,7 @@ public class UserAddContactCompanyGui {
         vBox.setMinSize(800, 800);
 
         Menu m = new Menu();
-        Login.Layout.setTop(m.Menu());
-        Login.Layout.setCenter(vBox);
+        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setCenter(vBox);
     }
 }
