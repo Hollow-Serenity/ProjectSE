@@ -188,11 +188,11 @@ public class Registration {
 		setStyles();
 		setVBox();
 
-        if(!Login.getIsLogin()) {
+		if(!Login.getIsLogin()) {
 			startRegistration();
-        }
-        else {
+		}
+		else {
 			startEditAccount();
-        }
+		}
 	}
 }

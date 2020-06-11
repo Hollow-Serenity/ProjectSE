@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="conditions verplaatst naar medical platform en de user kan nu zijn aandoeningen inzien">
+      <change beforePath="$PROJECT_DIR$/.idea/ProjectSE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectSE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AddProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/ContactTypeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ContactTypeGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/ManageContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ManageContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/application.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1d2WFlZQlb3qXQsHwb2LkZzgBG0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.13.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Application.Display">
+    <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.Display" />
+      <module name="ProjectSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main.Login" />
+      <module name="ProjectSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ProjectSE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectSE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Main.RegistrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Login" />
+        <item itemvalue="JUnit.RegistrationTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Display" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="" />
+      <created>1591623566609</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591623566609</updated>
+      <workItem from="1591623569132" duration="182000" />
+      <workItem from="1591623754148" duration="1550000" />
+      <workItem from="1591625640903" duration="639000" />
+      <workItem from="1591792756470" duration="1671000" />
+      <workItem from="1591794627495" duration="227000" />
+      <workItem from="1591829846568" duration="7733000" />
+      <workItem from="1591837637575" duration="53000" />
+    </task>
+    <task id="LOCAL-00001" summary="development done merging">
+      <created>1591625273156</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591625273156</updated>
+    </task>
+    <task id="LOCAL-00002" summary="medical platform toegevoegd en appointment button verplaatst">
+      <created>1591793774857</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591793774857</updated>
+    </task>
+    <task id="LOCAL-00003" summary="conditions verplaatst naar medical platform en de user kan nu zijn aandoeningen inzien">
+      <created>1591837443946</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591837443946</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="development done merging" />
+    <MESSAGE value="medical platform toegevoegd en appointment button verplaatst" />
+    <MESSAGE value="conditions verplaatst naar medical platform en de user kan nu zijn aandoeningen inzien" />
+    <option name="LAST_COMMIT_MESSAGE" value="conditions verplaatst naar medical platform en de user kan nu zijn aandoeningen inzien" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="820" y="427" key="DetectedRootsChooserDialog" timestamp="1591837675075">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="820" y="427" key="DetectedRootsChooserDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837675075" />
+    <state x="729" y="298" key="FileChooserDialogImpl" timestamp="1591837686611">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="729" y="298" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837686611" />
+    <state width="2005" height="376" key="GridCell.Tab.0.bottom" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state width="2005" height="376" key="GridCell.Tab.0.center" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state width="2005" height="376" key="GridCell.Tab.0.left" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state width="2005" height="376" key="GridCell.Tab.0.right" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state width="2005" height="376" key="GridCell.Tab.1.center" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state width="2005" height="376" key="GridCell.Tab.1.left" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state width="2005" height="376" key="GridCell.Tab.1.right" timestamp="1591837587264">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837587264" />
+    <state x="505" y="131" key="SettingsEditor" timestamp="1591837690143">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="505" y="131" key="SettingsEditor/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837690143" />
+    <state x="617" y="276" key="Vcs.Push.Dialog.v2" timestamp="1591837445403">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="276" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837445403" />
+    <state x="806" y="269" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591837579751">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="806" y="269" key="git4idea.branch.GitSmartOperationDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837579751" />
+  </component>
+</project>
