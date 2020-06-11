@@ -33,7 +33,10 @@ public class Home {
         Button LogoutBtn = new Button("Logout");
         Button MarketBtn = new Button("Market");
         Button UserAddBtn = new Button("Add User");
-        Button appointmentdBtn = new Button("Appointment");
+
+
+        Button MedicalPlatformbtn = new Button("Medical Platform");
+        Button EduPlatformbtn = new Button("Eduplatform");
 
         InventoryBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         Image APImg = new Image(getClass().getResourceAsStream("../Images/AddProduct.png"));
@@ -99,6 +102,18 @@ public class Home {
             }
         });
 
+        //Medical_Platform
+        MedicalPlatformbtn.getStyleClass().addAll("HomeBtn", "LightGreen");
+        MedicalPlatformbtn.setOnAction(e -> {
+            try {
+                new Medical_Platform();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+        //Edu_platform
+        EduPlatformbtn.getStyleClass().addAll("HomeBtn", "LightGreen");
+
         UserAddBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         Image UAImg = new Image(getClass().getResourceAsStream("../Images/AddUser.png"));
         ImageView UAIV = new ImageView(UAImg);
@@ -119,29 +134,13 @@ public class Home {
         });
 
 
-        appointmentdBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
-        Image appImg = new Image(getClass().getResourceAsStream("../Images/AddUser.png"));
-        ImageView appIV = new ImageView(appImg);
-        appIV.setFitWidth(50);
-        appIV.setFitHeight(50);
-        appointmentdBtn.setGraphic(appIV);
-        appointmentdBtn.setTooltip(new Tooltip("Make Appointment"));
-//        AddAppointment addApp = new AddAppointment();
-        ViewAppointment viewApp = new ViewAppointment();
-        appointmentdBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-            	viewApp.ViewAppointment();
-            }
-        });
-
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         HBox RowOne = new HBox();
         RowOne.setSpacing(20);
         if(Login.getIsDoctor()) {
-        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, LogoutBtn);
+        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, MedicalPlatformbtn, EduPlatformbtn, LogoutBtn);
         }else {
-        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, appointmentdBtn, LogoutBtn);
+        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, MedicalPlatformbtn, EduPlatformbtn, LogoutBtn);
         }
         
         RowOne.setAlignment(Pos.CENTER);
