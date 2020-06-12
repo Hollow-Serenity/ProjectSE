@@ -13,7 +13,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class DisplayReading extends Application {
-
     @Override
     public void start(Stage stage) throws Exception {
         Reading reading = new Reading();
