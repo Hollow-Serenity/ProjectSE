@@ -9,11 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 public class DisplayReading extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
         Reading reading = new Reading();
@@ -37,22 +37,15 @@ public class DisplayReading extends Application {
         TextField response3TextField = new TextField();
         Label isCorrectLabel = new Label();
 
-        ArrayList<TextField> textFields = new ArrayList<>();
-        textFields.add(response1TextField);
-        textFields.add(response2TextField);
-        textFields.add(response3TextField);
-
         Button checkButton = new Button("check");
         checkButton.setOnAction(actionEvent -> {
-            String isCorrect = "correct";
-            for(Question question : reading.getCurrentReadingAssignment().getQuestions()) {
-                for(TextField textField : textFields) {
-                    if(question.checkAnswer(textField.getText())) {
-                        isCorrect = "correct";
-                    } else {
-                        isCorrect = "incorrect";
-                    }
-                }
+            String isCorrect;
+            if(reading.getCurrentReadingAssignment().checkAnswers(response1TextField.getText(), response2TextField.getText(), response3TextField.getText())) {
+                isCorrect = "correct";
+                isCorrectLabel.setTextFill(Color.GREEN);
+            } else {
+                isCorrect = "incorrect";
+                isCorrectLabel.setTextFill(Color.RED);
             }
             isCorrectLabel.setText(isCorrect);
         });
