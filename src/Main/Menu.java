@@ -1,5 +1,6 @@
 package Main;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javafx.scene.control.MenuBar;
@@ -31,10 +32,22 @@ public class Menu {
 					e1.printStackTrace();
 				}
 			});
+			MenuItem ChangeRes = new MenuItem("_Change resolution");
+			ResolutionScene rs = new ResolutionScene();
+			ChangeRes.setOnAction(e -> {
+				try {
+					rs.btnResClick();
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+
+			})
+			;
+
 			MenuItem Home = new MenuItem("_Home");
 			Home.setOnAction(e -> {
 				try {
-					Home h = new Home();
+					Main.Home h = new Home();
 					h.Homes();
 				} catch (SQLException e1) {
 					System.out.println("SQL Error");
@@ -68,7 +81,7 @@ public class Menu {
 				d.login();
 			});
 			Action.getItems().addAll(Home, Specializations, Conditions, Logout, Exit);
-			Manage.getItems().addAll(AddProduct, AddUser);
+			Manage.getItems().addAll(AddProduct, AddUser, ChangeRes);
 			myMenu.getMenus().addAll(Action, Manage);
 			PageTop.getChildren().add(myMenu);
 		} else {

@@ -19,13 +19,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Home {
-	HBox tableVBox = new HBox();
+    HBox tableVBox = new HBox();
     @SuppressWarnings("static-access")
     public void Homes() throws SQLException {
         Button InventoryBtn = new Button("Add Inventory");
@@ -52,6 +53,10 @@ public class Home {
                 ap.AddProduct();
             }
         });
+
+
+
+
         EditUser.getStyleClass().addAll("HomeBtn", "LightGreen");
         Image AUImg = new Image(getClass().getResourceAsStream("../Images/AddUser.png"));
         ImageView AUIV = new ImageView(AUImg);
@@ -136,25 +141,40 @@ public class Home {
 
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         HBox RowOne = new HBox();
+        HBox RowTwo = new HBox();
+        HBox RowThree = new HBox();
+        HBox RowFour = new HBox();
         RowOne.setSpacing(20);
+        RowTwo.setSpacing(20);
+        RowThree.setSpacing(20);
+        RowFour.setSpacing(20);
         if(Login.getIsDoctor()) {
-        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, MedicalPlatformbtn, EduPlatformbtn, LogoutBtn);
+            RowOne.getChildren().addAll(InventoryBtn, MarketBtn);
+            RowTwo.getChildren().addAll(EditUser, UserAddBtn);
+            RowThree.getChildren().addAll(MedicalPlatformbtn, EduPlatformbtn);
+            RowFour.getChildren().addAll(LogoutBtn);
         }else {
-        	RowOne.getChildren().addAll(InventoryBtn, MarketBtn, EditUser, UserAddBtn, MedicalPlatformbtn, EduPlatformbtn, LogoutBtn);
+            RowOne.getChildren().addAll(InventoryBtn, MarketBtn);
+            RowTwo.getChildren().addAll(EditUser, UserAddBtn);
+            RowThree.getChildren().addAll(MedicalPlatformbtn, EduPlatformbtn);
+            RowFour.getChildren().addAll(LogoutBtn);
         }
-        
+
         RowOne.setAlignment(Pos.CENTER);
-        
+        RowTwo.setAlignment(Pos.CENTER);
+        RowThree.setAlignment(Pos.CENTER);
+        RowFour.setAlignment(Pos.CENTER);
+
         showReservedSlots();
-        
+
         tableVBox.setAlignment(Pos.CENTER);
 //        tableVBox.setPrefWidth(100);
         VBox Center = new VBox();
         //Center.setAlignment(Pos.CENTER);
         if(Login.getIsDoctor()) {
-        	Center.getChildren().addAll(RowOne, tableVBox);
+            Center.getChildren().addAll(RowOne, RowTwo, RowThree, RowFour, tableVBox);
         }else {
-        	Center.getChildren().addAll(RowOne);
+            Center.getChildren().addAll(RowOne, RowTwo, RowThree, RowFour);
         }
         Center.getStyleClass().addAll("HomeVBox");
         Center.setMaxWidth(screenBounds.getWidth() * 0.95);
@@ -167,9 +187,9 @@ public class Home {
 
 
     }
-    
+
     public void showReservedSlots() {
-		Stage stage = new Stage();
+        Stage stage = new Stage();
         ObservableList<Appointment> DataList = FXCollections.observableArrayList();
         TableView<Appointment> AppointmentTable = new TableView<Appointment>(DataList);
 
@@ -178,54 +198,54 @@ public class Home {
         TableColumn<Appointment, Time> sTime = new TableColumn<Appointment, Time>("Start Time");
         TableColumn<Appointment, Time> eTime = new TableColumn<Appointment, Time>("End Time");
         TableColumn<Appointment, String> pName = new TableColumn<Appointment, String>("Patient Name");
-        
+
         srNo.setCellValueFactory(new PropertyValueFactory<>("appCount"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         sTime.setCellValueFactory(new PropertyValueFactory<>("time"));
         eTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
         pName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
-        
-        
-        
-        
+
+
+
+
         try {
-        	Database db = new Database();
-        	String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE DESC, time DESC LIMIT 3";
+            Database db = new Database();
+            String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE DESC, time DESC LIMIT 3";
             db.prestatement = db.Connect.prepareStatement(query);
             db.prestatement.setString(1, Login.getUName());
-            
+
             db.resultSet = db.prestatement.executeQuery();
             int count = 1;
             while (db.resultSet.next()) {
-            	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
-            	Appointment app = new Appointment();
-            	app.setAppCount(count);
-            	
-            	Date dd = db.resultSet.getDate(1);
-            	String appDate = formatter.format(dd);
-            	app.setDate(appDate);
-            	app.setTime(db.resultSet.getTime(2));
-            	app.setEndTime(db.resultSet.getTime(3));
-            	
-            	
-            	String firstName = db.resultSet.getString(4);
-            	String lastName = db.resultSet.getString(5);
-            	
-            	String patientName = firstName + " " + lastName;
-            	app.setPatientName(patientName);
-            	
-            	DataList.add(app);
-            	count++;
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                Appointment app = new Appointment();
+                app.setAppCount(count);
+
+                Date dd = db.resultSet.getDate(1);
+                String appDate = formatter.format(dd);
+                app.setDate(appDate);
+                app.setTime(db.resultSet.getTime(2));
+                app.setEndTime(db.resultSet.getTime(3));
+
+
+                String firstName = db.resultSet.getString(4);
+                String lastName = db.resultSet.getString(5);
+
+                String patientName = firstName + " " + lastName;
+                app.setPatientName(patientName);
+
+                DataList.add(app);
+                count++;
             }
         } catch (Exception e1) {
             System.out.println("Error while fetching data from Appointment!");
             e1.printStackTrace();
         }
-        
+
         AppointmentTable.getColumns().addAll(srNo, pName, date, sTime, eTime);
-        
+
         tableVBox.getChildren().add(AppointmentTable);
-        
+
 //        tableVBox.setMinWidth(100);
 
         HBox ButtonBox = new HBox();
