@@ -96,7 +96,7 @@ public class Eduplatform {
         Menu m = new Menu();
         Login.getLayout().setTop(m.Menu());
         Login.getLayout().setCenter(Center);
-
+//
 
     }
 }
