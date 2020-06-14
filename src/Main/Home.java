@@ -57,7 +57,6 @@ public class Home {
         ImageView AUIV = new ImageView(AUImg);
         AUIV.setFitWidth(50);
         AUIV.setFitHeight(50);
-
         EditUser.setGraphic(AUIV);
         EditUser.setTooltip(new Tooltip("Edit User"));
         EditUser.setOnAction(new EventHandler<ActionEvent>() {
@@ -113,6 +112,15 @@ public class Home {
         });
         //Edu_platform
         EduPlatformbtn.getStyleClass().addAll("HomeBtn", "LightGreen");
+        Eduplatform ED = new Eduplatform();
+        EduPlatformbtn.setOnAction(e -> {
+            try {
+                ED.Edu();
+            }
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
+        });
 
         UserAddBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         Image UAImg = new Image(getClass().getResourceAsStream("../Images/AddUser.png"));
