@@ -11,6 +11,8 @@ public class Appointment {
 	private Time endTime;
 	private int appCount;
 	private String patientName;
+	private String patientId;
+	private String doctorId;
 	
 	
 	public Appointment(){
@@ -72,5 +74,17 @@ public class Appointment {
 	}
 	public void setPatientName(String patientName) {
 		this.patientName = patientName;
+	}
+	public String getPatientId() {
+		return patientId;
+	}
+	public void setPatientId(String patientId) {
+		this.patientId = patientId;
+	}
+	public String getDoctorId() {
+		return doctorId;
+	}
+	public void setDoctorId(String doctorId) {
+		this.doctorId = doctorId;
 	}
 }

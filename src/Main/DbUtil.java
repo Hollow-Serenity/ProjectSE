@@ -5,7 +5,7 @@ import java.sql.*;
 public class DbUtil {
     private static final String HOST = "jdbc:mysql://localhost:3306/zeroxess" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String UN = "root";
-    private static final String PW = "Vlekkie15";
+    private static final String PW = "DbPassword123";
     private static Connection connection;
 
     public static void dbConnect() throws SQLException {

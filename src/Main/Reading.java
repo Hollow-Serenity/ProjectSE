@@ -1,30 +1,31 @@
 package Main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class Reading {
-    private String story;
-    private ArrayList<Question> questions = new ArrayList<>();
-    private ArrayList<ChoiceQuestion> choiceQuestions = new ArrayList<>();
+    private ArrayList<ReadingAssignment> readingAssignments = new ArrayList<>();
+    private ReadingAssignment currentReadingAssignment = new ReadingAssignment();
 
-    public String getStory() {
-        return story;
-    }
-    public void setStory(String story) {
-        this.story = story;
-    }
-
-    public void addQuestion(Question question) {
-        questions.add(question);
-    }
-    public ArrayList<Question> getQuestions() {
-        return questions;
+    public Reading() {
+        ReadingAssignment littleFoxStory = new LittleFoxStory();
+        ReadingAssignment theSnailStory = new TheSnailStory();
+        ReadingAssignment twoMiceStory = new TwoMiceStory();
+        ReadingAssignment purpleMouseStory = new PurpleMouseStory();
+        List<ReadingAssignment> readingAssignmentList = Arrays.asList(littleFoxStory, theSnailStory, twoMiceStory, purpleMouseStory);
+        readingAssignments.addAll(readingAssignmentList);
     }
 
-    public void addChoiceQuestion(ChoiceQuestion choiceQuestion) {
-        choiceQuestions.add(choiceQuestion);
+    public ReadingAssignment getRandomReadingAssignment() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(readingAssignments.size());
+        currentReadingAssignment = readingAssignments.get(randomNumber);
+        return currentReadingAssignment;
     }
-    public ArrayList<ChoiceQuestion> getChoiceQuestions() {
-        return choiceQuestions;
+
+    public ReadingAssignment getCurrentReadingAssignment() {
+        return currentReadingAssignment;
     }
 }

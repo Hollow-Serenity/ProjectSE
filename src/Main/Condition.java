@@ -54,8 +54,11 @@ public class Condition {
             db.prestatement.setString(1, conditionTF.getText());
             db.prestatement.setString(2, patientIDTF.getText());
             db.prestatement.executeUpdate();
-            Home H = new Home();
-            H.Homes();
+            try {
+                new Medical_Platform();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
@@ -68,8 +71,11 @@ public class Condition {
             db.prestatement.setString(1, conditionTF.getText());
             db.prestatement.setString(2, patientIDTF.getText());
             db.prestatement.execute();
-            Home H = new Home();
-            H.Homes();
+            try {
+                new Medical_Platform();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
