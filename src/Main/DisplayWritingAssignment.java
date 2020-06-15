@@ -10,15 +10,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class DisplayWritingAssignment extends Application {
+public class DisplayWritingAssignment {
     private WritingAssignment writingAssignment = new WritingAssignment();
     private Label questionLabel = new Label(writingAssignment.getRandomQuestion().getText());
     private TextField responseTextField = new TextField();
     private Label checkLabel = new Label();
     private Label checkAnswerFirstLabel = new Label();
 
-    @Override
-    public void start(Stage stage) throws Exception {
+    public DisplayWritingAssignment() {
         HBox hBox = new HBox(10);
         HBox hBox1 = new HBox(5);
         GridPane gridPane = new GridPane();
@@ -56,8 +55,8 @@ public class DisplayWritingAssignment extends Application {
         gridPane.add(checkAnswer, 3, 0);
         gridPane.add(hBox1, 3, 2);
 
-        Scene scene = new Scene(gridPane);
-        stage.setScene(scene);
-        stage.show();
+        Login.getLayout().setCenter(gridPane);
+        Menu m = new Menu();
+        Login.getLayout().setTop(m.Menu());
     }
 }

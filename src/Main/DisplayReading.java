@@ -1,20 +1,16 @@
 package Main;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
-public class DisplayReading extends Application {
-    @Override
-    public void start(Stage stage) throws Exception {
+public class DisplayReading {
+    public DisplayReading() {
         Reading reading = new Reading();
         reading.getRandomReadingAssignment();
         ReadingAssignment readingAssignment = reading.getCurrentReadingAssignment();
@@ -68,8 +64,8 @@ public class DisplayReading extends Application {
         vBox.getChildren().addAll(question1Label, response1TextField, question2Label, response2TextField, question3Label, response3TextField, checkHBox, randomize);
         hBox.getChildren().add(vBox);
 
-        Scene scene = new Scene(hBox);
-        stage.setScene(scene);
-        stage.show();
+        Login.getLayout().setCenter(hBox);
+        Menu m = new Menu();
+        Login.getLayout().setTop(m.Menu());
     }
 }

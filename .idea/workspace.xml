@@ -8,11 +8,6 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -30,16 +25,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f593677a-8a80-42f1-bdf9-295c033067d0" name="Default Changelist" comment="Rekenopdrachten kunnen gemaakt worden en de berekeningen hebben de testcases gehaald.">
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Database.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/DbUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Question.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Reading.class" beforeDir="false" />
+    <list default="true" id="505d1443-2924-43c3-942f-8f0c022b7186" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ProjectSE_1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Project_SE_5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project_SE_5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_16.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DisplayReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DisplayReading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DisplayWritingAssignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Eduplatform.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,100 +45,36 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="development" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1d2WFlZQlb3qXQsHwb2LkZzgBG0" />
+  <component name="ProjectId" id="1dJLO8FAMjQMY4iwY3mz2M6ixvl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.13.jar!/" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="Main" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Login">
-    <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main.Display" />
-      <module name="ProjectSE" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DisplayReading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main.DisplayReading" />
-      <module name="Project_SE_5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Login" />
-      <module name="Project_SE_5" />
+      <module name="ProjectSE_1" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="ProjectSE" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectSE" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Main" />
-      <option name="MAIN_CLASS_NAME" value="Main.RegistrationTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,10 +82,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Login" />
-        <item itemvalue="Application.DisplayReading" />
-        <item itemvalue="JUnit.RegistrationTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Display" />
       </list>
     </recent_temporary>
   </component>
@@ -160,94 +90,15 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="" />
-      <created>1591623566609</created>
+      <changelist id="505d1443-2924-43c3-942f-8f0c022b7186" name="Default Changelist" comment="" />
+      <created>1592138214470</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591623566609</updated>
-      <workItem from="1591623569132" duration="182000" />
-      <workItem from="1591623754148" duration="1550000" />
-      <workItem from="1591625640903" duration="639000" />
-      <workItem from="1591792756470" duration="1671000" />
-      <workItem from="1591794627495" duration="227000" />
-      <workItem from="1591829846568" duration="7733000" />
-      <workItem from="1591837637575" duration="53000" />
-      <workItem from="1591881578848" duration="29000" />
-      <workItem from="1591959321835" duration="14000" />
-      <workItem from="1591982909889" duration="20975000" />
-      <workItem from="1592006911805" duration="302000" />
-      <workItem from="1592222564267" duration="1630000" />
-      <workItem from="1592231302451" duration="1668000" />
-      <workItem from="1592233023098" duration="58000" />
-      <workItem from="1592233095113" duration="2000" />
-      <workItem from="1592233118370" duration="52000" />
-      <workItem from="1592233210792" duration="122000" />
-      <workItem from="1592234722670" duration="1591000" />
+      <updated>1592138214470</updated>
+      <workItem from="1592138215827" duration="785000" />
+      <workItem from="1592238336698" duration="884000" />
+      <workItem from="1592242115618" duration="829000" />
     </task>
-    <task id="LOCAL-00001" summary="development done merging">
-      <created>1591625273156</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1591625273156</updated>
-    </task>
-    <task id="LOCAL-00002" summary="medical platform toegevoegd en appointment button verplaatst">
-      <created>1591793774857</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1591793774857</updated>
-    </task>
-    <task id="LOCAL-00003" summary="conditions verplaatst naar medical platform en de user kan nu zijn aandoeningen inzien">
-      <created>1591837443946</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1591837443946</updated>
-    </task>
-    <task id="LOCAL-00004" summary="had to fix a commit issue">
-      <created>1591838718193</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1591838718193</updated>
-    </task>
-    <task id="LOCAL-00005" summary="de registration tests zijn eindelijk af">
-      <created>1592005597356</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1592005597356</updated>
-    </task>
-    <task id="LOCAL-00006" summary="de registration tests zijn eindelijk af">
-      <created>1592231463725</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1592231463725</updated>
-    </task>
-    <task id="LOCAL-00007" summary="de registration tests zijn eindelijk af">
-      <created>1592231558469</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1592231558469</updated>
-    </task>
-    <task id="LOCAL-00008" summary="update and remove appointment merge">
-      <created>1592233315121</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1592233315121</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Gui Merge">
-      <created>1592236055800</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1592236055800</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,92 +116,34 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="development done merging" />
-    <MESSAGE value="medical platform toegevoegd en appointment button verplaatst" />
-    <MESSAGE value="conditions verplaatst naar medical platform en de user kan nu zijn aandoeningen inzien" />
-    <MESSAGE value="had to fix a commit issue" />
-    <MESSAGE value="de registration tests zijn eindelijk af" />
-    <MESSAGE value="update and remove appointment merge" />
-    <MESSAGE value="Gui Merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gui Merge" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="720" y="176" key="#Login" timestamp="1592232688387">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="338" y="0" width="617" height="720" key="#Login" timestamp="1592242232521">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="720" y="176" key="#Login/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232688387" />
-    <state x="626" y="176" key="#RegistrationTest" timestamp="1592232605228">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592242232521" />
+    <state x="348" y="102" key="FileChooserDialogImpl" timestamp="1592242278459">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="626" y="176" key="#RegistrationTest/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232605228" />
-    <state x="855" y="267" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1592232527950">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592242278459" />
+    <state width="1220" height="173" key="GridCell.Tab.0.bottom" timestamp="1592242632345">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="855" y="267" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232527950" />
-    <state x="807" y="438" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1592234739793">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state width="1220" height="173" key="GridCell.Tab.0.center" timestamp="1592242632345">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="807" y="438" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592234739793" />
-    <state x="820" y="427" key="DetectedRootsChooserDialog" timestamp="1591837675075">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state width="1220" height="173" key="GridCell.Tab.0.left" timestamp="1592242632345">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="820" y="427" key="DetectedRootsChooserDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837675075" />
-    <state x="729" y="298" key="FileChooserDialogImpl" timestamp="1592232661008">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state width="1220" height="173" key="GridCell.Tab.0.right" timestamp="1592242632345">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state x="729" y="298" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232661008" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592236012250">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1592242280367">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592236012250">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592236012250">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592236012250">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
-    <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1592006752506">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
-    <state width="2005" height="376" key="GridCell.Tab.1.center" timestamp="1592006752506">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
-    <state width="2005" height="376" key="GridCell.Tab.1.left" timestamp="1592006752506">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
-    <state width="2005" height="376" key="GridCell.Tab.1.right" timestamp="1592006752506">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="376" key="GridCell.Tab.1.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
-    <state x="801" y="259" key="RollbackChangesDialog" timestamp="1591992685934">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="801" y="259" key="RollbackChangesDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591992685934" />
-    <state x="505" y="131" key="SettingsEditor" timestamp="1592232599379">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="505" y="131" key="SettingsEditor/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232599379" />
-    <state x="955" y="322" key="Vcs.Push.Dialog.v2" timestamp="1592236062973">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="955" y="322" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236062973" />
-    <state x="834" y="470" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592235353760">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="834" y="470" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592235353760" />
-    <state x="806" y="269" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591837579751">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="806" y="269" key="git4idea.branch.GitSmartOperationDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837579751" />
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1592242280367" />
   </component>
 </project>

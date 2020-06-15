@@ -40,11 +40,8 @@ public class Eduplatform {
         Reading.setGraphic(APIV);
         Reading.setTooltip(new Tooltip("Add Products"));
         AddProducts ap = new AddProducts();
-        Reading.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //Link naar Reading GUI
-            }
+        Reading.setOnAction(event -> {
+            new DisplayReading();
         });
 
         Writing.getStyleClass().addAll("HomeBtn", "LightGreen");
@@ -54,11 +51,8 @@ public class Eduplatform {
         AUIV.setFitHeight(50);
         Writing.setGraphic(AUIV);
         Writing.setTooltip(new Tooltip("Edit User"));
-        Writing.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //Link naar Writing GUI
-            }
+        Writing.setOnAction(event -> {
+            new DisplayWritingAssignment();
         });
 
         Math.getStyleClass().addAll("HomeBtn", "LightGreen");
