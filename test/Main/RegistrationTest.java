@@ -56,7 +56,7 @@ public class RegistrationTest {
         R.checkPasswordFault();
         assertEquals("PW must be between 7 and 20 characters", R.getStatus());
 
-        R.setPW("123456789");
+        R.setPW("12345678910");
         R.checkPasswordFault();
         assertEquals("Please fill in all fields", R.getStatus());
     }
