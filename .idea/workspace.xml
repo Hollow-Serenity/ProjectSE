@@ -30,7 +30,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="Gui Merge" />
+    <list default="true" id="f593677a-8a80-42f1-bdf9-295c033067d0" name="Default Changelist" comment="Rekenopdrachten kunnen gemaakt worden en de berekeningen hebben de testcases gehaald.">
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/DbUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Home.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Question.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Reading.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Eduplatform.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

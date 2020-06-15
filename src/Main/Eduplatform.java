@@ -69,10 +69,12 @@ public class Eduplatform {
         Math.setGraphic(MrIV);
         Math.setTooltip(new Tooltip("Market"));
         Market mr = new Market();
-        Math.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-            //Link naar Math GUI
+        Math.setOnAction(e -> {
+            try {
+                new Mathematics();
+            }
+            catch (Exception ex){
+                ex.printStackTrace();
             }
         });
         HBox RowOne = new HBox();
