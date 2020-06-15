@@ -25,7 +25,6 @@ public class Mathematics implements EventHandler<ActionEvent> {
         math.makeMathExpression();
         mathExpression.setText(math.getText());
         frontend();
-        frontend();
         layout.getStyleClass().add("hbox");
         Login.getLayout().setCenter(layout);
         submit.setOnAction(this);

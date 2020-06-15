@@ -116,8 +116,17 @@ public class Home {
                 ex.printStackTrace();
             }
         });
+
         //Edu_platform
         EduPlatformbtn.getStyleClass().addAll("HomeBtn", "LightGreen");
+        EduPlatformbtn.setOnAction(e -> {
+            try {
+                new Eduplatform();
+            }
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
+        });
 
         UserAddBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         Image UAImg = new Image(getClass().getResourceAsStream("../Images/AddUser.png"));

@@ -1,3 +1,5 @@
+package Main;
+
 import Main.Question;
 import org.junit.jupiter.api.Test;
 

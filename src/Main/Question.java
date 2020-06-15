@@ -1,10 +1,43 @@
 package Main;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Question {
     private String text;
     private String answer;
+
+    public void makeMathExpression(){
+        Random rand = new Random();
+        final char[] OPERATOR_LIST = {'+','-','x','/'};
+        int getal1 = rand.nextInt(10)+1;
+        int getal2 = rand.nextInt(10)+1;
+        int getal3 = rand.nextInt(4);
+        if(getal3 == 3) {
+            getal1 = getal2*(rand.nextInt(11)+1);
+        }
+        if(getal2 > getal1) {
+            int temp = getal2;
+            getal2 = getal1;
+            getal1 = temp;
+        }
+        setText(getal1 + ""+OPERATOR_LIST[getal3]+ getal2);
+        setAnswer(String.valueOf(calculateMathExpression(getal1,getal2,OPERATOR_LIST[getal3])));
+    }
+    public static int calculateMathExpression(int getal1, int getal2, char operator) {
+        switch (operator) {
+            case '+':
+                return getal1 + getal2;
+            case '-':
+                return getal1 - getal2;
+            case 'x':
+                return getal1 * getal2;
+            case '/':
+                return getal1/getal2;
+            default:
+                return 0;
+        }
+    }
 
     public Question(String text, String answer) {
         this.text = text;

@@ -26,7 +26,7 @@ import java.util.Date;
 
 public class Eduplatform {
     public Stage stage;
-    public void Edu() throws SQLException{
+    public Eduplatform() throws SQLException{
         Button Reading = new Button("Reading");
         Button Writing = new Button("Writing");
         Button Math = new Button("Math");
