@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class Registration {
 
@@ -29,20 +28,22 @@ public class Registration {
 	private static Button Register = new Button("Register");
 	private static Button UpdateBtn = new Button("Update account");
 
-	public Boolean checkUName(Database db, String UName) {
-		try {
-			String res = null;
-			db.prestatement = db.Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
-			db.prestatement.setString(1, UName);
-			db.resultSet = db.prestatement.executeQuery();
-			while(db.resultSet.next()) {
-				res = db.resultSet.getString(1);
+	public Boolean checkUName(Database db, String username) {
+		if (!UName.getText().equals(Login.getUName())) {
+			try {
+				String res = null;
+				db.prestatement = db.Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
+				db.prestatement.setString(1, username);
+				db.resultSet = db.prestatement.executeQuery();
+				while (db.resultSet.next()) {
+					res = db.resultSet.getString(1);
+				}
+				return res == null;
+			} catch (SQLException e) {
+				return true;
 			}
-			return res == null;
 		}
-		catch (SQLException e) {
-			return true;
-		}
+		return true;
 	}
 
 	public String isDoctorToString(String doctor) {
@@ -54,7 +55,7 @@ public class Registration {
 		}
 	}
 
-	private void setStyles(){
+	public void setStyles(){
 		Status.setFill(Color.RED);
 
 		Doctor.getItems().addAll("Standard user","Doctor");
@@ -67,7 +68,7 @@ public class Registration {
 		PasswordCheck.setPromptText("Repeat Password");
 	}
 
-	private static void setVBox() {
+	public static void setVBox() {
 		Center = new VBox(10);
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
@@ -77,7 +78,7 @@ public class Registration {
 		Login.getLayout().setCenter(Center);
 	}
 
-	private Boolean checkPassword() {
+	public Boolean checkPassword() {
 		return Password.getText().equals(PasswordCheck.getText())
 				&& Password.getText().length() > 6
 				&& Password.getText().length() < 21
@@ -87,7 +88,7 @@ public class Registration {
 				&& checkUName(db, UName.getText());
 	}
 
-	private void checkPasswordFault() {
+	public void checkPasswordFault() {
 		if (!Password.getText().equals(PasswordCheck.getText())) {
 			Status.setText("Your password doesn't match");
 		}
@@ -106,7 +107,7 @@ public class Registration {
 		}
 	}
 
-	private void databaseInsert() throws SQLException {
+	public void databaseInsert() throws SQLException {
 		db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?)");
 		db.prestatement.setString(1, UName.getText());
 		db.prestatement.setString(2, First.getText());
@@ -116,7 +117,7 @@ public class Registration {
 		db.prestatement.executeUpdate();
 	}
 
-	private void startRegistration() {
+	public void startRegistration() {
 		Register.setAlignment(Pos.BASELINE_CENTER);
 		Register.setOnAction(e -> {
 			if(checkPassword()) {
@@ -137,7 +138,7 @@ public class Registration {
 		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, Register);
 	}
 
-	private void showAccountDetails() throws SQLException {
+	public void showAccountDetails() throws SQLException {
 		db.prestatement = db.Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
 		db.prestatement.setString(1, Login.getUName());
 		db.resultSet = db.prestatement.executeQuery();
@@ -146,36 +147,54 @@ public class Registration {
 			First.setText(db.resultSet.getString(2));
 			Last.setText(db.resultSet.getString(3));
 			Password.setText(db.resultSet.getString(4));
+			if(db.resultSet.getString(5).equals("T")) {
+				Doctor.setValue("Doctor");
+			}
+			else {
+				Doctor.setValue("Standard user");
+			}
+
 		}
 	}
 
-	private void updateAccountDetails() {
+	public void updateAccountDetails() throws SQLException{
+		db.prestatement = db.Connect.prepareStatement(""
+				+ "UPDATE users SET userName=?,"
+				+ "firstName=?, lastName=?,"
+				+ "`password`=?, isDoctor =? WHERE userName = ?");
+		db.prestatement.setString(1, UName.getText());
+		db.prestatement.setString(2, First.getText());
+		db.prestatement.setString(3, Last.getText());
+		db.prestatement.setString(4, Password.getText());
+		db.prestatement.setString(5, isDoctorToString(Doctor.getValue()));
+		db.prestatement.setString(6, Login.getUName());
+		db.prestatement.executeUpdate();
+		Login.setUName(UName.getText());
+	}
+
+	public void deleteAccount() {
 		try {
-			db.prestatement = db.Connect.prepareStatement(""
-					+ "UPDATE users SET userName=?,"
-					+ "firstName=?, lastName=?,"
-					+ "password=? WHERE userName = ?");
-			db.prestatement.setString(1, UName.getText());
-			db.prestatement.setString(2, First.getText());
-			db.prestatement.setString(3, Last.getText());
-			db.prestatement.setString(4, Password.getText());
-			db.prestatement.setString(5, Login.getUName());
-			db.prestatement.executeUpdate();
-			Login.setUName(UName.getText());
-			Home H = new Home();
-			H.Homes();
+			db.prestatement = db.Connect.prepareStatement("DELETE FROM users WHERE userName = ?");
+			db.prestatement.setString(1, Login.getUName());
+			db.prestatement.execute();
 		} catch (SQLException e1) {
 			System.out.println(e1.getMessage());
 			Status.setText("Error while updating data in Users!");
 		}
 	}
 
-	private void startEditAccount() throws SQLException {
+	public void startEditAccount() throws SQLException {
 		showAccountDetails();
 		UpdateBtn.setAlignment(Pos.BASELINE_CENTER);
 		UpdateBtn.setOnAction(e -> {
 			if(checkPassword()) {
-				updateAccountDetails();
+				Home H = new Home();
+				try {
+					updateAccountDetails();
+					H.Homes();
+				} catch (SQLException throwables) {
+					throwables.printStackTrace();
+				}
 			}
 			else {
 				checkPasswordFault();
@@ -194,5 +213,43 @@ public class Registration {
 		else {
 			startEditAccount();
 		}
+	}
+
+	//for test purposes
+	public Registration(String first, String last, String uname, String pw, String pwc) {
+		First.setText(first);
+		Last.setText(last);
+		UName.setText(uname);
+		Password.setText(pw);
+		Doctor.setValue("Standard user");
+	}
+
+	public void updateTextFields() {
+		First.setText("FirstUpdate");
+		Last.setText("LastUpdate");
+		UName.setText("UNameUpdate");
+		Password.setText("PWUpdate");
+		Doctor.setValue("Doctor");
+	}
+
+	public void resetTextFields() {
+		First.setText("");
+		Last.setText("");
+		UName.setText("");
+		Password.setText("");
+		Doctor.setValue("Standard user");
+	}
+
+	public String checkCurrentUName() {
+		return UName.getText();
+	}
+
+	public void setPW(String PW) {
+		Password.setText(PW);
+		PasswordCheck.setText(PW);
+	}
+
+	public String getStatus() {
+		return Status.getText();
 	}
 }
