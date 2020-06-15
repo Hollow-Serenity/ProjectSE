@@ -30,29 +30,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="de registration tests zijn eindelijk af">
-      <change beforePath="$PROJECT_DIR$/.idea/Project_SE_5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project_SE_5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$LittleFoxStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$PurpleMouseStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$TheSnailStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$TwoMiceStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/ChoiceQuestion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Condition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Display.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/DisplayingStories.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Medical_Platform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Registration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Story.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE/Main/AddProductsTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE/Main/RegistrationTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
-    </list>
+    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="update and remove appointment merge" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,6 +151,7 @@
       <workItem from="1592233023098" duration="58000" />
       <workItem from="1592233095113" duration="2000" />
       <workItem from="1592233118370" duration="52000" />
+      <workItem from="1592233210792" duration="122000" />
     </task>
     <task id="LOCAL-00001" summary="development done merging">
       <created>1591625273156</created>
@@ -223,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592231558469</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update and remove appointment merge">
+      <created>1592233315121</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592233315121</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +233,8 @@
     <MESSAGE value="conditions verplaatst naar medical platform en de user kan nu zijn aandoeningen inzien" />
     <MESSAGE value="had to fix a commit issue" />
     <MESSAGE value="de registration tests zijn eindelijk af" />
-    <option name="LAST_COMMIT_MESSAGE" value="de registration tests zijn eindelijk af" />
+    <MESSAGE value="update and remove appointment merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="update and remove appointment merge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="720" y="176" key="#Login" timestamp="1592232688387">
@@ -270,22 +257,22 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="729" y="298" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232661008" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592232971847">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592233332734">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592232971847">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592233332734" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592233332734">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592232971847">
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592233332734" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592233332734">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592232971847">
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592233332734" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592233332734">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592233332734" />
     <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1592006752506">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -310,10 +297,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="505" y="131" key="SettingsEditor/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232599379" />
-    <state x="955" y="322" key="Vcs.Push.Dialog.v2" timestamp="1592231565591">
+    <state x="955" y="322" key="Vcs.Push.Dialog.v2" timestamp="1592233320009">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="955" y="322" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592231565591" />
+    <state x="955" y="322" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592233320009" />
     <state x="834" y="470" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592232396932">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
