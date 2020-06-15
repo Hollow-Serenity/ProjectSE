@@ -30,15 +30,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="update and remove appointment merge">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Mathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Mathematics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/Question.java" afterDir="false" />
-    </list>
+    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="Gui Merge" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,7 +171,7 @@
       <workItem from="1592233095113" duration="2000" />
       <workItem from="1592233118370" duration="52000" />
       <workItem from="1592233210792" duration="122000" />
-      <workItem from="1592234722670" duration="1135000" />
+      <workItem from="1592234722670" duration="1591000" />
     </task>
     <task id="LOCAL-00001" summary="development done merging">
       <created>1591625273156</created>
@@ -237,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592233315121</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Gui Merge">
+      <created>1592236055800</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592236055800</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +261,8 @@
     <MESSAGE value="had to fix a commit issue" />
     <MESSAGE value="de registration tests zijn eindelijk af" />
     <MESSAGE value="update and remove appointment merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="update and remove appointment merge" />
+    <MESSAGE value="Gui Merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gui Merge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="720" y="176" key="#Login" timestamp="1592232688387">
@@ -289,22 +289,22 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="729" y="298" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232661008" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592235567941">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592236012250">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592235567941" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592235567941">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592236012250">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592235567941" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592235567940">
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592236012250">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592235567940" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592235567941">
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592236012250">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592235567941" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236012250" />
     <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1592006752506">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -329,10 +329,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="505" y="131" key="SettingsEditor/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232599379" />
-    <state x="955" y="322" key="Vcs.Push.Dialog.v2" timestamp="1592233320009">
+    <state x="955" y="322" key="Vcs.Push.Dialog.v2" timestamp="1592236062973">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="955" y="322" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592233320009" />
+    <state x="955" y="322" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592236062973" />
     <state x="834" y="470" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592235353760">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
