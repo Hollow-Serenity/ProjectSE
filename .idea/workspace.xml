@@ -31,8 +31,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="de registration tests zijn eindelijk af">
+      <change beforePath="$PROJECT_DIR$/.idea/Project_SE_5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Project_SE_5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Registration.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE/Main/Registration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$LittleFoxStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$PurpleMouseStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$TheSnailStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments$TwoMiceStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Assignments.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/ChoiceQuestion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Condition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Display.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/DisplayingStories.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Medical_Platform.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Registration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE/Main/Story.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE/Main/AddProductsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE/Main/RegistrationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +68,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="feature/condition" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,12 +84,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.13.jar!/" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.RegistrationTest">
+  <component name="RunManager" selected="Application.Login">
     <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Display" />
       <module name="ProjectSE" />
@@ -86,7 +105,7 @@
     </configuration>
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Login" />
-      <module name="ProjectSE" />
+      <module name="Project_SE_5" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Main.*" />
@@ -121,8 +140,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegistrationTest" />
         <item itemvalue="Application.Login" />
+        <item itemvalue="JUnit.RegistrationTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Display" />
       </list>
@@ -150,6 +169,10 @@
       <workItem from="1591982909889" duration="20975000" />
       <workItem from="1592006911805" duration="302000" />
       <workItem from="1592222564267" duration="1630000" />
+      <workItem from="1592231302451" duration="1668000" />
+      <workItem from="1592233023098" duration="58000" />
+      <workItem from="1592233095113" duration="2000" />
+      <workItem from="1592233118370" duration="52000" />
     </task>
     <task id="LOCAL-00001" summary="development done merging">
       <created>1591625273156</created>
@@ -186,7 +209,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592005597356</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="de registration tests zijn eindelijk af">
+      <created>1592231463725</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592231463725</updated>
+    </task>
+    <task id="LOCAL-00007" summary="de registration tests zijn eindelijk af">
+      <created>1592231558469</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592231558469</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,30 +250,42 @@
     <option name="LAST_COMMIT_MESSAGE" value="de registration tests zijn eindelijk af" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="720" y="176" key="#Login" timestamp="1592232688387">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="720" y="176" key="#Login/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232688387" />
+    <state x="626" y="176" key="#RegistrationTest" timestamp="1592232605228">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="626" y="176" key="#RegistrationTest/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232605228" />
+    <state x="855" y="267" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1592232527950">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="855" y="267" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232527950" />
     <state x="820" y="427" key="DetectedRootsChooserDialog" timestamp="1591837675075">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="820" y="427" key="DetectedRootsChooserDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837675075" />
-    <state x="729" y="298" key="FileChooserDialogImpl" timestamp="1591959333654">
+    <state x="729" y="298" key="FileChooserDialogImpl" timestamp="1592232661008">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="729" y="298" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591959333654" />
-    <state width="2005" height="376" key="GridCell.Tab.0.bottom" timestamp="1592006752506">
+    <state x="729" y="298" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232661008" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592232971847">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
-    <state width="2005" height="376" key="GridCell.Tab.0.center" timestamp="1592006752506">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592232971847">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
-    <state width="2005" height="376" key="GridCell.Tab.0.left" timestamp="1592006752506">
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592232971847">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
-    <state width="2005" height="376" key="GridCell.Tab.0.right" timestamp="1592006752506">
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592232971847">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="376" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592006752506" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232971847" />
     <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1592006752506">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -257,14 +306,18 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="801" y="259" key="RollbackChangesDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591992685934" />
-    <state x="505" y="131" key="SettingsEditor" timestamp="1591837690143">
+    <state x="505" y="131" key="SettingsEditor" timestamp="1592232599379">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="505" y="131" key="SettingsEditor/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1591837690143" />
-    <state x="617" y="276" key="Vcs.Push.Dialog.v2" timestamp="1592005600792">
+    <state x="505" y="131" key="SettingsEditor/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232599379" />
+    <state x="955" y="322" key="Vcs.Push.Dialog.v2" timestamp="1592231565591">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="617" y="276" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592005600792" />
+    <state x="955" y="322" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592231565591" />
+    <state x="834" y="470" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592232396932">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="834" y="470" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592232396932" />
     <state x="806" y="269" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591837579751">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

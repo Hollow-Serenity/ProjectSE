@@ -2,7 +2,10 @@ package Main;
 
 import java.sql.SQLException;
 import java.sql.Time;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -38,10 +41,13 @@ public class AddAppointment {
 	DatePicker txtDate = new DatePicker();
 	Spinner<Integer> spinnerHH = new Spinner<Integer>(0, 23, 0);
 	Spinner<Integer> spinnerMM = new Spinner<Integer>(0, 59, 0);
+	int selectedAppId = -1;
+	String updateCheck = "";
 	@SuppressWarnings("unchecked")
-    public void AddAppointment() {
+    public void AddAppointment(String updateCheck, ObservableList<Appointment> DataList, int selectedIndex) {
 		
-
+		this.updateCheck = updateCheck;
+		
 		resetValues();
 		DialogStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 		      public void handle(WindowEvent we) {
@@ -109,7 +115,30 @@ public class AddAppointment {
 		hBoxSaveButt.setAlignment(Pos.CENTER);
 		hBoxSaveButt.setPadding(new Insets(0, 0, 0, 10));
 		
-		Button btnSave = new Button("Save");
+		Button btnSave = new Button();
+		
+		if(updateCheck != null && !updateCheck.equals("")) {
+			Appointment app = DataList.get(selectedIndex);
+			selectedAppId = app.getAppointmentId();
+			cbSpecilization.getSelectionModel().select(app.getSpecilizationName());
+			cbSelectDoctor.getItems().clear();
+			getDoctors();
+			cbSelectDoctor.getSelectionModel().select(app.getDoctorId());
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			txtDate.setValue(LocalDate.parse(app.getDate(), formatter));
+			Time time = app.getTime();
+			DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+			String sTime = timeFormat.format(time);
+			String[] sTimeArr = sTime.split(":");
+			spinnerHH.getValueFactory().setValue(Integer.parseInt(sTimeArr[0]));
+			spinnerMM.getValueFactory().setValue(Integer.parseInt(sTimeArr[1]));
+			
+			btnSave.setText("Update");
+		}else {
+			btnSave.setText("Save");
+		}
+		
+		
 		btnSave.setPrefWidth(100);
 		btnSave.setPrefHeight(70);
 		btnSave.setPadding(new Insets(0, 10, 0, 0));
@@ -117,7 +146,12 @@ public class AddAppointment {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                	saveRecord();
+                	if(updateCheck != null && !updateCheck.equals("")) {
+                		updateRecord();
+                	}else {
+                		saveRecord();
+                		
+                	}
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -223,7 +257,7 @@ public class AddAppointment {
 				db.prestatement.setString(5, Login.getUName());
 				db.prestatement.executeUpdate();
 				
-				JOptionPane.showMessageDialog(null, "Record Save Succesfully");
+				JOptionPane.showMessageDialog(null, "Record Saved Succesfully");
 				resetValues();
 				DialogStage.hide();
 				ViewAppointment vApp = new ViewAppointment();
@@ -233,6 +267,41 @@ public class AddAppointment {
 			}
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Database Error in Saving Record");
+			e.printStackTrace();
+		}
+	}
+	
+	private void updateRecord() {
+		try {
+			if(validateFields()) {
+				System.out.println("Update Record::::::::");
+				
+				String hh = spinnerHH.getValue().toString();
+				String mm = spinnerMM.getValue().toString();
+				String time = hh+":"+mm+":"+"00";
+				Database db = new Database();
+				String query = " UPDATE appointment SET doctorName = ?, specializationId = ?, DATE = ?, TIME = ?, patientId = ? WHERE appointmentId = ? ";
+				db.prestatement = db.Connect.prepareStatement(query);
+				db.prestatement.setString(1, cbSelectDoctor.getSelectionModel().getSelectedItem().toString());
+				db.prestatement.setString(2, cbSpecilization.getSelectionModel().getSelectedItem().toString());
+				db.prestatement.setDate(3, java.sql.Date.valueOf(txtDate.getValue()));
+				db.prestatement.setTime(4, java.sql.Time.valueOf(time));				
+				db.prestatement.setString(5, Login.getUName());
+				
+				db.prestatement.setInt(6, selectedAppId);
+				
+				db.prestatement.executeUpdate();
+				
+				JOptionPane.showMessageDialog(null, "Record Updated Succesfully");
+				resetValues();
+				DialogStage.hide();
+				ViewAppointment vApp = new ViewAppointment();
+				vApp.ViewAppointment();
+				
+				
+			}
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Database Error in Updating Record");
 			e.printStackTrace();
 		}
 	}
@@ -264,13 +333,22 @@ public class AddAppointment {
 			txtDate.requestFocus();
 			return false;
 		}
-		
-		if(!getDoctorAvailability()) {
-			Alert a = new Alert(AlertType.INFORMATION,  
-                    "Message",ButtonType.OK);
-			a.setContentText("Doctor is not available at selected Date/Time slot\nPlease choose different Date/Time slot");
-			a.show();
-			return false;
+		if(updateCheck != null && !updateCheck.equals("")) {
+			if(!getDoctorAvailabilityForUpdate()) {
+				Alert a = new Alert(AlertType.INFORMATION,  
+	                    "Message",ButtonType.OK);
+				a.setContentText("Doctor is not available at selected Date/Time slot\nPlease choose different Date/Time slot");
+				a.show();
+				return false;
+			}
+		}else {
+			if(!getDoctorAvailability()) {
+				Alert a = new Alert(AlertType.INFORMATION,  
+	                    "Message",ButtonType.OK);
+				a.setContentText("Doctor is not available at selected Date/Time slot\nPlease choose different Date/Time slot");
+				a.show();
+				return false;
+			}
 		}
 		
 		return true;
@@ -283,10 +361,9 @@ public class AddAppointment {
 			String mm = spinnerMM.getValue().toString();
 			String time = hh+":"+mm+":"+"00";
 //			String query = "SELECT * FROM appointment WHERE doctorName = ? AND DATE = ? AND (appointment.TIME < ? OR appointment.TIME + INTERVAL 45 MINUTE > ?)";
-			
-			String query1 = "SELECT * FROM appointment WHERE doctorName = ? AND DATE = ? AND CASE " + 
-					"    WHEN appointment.TIME < ? THEN  (appointment.TIME < ? AND appointment.TIME + INTERVAL 45 MINUTE > ?) " + 
-					"    WHEN appointment.TIME > ? THEN  (appointment.TIME > ? AND appointment.TIME - INTERVAL 45 MINUTE < ?) " + 
+			String query1  = "SELECT * FROM appointment WHERE doctorName = ? AND DATE = ? AND CASE " + 
+					"    WHEN appointment.TIME <= ? THEN  (appointment.TIME <= ? AND appointment.TIME + INTERVAL 45 MINUTE >= ?) " + 
+					"    WHEN appointment.TIME >= ? THEN  (appointment.TIME >= ? AND appointment.TIME - INTERVAL 45 MINUTE <= ?) " + 
 					"    END";
 			db.prestatement = db.Connect.prepareStatement(query1);
 			db.prestatement.setString(1, cbSelectDoctor.getSelectionModel().getSelectedItem().toString());
@@ -297,6 +374,39 @@ public class AddAppointment {
 			db.prestatement.setTime(6, java.sql.Time.valueOf(time));
 			db.prestatement.setTime(7, java.sql.Time.valueOf(time));
 			db.prestatement.setTime(8, java.sql.Time.valueOf(time));
+			
+			db.resultSet = db.prestatement.executeQuery();
+			
+			while (db.resultSet.next()) {
+				return false;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	private boolean getDoctorAvailabilityForUpdate() {
+		try {
+			Database db = new Database();
+			String hh = spinnerHH.getValue().toString();
+			String mm = spinnerMM.getValue().toString();
+			String time = hh+":"+mm+":"+"00";
+//			String query = "SELECT * FROM appointment WHERE doctorName = ? AND DATE = ? AND (appointment.TIME < ? OR appointment.TIME + INTERVAL 45 MINUTE > ?)";
+			String query1 = "SELECT * FROM appointment WHERE doctorName = ? AND DATE = ? AND appointmentId != ? AND CASE " + 
+						"    WHEN appointment.TIME <= ? THEN  (appointment.TIME <= ? AND appointment.TIME + INTERVAL 45 MINUTE >= ?) " + 
+						"    WHEN appointment.TIME >= ? THEN  (appointment.TIME >= ? AND appointment.TIME - INTERVAL 45 MINUTE <= ?) " + 
+						"    END";
+			db.prestatement = db.Connect.prepareStatement(query1);
+			db.prestatement.setString(1, cbSelectDoctor.getSelectionModel().getSelectedItem().toString());
+			db.prestatement.setDate(2, java.sql.Date.valueOf(txtDate.getValue()));
+			db.prestatement.setInt(3, selectedAppId);
+			db.prestatement.setTime(4, java.sql.Time.valueOf(time));
+			db.prestatement.setTime(5, java.sql.Time.valueOf(time));
+			db.prestatement.setTime(6, java.sql.Time.valueOf(time));
+			db.prestatement.setTime(7, java.sql.Time.valueOf(time));
+			db.prestatement.setTime(8, java.sql.Time.valueOf(time));
+			db.prestatement.setTime(9, java.sql.Time.valueOf(time));
 			
 			db.resultSet = db.prestatement.executeQuery();
 			
