@@ -17,6 +17,10 @@
 -fx-min-height: 200px;
 -fx-min-width: 200px;
 }
+.MedicalBtn{
+  -fx-min-height: 150px;
+  -fx-min-width: 150px;
+}
 .LightGreen{
 -fx-background-color :#06425c;
 -fx-text-fill:white;
