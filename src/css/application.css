@@ -11,11 +11,11 @@
 .HomeHbox{
 -fx-background-color: white;
 -fx-background-radius:5px;
--fx-padding:50px 500px;
+-fx-padding:50px 200px;
 }
 .HomeBtn{
--fx-min-height: 200px;
--fx-min-width: 200px;
+-fx-min-height: 100px;
+-fx-min-width: 250px;
 }
 .MedicalBtn{
   -fx-min-height: 150px;
@@ -43,15 +43,15 @@
 .BlueVbox{
   -fx-background-radius: 50 0 0 50;
 -fx-background-color: #267dff;
--fx-min-width: 600px;
+-fx-min-width: 400px;
 -fx-alignment: center;
 }
 .WhiteVbox{
   -fx-background-radius: 0 50 50 0;
 -fx-background-color: white;
 -fx-alignment: center;
--fx-min-width: 600px;
--fx-padding: 150px;
+-fx-min-width: 400px;
+-fx-padding: 100px;
 }
 .LoginBtn{
 -fx-background-color: #267dff;

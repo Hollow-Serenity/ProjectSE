@@ -19,6 +19,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import sun.rmi.runtime.Log;
 
 public class Login extends Application {
 
@@ -49,8 +50,8 @@ public class Login extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Window = primaryStage;
 		primaryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+		Window = primaryStage;
 		login();
 		Window.setTitle("ZeroXess");
 	}
@@ -73,7 +74,7 @@ public class Login extends Application {
 	}
 
 	private VBox getCompanyInfoBox() {
-		VBox CIBox = new VBox();
+		VBox CIBox = new VBox( 10);
 
 		Line Hr = new Line(0, 0, 100, 0);
 		Hr.setStrokeWidth(5);
@@ -87,7 +88,7 @@ public class Login extends Application {
 
 		CIBox.getChildren().addAll(CName, Hr, CDesc);
 		CIBox.getStyleClass().add("BlueVbox");
-		CIBox.setSpacing(20);
+
 
 		return CIBox;
 	}
@@ -107,15 +108,16 @@ public class Login extends Application {
 		HBox CenterBox = new HBox();
 		CenterBox.getStyleClass().add("CenterHbox");
 		CenterBox.getChildren().addAll(ci, login);
+		CenterBox.setSpacing(0);
 		return CenterBox;
 	}
 
 	private void initiate() {
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-		Scn = new Scene(Layout, screenBounds.getWidth(), screenBounds.getHeight());
+		Scn = new Scene(Layout, 800, 600);
 		Scn.getStylesheets().add(getClass().getResource("../css/application.css").toExternalForm());
 		Window.setScene(Scn);
-		Window.setMaximized(true);
+		Window.setMaximized(false);
 		Window.show();
 	}
 
@@ -219,3 +221,4 @@ public class Login extends Application {
 		isDoctor = doctor;
 	}
 }
+//
