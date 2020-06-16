@@ -62,7 +62,7 @@ public class Eduplatform {
         MrIV.setFitHeight(50);
         Math.setGraphic(MrIV);
         Math.setTooltip(new Tooltip("Market"));
-        Market mr = new Market();
+        //Market mr = new Market();//
         Math.setOnAction(e -> {
             try {
                 new Mathematics();
