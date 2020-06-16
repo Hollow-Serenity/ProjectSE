@@ -30,19 +30,21 @@ public class ViewAppointment {
     @SuppressWarnings("unchecked")
     public void ViewAppointment() {
         ObservableList<Appointment> DataList = FXCollections.observableArrayList();
-        TableView<Appointment> AppointmentTable = new TableView<Appointment>(DataList);
+        TableView<Appointment> AppointmentTable = new TableView<>(DataList);
 
-        TableColumn<Appointment, Integer> appointment_id = new TableColumn<Appointment, Integer>("Sr.#");
-        TableColumn<Appointment, String> doctorName = new TableColumn<Appointment, String>("Doctor Name");
-        TableColumn<Appointment, String> specilization = new TableColumn<Appointment, String>("Specilization");
-        TableColumn<Appointment, String> date = new TableColumn<Appointment, String>("Date");
-        TableColumn<Appointment, Time> time = new TableColumn<Appointment, Time>("Time");
+        TableColumn<Appointment, Integer> appointment_id = new TableColumn<>("Sr.#");
+        TableColumn<Appointment, String> doctorName = new TableColumn<>("Doctor Name");
+        TableColumn<Appointment, String> specilization = new TableColumn<>("Specilization");
+        TableColumn<Appointment, String> date = new TableColumn<>("Date");
+        TableColumn<Appointment, Time> time = new TableColumn<>("Time");
+        TableColumn<Appointment, Boolean> passed = new TableColumn<>("Has Passed");
 
         appointment_id.setCellValueFactory(new PropertyValueFactory<>("appCount"));
         doctorName.setCellValueFactory(new PropertyValueFactory<>("doctorName"));
         specilization.setCellValueFactory(new PropertyValueFactory<>("specilizationName"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
+        passed.setCellValueFactory(new PropertyValueFactory<>("passed"));
 
         try {
             db.prestatement = db.Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ? AND DATE >= ?");
@@ -68,9 +70,13 @@ public class ViewAppointment {
             	Date dd = db.resultSet.getDate(4);
             	String appDate = formatter.format(dd);
             	app.setDate(appDate);
-            	app.setTime(db.resultSet.getTime(5));
+            	Time temp = db.resultSet.getTime(5);
+            	app.setTime(temp);
             	app.setPatientId(db.resultSet.getString(6));
+            	app.setDateTime(appDate, temp);
+            	app.setPassed();
             	DataList.add(app);
+
             	count++;
                 
             }
@@ -79,7 +85,7 @@ public class ViewAppointment {
             e1.printStackTrace();
         }
 
-        AppointmentTable.getColumns().addAll(appointment_id, doctorName, specilization, date, time);
+        AppointmentTable.getColumns().addAll(appointment_id, doctorName, specilization, date, time, passed);
 
         VBox TableVB = new VBox();
         TableVB.getChildren().add(AppointmentTable);

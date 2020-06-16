@@ -219,13 +219,13 @@ public class Home {
 
         try {
             Database db = new Database();
-            String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE DESC, time DESC LIMIT 3";
+            String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE ASC";
             db.prestatement = db.Connect.prepareStatement(query);
             db.prestatement.setString(1, Login.getUName());
 
             db.resultSet = db.prestatement.executeQuery();
             int count = 1;
-            while (db.resultSet.next()) {
+            while (db.resultSet.next() && count < 4) {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Appointment app = new Appointment();
                 app.setAppCount(count);
@@ -234,6 +234,7 @@ public class Home {
                 String appDate = formatter.format(dd);
                 app.setDate(appDate);
                 app.setTime(db.resultSet.getTime(2));
+                app.setDateTime(appDate, db.resultSet.getTime(2));
                 app.setEndTime(db.resultSet.getTime(3));
 
 
@@ -242,9 +243,11 @@ public class Home {
 
                 String patientName = firstName + " " + lastName;
                 app.setPatientName(patientName);
-
-                DataList.add(app);
-                count++;
+                app.setPassed();
+                if(!app.getPassed()) {
+                    DataList.add(app);
+                    count++;
+                }
             }
         } catch (Exception e1) {
             System.out.println("Error while fetching data from Appointment!");
