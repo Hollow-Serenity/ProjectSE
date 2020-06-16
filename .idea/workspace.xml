@@ -25,15 +25,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="505d1443-2924-43c3-942f-8f0c022b7186" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProjectSE_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectSE_1.iml" afterDir="false" />
+    <list default="true" id="505d1443-2924-43c3-942f-8f0c022b7186" name="Default Changelist" comment="Resolution for addContact">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Question.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +106,14 @@
       <workItem from="1592238336698" duration="884000" />
       <workItem from="1592242115618" duration="829000" />
     </task>
+    <task id="LOCAL-00001" summary="Resolution for addContact">
+      <created>1592317304537</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592317304537</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +131,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Resolution for addContact" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolution for addContact" />
   </component>
   <component name="WindowStateProjectService">
     <state x="338" y="0" width="617" height="720" key="#Login" />
