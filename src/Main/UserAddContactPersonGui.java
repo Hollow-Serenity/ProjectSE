@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.nio.BufferUnderflowException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -62,6 +63,10 @@ public class UserAddContactPersonGui {
         addContactButton.setOnAction(actionEvent -> {
             try {
                 Person person = new Person(firstNameTextField.getText(), lastNameTextField.getText(), phoneNumberTextField.getText());
+                firstNameTextField.clear();
+                lastNameTextField.clear();
+                phoneNumberTextField.clear();
+
 
                 if(!tableView.getItems().isEmpty()) {
                     tableView.getItems().clear();
@@ -98,8 +103,12 @@ public class UserAddContactPersonGui {
         hBoxPhoneNumber.getChildren().addAll(phoneNumberLabel, phoneNumberTextField);
         hBoxPhoneNumber.setAlignment(Pos.CENTER_LEFT);
 
+        HBox Buttons = new HBox(20);
+        Buttons.getChildren().addAll(addContactButton, deleteContactButton);
+        Buttons.setAlignment(Pos.CENTER_LEFT);
+
         VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(hBoxFirstName, hBoxLastName, hBoxPhoneNumber, addContactButton, addedContactLabel, tableView, deleteContactButton);
+        vBox.getChildren().addAll(hBoxFirstName, hBoxLastName, hBoxPhoneNumber, Buttons, addedContactLabel, tableView);
         vBox.setPadding(new Insets(40, 40, 40, 40));
         vBox.setAlignment(Pos.CENTER_LEFT);
         vBox.setMinSize(800, 800);

@@ -58,6 +58,8 @@ public class UserAddContactCompanyGui {
         addContactButton.setOnAction(actionEvent -> {
             try {
                 Company company = new Company(companyNameTextField.getText(), phoneNumberTextField.getText());
+                companyNameTextField.clear();
+                phoneNumberTextField.clear();
 
                 if(!tableView.getItems().isEmpty()) {
                     tableView.getItems().clear();
@@ -91,8 +93,14 @@ public class UserAddContactCompanyGui {
         hBoxPhoneNumber.getChildren().addAll(phoneNumberLabel, phoneNumberTextField);
         hBoxPhoneNumber.setAlignment(Pos.CENTER_LEFT);
 
+        HBox Buttons = new HBox(20);
+        Buttons.getChildren().addAll(addContactButton, deleteContactButton);
+        Buttons.setAlignment(Pos. CENTER_LEFT);
+
+
+
         VBox vBox = new VBox(20);
-        vBox.getChildren().addAll(hBoxFirstName, hBoxPhoneNumber, addContactButton, addedContactLabel, tableView, deleteContactButton);
+        vBox.getChildren().addAll(hBoxFirstName, hBoxPhoneNumber, Buttons, addedContactLabel, tableView);
         vBox.setPadding(new Insets(40, 40, 40, 40));
         vBox.setAlignment(Pos.CENTER_LEFT);
         vBox.setMinSize(800, 800);
