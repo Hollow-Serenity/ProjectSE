@@ -432,20 +432,18 @@ public class AddAppointment {
 	public void showReservedSlots() {
 		Stage stage = new Stage();
         ObservableList<Appointment> DataList = FXCollections.observableArrayList();
-        TableView<Appointment> AppointmentTable = new TableView<Appointment>(DataList);
+        TableView<Appointment> AppointmentTable = new TableView<>(DataList);
 
-        TableColumn<Appointment, Integer> srNo = new TableColumn<Appointment, Integer>("Sr.#");
-        TableColumn<Appointment, String> date = new TableColumn<Appointment, String>("Date");
-        TableColumn<Appointment, Time> sTime = new TableColumn<Appointment, Time>("Start Time");
-        TableColumn<Appointment, Time> eTime = new TableColumn<Appointment, Time>("End Time");
-        
+        TableColumn<Appointment, Integer> srNo = new TableColumn<>("Sr.#");
+        TableColumn<Appointment, String> date = new TableColumn<>("Date");
+        TableColumn<Appointment, Time> sTime = new TableColumn<>("Start Time");
+        TableColumn<Appointment, Time> eTime = new TableColumn<>("End Time");
+
         srNo.setCellValueFactory(new PropertyValueFactory<>("appCount"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         sTime.setCellValueFactory(new PropertyValueFactory<>("time"));
         eTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-        
-        
-        
+
         try {
         	Database db = new Database();
             db.prestatement = db.Connect.prepareStatement("SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime FROM appointment WHERE doctorName = ? AND DATE = ?");

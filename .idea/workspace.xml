@@ -8,6 +8,11 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -25,10 +30,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="505d1443-2924-43c3-942f-8f0c022b7186" name="Default Changelist" comment="">
+    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="writing merge">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ProjectSE_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProjectSE_1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Eduplatform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Mathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Mathematics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/ViewAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ViewAppointment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +47,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1dJLO8FAMjQMY4iwY3mz2M6ixvl" />
@@ -45,6 +61,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -53,23 +70,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.13.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../untitled" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -88,6 +93,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Login" />
+        <item itemvalue="Application.Login" />
       </list>
     </recent_temporary>
   </component>
@@ -96,7 +102,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="505d1443-2924-43c3-942f-8f0c022b7186" name="Default Changelist" comment="" />
+      <changelist id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="writing merge" />
       <created>1592138214470</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -104,22 +110,8 @@
       <workItem from="1592138215827" duration="785000" />
       <workItem from="1592238336698" duration="884000" />
       <workItem from="1592242115618" duration="829000" />
+      <workItem from="1592310765501" duration="10886000" />
     </task>
-    <task id="LOCAL-00001" summary="Resolution for addContact">
-      <created>1592317304537</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1592317304537</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Resolution for ReadingAssignment">
-      <created>1592317827276</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1592317827276</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,33 +122,50 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Resolution for addContact" />
-    <MESSAGE value="Resolution for ReadingAssignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolution for ReadingAssignment" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="338" y="0" width="617" height="720" key="#Login" />
-    <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" />
-    <state x="348" y="102" key="FileChooserDialogImpl" />
-    <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" />
-    <state width="1220" height="173" key="GridCell.Tab.0.bottom" />
-    <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" />
-    <state width="1220" height="173" key="GridCell.Tab.0.center" />
-    <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" />
-    <state width="1220" height="173" key="GridCell.Tab.0.left" />
-    <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" />
-    <state width="1220" height="173" key="GridCell.Tab.0.right" />
-    <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" />
-    <state x="121" y="0" key="SettingsEditor" />
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" />
+    <state x="338" y="0" width="617" height="720" key="#Login" timestamp="1592242232521">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592242232521" />
+    <state x="557" y="158" key="FileChooserDialogImpl" timestamp="1592323797636">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="557" y="158" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592323797636" />
+    <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592242278459" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592324169213">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592324169213" />
+    <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592324169213">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592324169213" />
+    <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592324169213">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592324169213" />
+    <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592324169213">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592324169213" />
+    <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1592242280367">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1592242280367" />
+    <state x="754" y="448" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592254523430">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="754" y="448" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592254523430" />
   </component>
 </project>
