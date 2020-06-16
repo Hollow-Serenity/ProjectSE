@@ -25,7 +25,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f593677a-8a80-42f1-bdf9-295c033067d0" name="Default Changelist" comment="Switchen naar Maths GUI werkt" />
+    <list default="true" id="505d1443-2924-43c3-942f-8f0c022b7186" name="Default Changelist" comment="Resolution for addContact">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Question.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,11 +54,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.13.jar!/" />
+    <property name="last_opened_file_path" value="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.13.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -107,35 +124,32 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Resolution for addContact" />
     <option name="LAST_COMMIT_MESSAGE" value="Resolution for addContact" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="338" y="0" width="617" height="720" key="#Login" timestamp="1592317894183" />
-    <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592317894183" />
-    <state x="348" y="102" key="FileChooserDialogImpl" timestamp="1592317894183" />
-    <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.bottom" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.center" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.left" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.right" timestamp="1592317894183" />
-    <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592317894183" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1592317894183" />
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1592317894183" />
-    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592318265835">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1592318265835" />
+    <state x="338" y="0" width="617" height="720" key="#Login" />
+    <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" />
+    <state x="348" y="102" key="FileChooserDialogImpl" />
+    <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" />
+    <state width="1220" height="173" key="GridCell.Tab.0.bottom" />
+    <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" />
+    <state width="1220" height="173" key="GridCell.Tab.0.center" />
+    <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" />
+    <state width="1220" height="173" key="GridCell.Tab.0.left" />
+    <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" />
+    <state width="1220" height="173" key="GridCell.Tab.0.right" />
+    <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" />
+    <state x="121" y="0" key="SettingsEditor" />
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" />
   </component>
 </project>

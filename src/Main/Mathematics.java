@@ -28,8 +28,6 @@ public class Mathematics implements EventHandler<ActionEvent> {
         layout.getStyleClass().add("hbox");
         Login.getLayout().setCenter(layout);
         submit.setOnAction(this);
-        stage.setScene(scene);
-        stage.show();
     }
 
         private static void frontend(){
