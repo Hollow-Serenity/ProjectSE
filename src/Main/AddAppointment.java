@@ -5,7 +5,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -13,25 +12,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class AddAppointment {
 	private static final Connection Connect = Database.getConnection();
 	private static PreparedStatement prestatement = Database.getPrestatement();
 	private static ResultSet resultSet = Database.getResultSet();
 
+	private final ObservableList<Appointment> DataList = FXCollections.observableArrayList();
+	private final TableView<Appointment> AppointmentTable = new TableView<>(DataList);
 
-	private final Stage DialogStage = new Stage();
 	private final VBox mainVB = new VBox(10);
 	private final VBox Center = new VBox(20);
+	private final VBox CenterRes = AddProducts.createCenter(20,500,500);
+	private final VBox TableVB = new VBox();
 	private final HBox hBox1 = new HBox();
 	private final HBox hBox2 = new HBox();
 	private final HBox hBox3 = new HBox();
@@ -102,6 +101,8 @@ public class AddAppointment {
 		});
 		txtDate.setEditable(false);
 		status.setFill(Color.RED);
+		cbSelectDoctor.getItems().clear();
+		getDoctors();
 
 		Menu m = new Menu();
 		Login.getLayout().setTop(m.Menu());
@@ -319,71 +320,63 @@ public class AddAppointment {
 		spinnerMM.getValueFactory().setValue(1);
 	}
 
+	private void createReservedTable() {
+		TableColumn<Appointment, Integer> srNo = new TableColumn<>("Sr.#");
+		TableColumn<Appointment, String> date = new TableColumn<>("Date");
+		TableColumn<Appointment, Time> sTime = new TableColumn<>("Start Time");
+		TableColumn<Appointment, Time> eTime = new TableColumn<>("End Time");
+
+		srNo.setCellValueFactory(new PropertyValueFactory<>("appCount"));
+		date.setCellValueFactory(new PropertyValueFactory<>("date"));
+		sTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+		eTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+		AppointmentTable.getColumns().addAll(srNo, date, sTime, eTime);
+	}
+
+	private void setPrestatement() throws SQLException {
+		prestatement = Connect.prepareStatement("SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime FROM appointment WHERE doctorName = ? AND DATE = ?");
+		prestatement.setString(1, cbSelectDoctor.getSelectionModel().getSelectedItem().toString());
+		prestatement.setDate(2, java.sql.Date.valueOf(txtDate.getValue()));
+		resultSet = prestatement.executeQuery();
+	}
+
+	private void setDetails(int count) throws SQLException {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Appointment app = new Appointment();
+		app.setAppCount(count);
+		app.setDate(formatter.format(resultSet.getDate(1)));
+		app.setTime(resultSet.getTime(2));
+		app.setEndTime(resultSet.getTime(3));
+		DataList.add(app);
+	}
+
+	private void fillTable(){
+		try {
+			setPrestatement();
+			int count = 1;
+			while (resultSet.next()) {
+				setDetails(count);
+				count++;
+			}
+		} catch (Exception e1) {
+			System.out.println("Error while fetching data from Appointment!");
+			e1.printStackTrace();
+		}
+	}
+
 	public void showReservedSlots() {
-		Stage stage = new Stage();
-        ObservableList<Appointment> DataList = FXCollections.observableArrayList();
-        TableView<Appointment> AppointmentTable = new TableView<>(DataList);
+		createReservedTable();
+        fillTable();
 
-        TableColumn<Appointment, Integer> srNo = new TableColumn<>("Sr.#");
-        TableColumn<Appointment, String> date = new TableColumn<>("Date");
-        TableColumn<Appointment, Time> sTime = new TableColumn<>("Start Time");
-        TableColumn<Appointment, Time> eTime = new TableColumn<>("End Time");
-
-        srNo.setCellValueFactory(new PropertyValueFactory<>("appCount"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        sTime.setCellValueFactory(new PropertyValueFactory<>("time"));
-        eTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-
-        try {
-            prestatement = Connect.prepareStatement("SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime FROM appointment WHERE doctorName = ? AND DATE = ?");
-            prestatement.setString(1, cbSelectDoctor.getSelectionModel().getSelectedItem().toString());
-            prestatement.setDate(2, java.sql.Date.valueOf(txtDate.getValue()));
-            resultSet = prestatement.executeQuery();
-            int count = 1;
-            while (resultSet.next()) {
-            	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
-            	Appointment app = new Appointment();
-            	app.setAppCount(count);
-            	
-            	Date dd = resultSet.getDate(1);
-            	String appDate = formatter.format(dd);
-            	app.setDate(appDate);
-            	app.setTime(resultSet.getTime(2));
-            	app.setEndTime(resultSet.getTime(3));
-            	
-            	DataList.add(app);
-            	count++;
-            }
-        } catch (Exception e1) {
-            System.out.println("Error while fetching data from Appointment!");
-            e1.printStackTrace();
-        }
-        
-        AppointmentTable.getColumns().addAll(srNo, date, sTime, eTime);
-        
-        VBox TableVB = new VBox();
         TableVB.getChildren().add(AppointmentTable);
         TableVB.setMinWidth(250);
+        CenterRes.getChildren().addAll(TableVB);
 
-        HBox ButtonBox = new HBox();
-
-
-        VBox Center = new VBox();
-        Center.getStyleClass().add("hbox");
-        Center.getChildren().addAll(TableVB);
-        Center.setMaxHeight(500);
-        Center.setMaxWidth(500);
-        Center.setSpacing(20);
-
-        stage.setResizable(false);
-        Scene DialogScn = new Scene(Center, 500, 500);
-        DialogScn.getStylesheets().add(getClass().getResource("../css/application.css").toExternalForm());
-        stage.setScene(DialogScn);
-
-        stage.setTitle("View Reserved Slots");
-        stage.show();
+		Menu m = new Menu();
+		Login.getLayout().setTop(m.Menu());
+		Login.getLayout().setCenter(CenterRes);
     }
-	
+
 	private boolean validateFieldsForCheckReserved() {
 		if(cbSelectDoctor.getSelectionModel().getSelectedItem() == null) {
 			status.setText("Please Select A Doctor");
