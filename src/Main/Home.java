@@ -80,11 +80,10 @@ public class Home {
     private void setLogoutBtn() {
         setButtonLooks(LogoutBtn, "../Images/Logout.png", "Logout");
         LogoutBtn.setOnAction(e -> {
-            Login d = new Login();
             Login.setUName(null);
             Login.setIsLogin(false);
             Login.setIsDoctor(false);
-            d.login();
+            Login.login();
         });
     }
 

@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -15,6 +16,7 @@ import javafx.scene.text.Text;
 public class Registration {
 
 	private static VBox Center;
+	private static HBox Buttons = new HBox(30);
 
 	private static Connection Connect = Database.getConnection();
 	private static PreparedStatement prestatement = Database.getPrestatement();
@@ -30,8 +32,9 @@ public class Registration {
 
 	private static ChoiceBox<String> Doctor = new ChoiceBox<>();
 
-	private static Button Register = new Button("Register");
+	private static Button RegisterBtn = new Button("Register");
 	private static Button UpdateBtn = new Button("Update account");
+	private static Button DeleteBtn = new Button ("Delete Account");
 
 	public Boolean checkUName(String username) {
 		if (!UName.getText().equals(Login.getUName())) {
@@ -123,8 +126,8 @@ public class Registration {
 	}
 
 	public void startRegistration() {
-		Register.setAlignment(Pos.BASELINE_CENTER);
-		Register.setOnAction(e -> {
+		RegisterBtn.setAlignment(Pos.BASELINE_CENTER);
+		RegisterBtn.setOnAction(e -> {
 			if(checkPassword()) {
 				try {
 					databaseInsert();
@@ -140,7 +143,7 @@ public class Registration {
 				checkPasswordFault();
 			}
 		});
-		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, Register);
+		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, RegisterBtn);
 	}
 
 	public void showAccountDetails() throws SQLException {
@@ -190,7 +193,6 @@ public class Registration {
 
 	public void startEditAccount() throws SQLException {
 		showAccountDetails();
-		UpdateBtn.setAlignment(Pos.BASELINE_CENTER);
 		UpdateBtn.setOnAction(e -> {
 			if(checkPassword()) {
 				Home H = new Home();
@@ -205,7 +207,17 @@ public class Registration {
 				checkPasswordFault();
 			}
 		});
-		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, UpdateBtn);
+		DeleteBtn.setOnAction(event -> {
+			if(checkPassword()) {
+				deleteAccount();
+				Login.login();
+			}
+			else {
+				checkPasswordFault();
+			}
+		});
+		Buttons.getChildren().addAll(UpdateBtn, DeleteBtn);
+		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, Buttons);
 	}
 
 	public Registration() throws Exception {

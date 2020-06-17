@@ -44,9 +44,9 @@ public class Login extends Application {
 	private static Label CName = new Label("Welcome to zeroXess");
 	private static Label LoginLbl = new Label("Login");
 
-	private Text Status = new Text();
-	private TextField UName = new TextField();
-	private PasswordField Password = new PasswordField();
+	private static Text Status = new Text();
+	private static TextField UName = new TextField();
+	private static PasswordField Password = new PasswordField();
 
 	private static Button LoginBtn = new Button("Login");
 	private static Button Register = new Button("Sign up");
@@ -63,7 +63,7 @@ public class Login extends Application {
 		Window.setTitle("ZeroXess");
 	}
 
-	public void setStyles() {
+	public static void setStyles() {
 		UName.setPromptText("Username");
 		UName.getStyleClass().add("Username");
 
@@ -80,7 +80,7 @@ public class Login extends Application {
 		LoginLbl.getStyleClass().addAll("LoginHeading");
 	}
 
-	private VBox getCompanyInfoBox() {
+	private static VBox getCompanyInfoBox() {
 		VBox CIBox = new VBox( 10);
 
 		Line Hr = new Line(0, 0, 100, 0);
@@ -100,7 +100,7 @@ public class Login extends Application {
 		return CIBox;
 	}
 
-	private VBox getLoginBox() {
+	private static VBox getLoginBox() {
 		VBox LoginBox = new VBox();
 
 		LoginBox.getStyleClass().add("WhiteVbox");
@@ -111,7 +111,7 @@ public class Login extends Application {
 		return LoginBox;
 	}
 
-	private HBox getCenterBox(VBox ci, VBox login) {
+	private static HBox getCenterBox(VBox ci, VBox login) {
 		HBox CenterBox = new HBox();
 		CenterBox.getStyleClass().add("CenterHbox");
 		CenterBox.getChildren().addAll(ci, login);
@@ -119,38 +119,38 @@ public class Login extends Application {
 		return CenterBox;
 	}
 
-	private void initiate() {
+	private static void initiate() {
 		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 		Scn = new Scene(Layout, 800, 600);
-		Scn.getStylesheets().add(getClass().getResource("../css/application.css").toExternalForm());
+		Scn.getStylesheets().add(Login.class.getResource("../css/application.css").toExternalForm());
 		Window.setScene(Scn);
 		Window.setMaximized(false);
 		Window.show();
 	}
 
-	private void keyEvent(KeyEvent e) {
+	private static void keyEvent(KeyEvent e) {
 		if (e.getCode() == KeyCode.ENTER) {
 			LoginBtn.fire();
 		}
 	}
 
-	private void doctorCheck() throws SQLException {
+	private static void doctorCheck() throws SQLException {
 		if (resultSet.getString("isDoctor").equals("T")) {
 			isDoctor = true;
 		}
 	}
 
-	private void saveInfo() throws SQLException {
+	private static void saveInfo() throws SQLException {
 		StoreUName = UName.getText();
 		isLogin = true;
 		doctorCheck();
 	}
 
-	private Boolean loginCheck() throws SQLException {
+	private static Boolean loginCheck() throws SQLException {
 		return  Password.getText().equals(resultSet.getString("password"));
 	}
 
-	private void loginAttempt() {
+	private static void loginAttempt() {
 		try {
 			prestatement = Connect.prepareStatement("select * from users where userName = ?");
 			prestatement.setString(1, UName.getText());
@@ -176,7 +176,7 @@ public class Login extends Application {
 		}
 	}
 
-	private void startRegistration() {
+	private static void startRegistration() {
 		try {
 			new Registration();
 		} catch (Exception e) {
@@ -184,7 +184,7 @@ public class Login extends Application {
 		}
 	}
 
-	public void login() {
+	public static void login() {
 		setStyles();
 
 		VBox CompanyInformation = getCompanyInfoBox();
