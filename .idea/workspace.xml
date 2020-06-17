@@ -30,15 +30,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="writing merge">
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$3.class" afterDir="false" />
+    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="ViewAppointment refactored">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DbUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DbUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AddProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Specialization.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Specialization.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ViewAppointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ViewAppointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Specialization.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/ViewAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ViewAppointment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +116,14 @@
       <workItem from="1592381684205" duration="9246000" />
       <workItem from="1592391249120" duration="1224000" />
     </task>
+    <task id="LOCAL-00001" summary="ViewAppointment refactored">
+      <created>1592399554039</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592399554040</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +141,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ViewAppointment refactored" />
+    <option name="LAST_COMMIT_MESSAGE" value="ViewAppointment refactored" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="338" y="0" width="617" height="720" key="#Login" timestamp="1592242232521">
       <screen x="0" y="0" width="1280" height="720" />
@@ -146,30 +159,46 @@
     </state>
     <state x="557" y="158" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592386960931" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592242278459" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592398660276">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592408787764">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592408787764" />
     <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574895" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592398660276">
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592408787764">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592408787764" />
     <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592398660276">
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592408787764">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592408787764" />
     <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592398660276">
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592408787764">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592408787764" />
     <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1592404021963">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592404021963" />
+    <state width="2005" height="376" key="GridCell.Tab.1.center" timestamp="1592404021963">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592404021963" />
+    <state width="2005" height="376" key="GridCell.Tab.1.left" timestamp="1592404021963">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592404021963" />
+    <state width="2005" height="376" key="GridCell.Tab.1.right" timestamp="1592404021963">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="2005" height="376" key="GridCell.Tab.1.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592404021963" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1592242280367">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

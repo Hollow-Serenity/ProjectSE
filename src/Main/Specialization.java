@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Specialization {
-    private static Connection Connect = Database.getConnection();
+    private static final Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
 

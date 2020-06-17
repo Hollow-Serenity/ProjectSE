@@ -33,6 +33,7 @@ public class ViewAppointment {
     private TableView<Appointment> AppointmentTable = new TableView<>(DataList);
 
     private VBox TableVB = new VBox();
+    private VBox Center = AddProducts.createCenter(20, 800, 1000);
     private HBox ButtonB = new HBox();
 
     private Button New = new Button("Make New Appointment");
@@ -154,7 +155,6 @@ public class ViewAppointment {
         ButtonB.getChildren().addAll(New, update, deleteButton);
         ButtonB.setSpacing(10);
 
-        VBox Center = AddProducts.createCenter(20, 800, 1000);
         Center.getChildren().addAll(TableVB, ButtonB);
         Login.getLayout().setCenter(Center);
     }
@@ -164,17 +164,9 @@ public class ViewAppointment {
         fillTable();
         setLayout();
 
-        New.setOnAction(event -> {
-            addAppointmentAction(null, -1);
-        });
-
-        update.setOnAction(event -> {
-            updateAppointmentAction();
-        });
-
-        deleteButton.setOnAction(event ->  {
-            deleteAppointmentAction();
-        });
+        New.setOnAction(event -> addAppointmentAction(null, -1));
+        update.setOnAction(event -> updateAppointmentAction());
+        deleteButton.setOnAction(event -> deleteAppointmentAction());
     }
 
 }
