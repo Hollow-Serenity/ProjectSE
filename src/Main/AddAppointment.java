@@ -59,17 +59,13 @@ public class AddAppointment {
 		Label lblSelectDoctor = new Label("Select Doctor:");
 		lblSelectDoctor.setPadding(new Insets(0, 32, 0, 0));
 		
-//		cbSelectDoctor.setOnAction(f->{
-//			cbSpecilization.getItems().clear();
-//			getSpecilization();
-//		});
+
 		hBox1.getChildren().addAll(lblSelectDoctor, cbSelectDoctor);
 		
 		HBox hBox2 = new HBox();
 		cbSpecilization.setPrefWidth(150);
 		Label lblSpecilization = new Label("Select Specilization:");
-		Specialization specialization = new Specialization();
-		cbSpecilization = specialization.addSpecializationChoiceBox();
+		cbSpecilization = Specialization.addSpecializationChoiceBox();
 		cbSpecilization.setOnAction(f->{
 			cbSelectDoctor.getItems().clear();
 			getDoctors();
@@ -183,11 +179,7 @@ public class AddAppointment {
 		mainVB.getChildren().addAll(hBox2, hBox1, hBox3, hBox4, vbox);
 		mainVB.getStyleClass().add("hbox");
 		
-//		mainVB.setMaxHeight(800);
-//		mainVB.setMaxWidth(1000);
-//		mainVB.setSpacing(20);
-//		mainVB.setMaxWidth(400);
-//		mainVB.setMaxHeight(250);
+
 		mainVB.setSpacing(10);
 		
 		Scene DialogScn = new Scene(mainVB, 450, 300);

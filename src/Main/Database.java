@@ -12,7 +12,7 @@ public class Database {
     //private final static String CONNECTION_URL = "jdbc:mysql://localhost/zeroxess?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private Database() {
         try {
-            Connect = DriverManager.getConnection(CONNECTION_URL, "root", "Vlekkie15");
+            Connect = DriverManager.getConnection(CONNECTION_URL, "root", "d1i2n3o4");
         } catch (SQLException e) {
             System.out.println("Cannot Connect to the Database:  " + e.getMessage());
         }
