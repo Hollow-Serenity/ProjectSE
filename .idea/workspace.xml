@@ -31,23 +31,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="writing merge">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Contacts.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Contacts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Home.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Home.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Light.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Livestock.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Livestock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Marketplace.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Marketplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Scene1.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/Scene1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SignUp.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SignUp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DbUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DbUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AddProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AddProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/ViewAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ViewAppointment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,13 +125,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="338" y="0" width="617" height="720" key="#Login" timestamp="1592242232521">
@@ -155,28 +146,28 @@
     </state>
     <state x="557" y="158" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592386960931" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592242278459" />
-    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1592392574895">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592398660276">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592390653502" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
     <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574895" />
-    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1592392574894">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592398660276">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592390653501" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
     <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
-    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1592392574894">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592398660276">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592390653501" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
     <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
-    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1592392574894">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592398660276">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592390653501" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398660276" />
     <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1592242280367">
@@ -191,5 +182,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592391253184" />
+    <state x="755" y="317" key="extract.method.dialog" timestamp="1592398642418">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="755" y="317" key="extract.method.dialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592398642418" />
   </component>
 </project>

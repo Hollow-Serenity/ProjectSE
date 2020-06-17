@@ -24,6 +24,14 @@ public class AddProducts {
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
 
+    public static VBox createCenter(int spacing, int height, int width) {
+        VBox Center = new VBox(spacing);
+        Center.getStyleClass().add("hbox");
+        Center.setMaxHeight(height);
+        Center.setMaxWidth(width);
+        return Center;
+    }
+
     @SuppressWarnings("unchecked")
     public void AddProduct() {
 
@@ -82,12 +90,8 @@ public class AddProducts {
         ButtonB.getChildren().addAll(New, Edit, Delete);
         ButtonB.setSpacing(10);
 
-        VBox Center = new VBox();
-        Center.getStyleClass().add("hbox");
+        VBox Center = createCenter(20, 800, 1000);
         Center.getChildren().addAll(TableVB, ButtonB);
-        Center.setMaxHeight(800);
-        Center.setMaxWidth(1000);
-        Center.setSpacing(20);
 
         Login.getLayout().setCenter(Center);
     }
@@ -143,12 +147,8 @@ public class AddProducts {
         ButtonBox.getChildren().addAll(EnterBtn, CancelBtn);
         ButtonBox.setSpacing(10);
 
-        VBox Center = new VBox();
-        Center.getStyleClass().add("hbox");
+        VBox Center = createCenter(20, 500, 500);
         Center.getChildren().addAll(DialogNewProduct, ButtonBox);
-        Center.setMaxHeight(500);
-        Center.setMaxWidth(500);
-        Center.setSpacing(20);
 
         DialogStage.setResizable(false);
         Scene DialogScn = new Scene(Center, 700, 600);
@@ -219,12 +219,8 @@ public class AddProducts {
             ButtonBox.getChildren().addAll(UpdateBtn, CancelBtn);
             ButtonBox.setSpacing(10);
 
-            VBox Center = new VBox();
-            Center.getStyleClass().add("hbox");
+            VBox Center = createCenter(20, 500, 500);
             Center.getChildren().addAll(DialogNewProduct, ButtonBox);
-            Center.setMaxHeight(500);
-            Center.setMaxWidth(500);
-            Center.setSpacing(20);
 
             DialogStage.setResizable(false);
             Scene DialogScn = new Scene(Center, 700, 600);

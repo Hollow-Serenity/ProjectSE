@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -28,11 +29,17 @@ public class ViewAppointment {
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
 
-    @SuppressWarnings("unchecked")
-    public void ViewAppointment() {
-        ObservableList<Appointment> DataList = FXCollections.observableArrayList();
-        TableView<Appointment> AppointmentTable = new TableView<>(DataList);
+    private ObservableList<Appointment> DataList = FXCollections.observableArrayList();
+    private TableView<Appointment> AppointmentTable = new TableView<>(DataList);
 
+    private VBox TableVB = new VBox();
+    private HBox ButtonB = new HBox();
+
+    private Button New = new Button("Make New Appointment");
+    private Button update = new Button("Update Appointment");
+    private Button deleteButton = new Button("Delete Appointment");
+
+    private void setTable() {
         TableColumn<Appointment, Integer> appointment_id = new TableColumn<>("Sr.#");
         TableColumn<Appointment, String> doctorName = new TableColumn<>("Doctor Name");
         TableColumn<Appointment, String> specilization = new TableColumn<>("Specilization");
@@ -47,132 +54,127 @@ public class ViewAppointment {
         time.setCellValueFactory(new PropertyValueFactory<>("time"));
         passed.setCellValueFactory(new PropertyValueFactory<>("passed"));
 
+        AppointmentTable.getColumns().addAll(appointment_id, doctorName, specilization, date, time, passed);
+    }
+
+    private void setPrestatement(SimpleDateFormat formatter) throws SQLException {
+        prestatement = Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ? AND DATE >= ?");
+        prestatement.setString(1, Login.getUName());
+        Date now = new Date();
+        prestatement.setDate(2, java.sql.Date.valueOf(formatter.format(now)));
+        resultSet = prestatement.executeQuery();
+    }
+
+    private void setValues(Appointment app, SimpleDateFormat formatter) throws ParseException, SQLException {
+        app.setAppointmentId(resultSet.getInt(1));
+        app.setDoctorId(resultSet.getString(2));
+        app.setSpecilizationName(resultSet.getString(3));
+        app.setDoctorName(resultSet.getString(7) + " " + resultSet.getString(8));
+        app.setDate(formatter.format(resultSet.getDate(4)));
+        app.setTime(resultSet.getTime(5));
+        app.setPatientId(resultSet.getString(6));
+        app.setDateTime(formatter.format(resultSet.getDate(4)), resultSet.getTime(5));
+        app.setPassed();
+        DataList.add(app);
+    }
+
+    private void fillTable() {
         try {
-            prestatement = Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ? AND DATE >= ?");
-            prestatement.setString(1, Login.getUName());
-            SimpleDateFormat DATE_FORMATDB = new SimpleDateFormat("yyyy-MM-dd");
-            Date now = new Date();
-            prestatement.setDate(2, java.sql.Date.valueOf(DATE_FORMATDB.format(now)));
-            resultSet = prestatement.executeQuery();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            setPrestatement(formatter);
             int count = 1;
             while (resultSet.next()) {
-            	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
-            	Appointment app = new Appointment();
-            	app.setAppCount(count);
-            	app.setAppointmentId(resultSet.getInt(1));
-            	String firstName = resultSet.getString(7);
-            	String lastName = resultSet.getString(8);
-            	
-            	String dName = firstName + " " + lastName;
-            	app.setDoctorName(dName);
-            	app.setDoctorId(resultSet.getString(2));
-            	app.setSpecilizationName(resultSet.getString(3));
-            	
-            	Date dd = resultSet.getDate(4);
-            	String appDate = formatter.format(dd);
-            	app.setDate(appDate);
-            	Time temp = resultSet.getTime(5);
-            	app.setTime(temp);
-            	app.setPatientId(resultSet.getString(6));
-            	app.setDateTime(appDate, temp);
-            	app.setPassed();
-            	DataList.add(app);
-
-            	count++;
-                
+                Appointment app = new Appointment();
+                setValues(app, formatter);
+                app.setAppCount(count);
+                count++;
             }
         } catch (Exception e1) {
             System.out.println("Error while fetching data from Appointment!");
-            e1.printStackTrace();
         }
+    }
 
-        AppointmentTable.getColumns().addAll(appointment_id, doctorName, specilization, date, time, passed);
+    private void addAppointmentAction(String updateCheck, int selectedIndex) {
+        AddAppointment addApp = new AddAppointment();
+        try {
+            addApp.AddAppointment(updateCheck, DataList, selectedIndex);
+        } catch (Exception e) {
+            System.out.println("Error while opening addAppointment");
+            e.printStackTrace();
+        }
+    }
 
-        VBox TableVB = new VBox();
+    private void updateAppointmentAction() {
+        int index = AppointmentTable.getSelectionModel().selectedIndexProperty().get();
+        if(index > -1) {
+            try {
+                addAppointmentAction("update", index);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Alert a = new Alert(AlertType.NONE,
+                    "Please Select Row From Table",ButtonType.OK);
+            a.show();
+        }
+    }
+
+    private void deleteAppointmentAction() {
+        int index = AppointmentTable.getSelectionModel().selectedIndexProperty().get();
+        if(index > -1) {
+            Appointment app = DataList.get(index);
+            int selectedAppId = app.getAppointmentId();
+            deleteAppointment(selectedAppId);
+        }else {
+            Alert a = new Alert(AlertType.NONE,
+                    "Please Select Row From Table",ButtonType.OK);
+            a.show();
+        }
+    }
+
+    private void deleteAppointment(int selectedAppId) {
+        try {
+            String query = " DELETE FROM appointment WHERE appointmentId = ? ";
+            prestatement = Connect.prepareStatement(query);
+            prestatement.setInt(1, selectedAppId);
+
+            prestatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Record Deleted Succesfully");
+            ViewAppointment();
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Database Error in Saving Record");
+            e.printStackTrace();
+        }
+    }
+
+    private void setLayout() {
         TableVB.getChildren().add(AppointmentTable);
         TableVB.setMinWidth(320);
-
-        HBox ButtonB = new HBox();
-        AddAppointment addApp = new AddAppointment();
-        Button New = new Button("Make New Appointment");
-        New.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    addApp.AddAppointment(null, DataList, -1);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        
-        Button update = new Button("Update Appointment");
-        update.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-            	Object object =  AppointmentTable.getSelectionModel().selectedItemProperty().get();
-            	int index = AppointmentTable.getSelectionModel().selectedIndexProperty().get();
-            	if(index > -1) {
-                    try {
-                        addApp.AddAppointment("update", DataList, index);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }else {
-            		Alert a = new Alert(AlertType.NONE,  
-                            "Please Select Row From Table",ButtonType.OK);
-        			a.show();
-            	}
-            }
-        });
-        
-        Button deleteButton = new Button("Delete Appointment");
-        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-            	Object object =  AppointmentTable.getSelectionModel().selectedItemProperty().get();
-            	int index = AppointmentTable.getSelectionModel().selectedIndexProperty().get();
-            	if(index > -1) {
-	            	Appointment app = DataList.get(index);
-	            	int selectedAppId = app.getAppointmentId();
-	            	deleteAppointment(selectedAppId);
-            	}else {
-            		Alert a = new Alert(AlertType.NONE,  
-                            "Please Select Row From Table",ButtonType.OK);
-        			a.show();
-            	}
-            }
-        });
-
-
 
         ButtonB.getChildren().addAll(New, update, deleteButton);
         ButtonB.setSpacing(10);
 
-        VBox Center = new VBox();
-        Center.getStyleClass().add("hbox");
+        VBox Center = AddProducts.createCenter(20, 800, 1000);
         Center.getChildren().addAll(TableVB, ButtonB);
-        Center.setMaxHeight(800);
-        Center.setMaxWidth(1000);
-        Center.setSpacing(20);
-
         Login.getLayout().setCenter(Center);
     }
-    
-    private void deleteAppointment(int selectedAppId) {
-    	try {
-    		String query = " DELETE FROM appointment WHERE appointmentId = ? ";
-    		prestatement = Connect.prepareStatement(query);
-    		prestatement.setInt(1, selectedAppId);
-    		
-    		
-    		prestatement.executeUpdate();
-    		JOptionPane.showMessageDialog(null, "Record Deleted Succesfully");
-    		ViewAppointment();
-    	}catch(Exception e) {
-			JOptionPane.showMessageDialog(null, "Database Error in Saving Record");
-			e.printStackTrace();
-		}
+
+    public void ViewAppointment() {
+        setTable();
+        fillTable();
+        setLayout();
+
+        New.setOnAction(event -> {
+            addAppointmentAction(null, -1);
+        });
+
+        update.setOnAction(event -> {
+            updateAppointmentAction();
+        });
+
+        deleteButton.setOnAction(event ->  {
+            deleteAppointmentAction();
+        });
     }
 
 }
