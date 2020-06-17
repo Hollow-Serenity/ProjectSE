@@ -211,12 +211,11 @@ public class AddAppointment {
 				String time = getTime();
 				prestatement = Connect.prepareStatement("INSERT INTO appointment(doctorName, specializationId, date, time, patientId) VALUES(?,?,?,?,?)");
 				insertRecord(time);
-				JOptionPane.showMessageDialog(null, "Record Saved Succesfully");
 				resetValues();
 				openViewApp();
 			}
 		}catch(Exception e) {
-			JOptionPane.showMessageDialog(null, "Database Error in Saving Record");
+			status.setText("Database Error in Saving Record");
 			e.printStackTrace();
 		}
 	}
@@ -318,9 +317,10 @@ public class AddAppointment {
 		txtDate.setValue(null);
 		spinnerHH.getValueFactory().setValue(0);
 		spinnerMM.getValueFactory().setValue(1);
+		status.setText("");
 	}
 
-	private void createReservedTable() {
+	private void setReservedTable() {
 		TableColumn<Appointment, Integer> srNo = new TableColumn<>("Sr.#");
 		TableColumn<Appointment, String> date = new TableColumn<>("Date");
 		TableColumn<Appointment, Time> sTime = new TableColumn<>("Start Time");
@@ -365,7 +365,7 @@ public class AddAppointment {
 	}
 
 	public void showReservedSlots() {
-		createReservedTable();
+		setReservedTable();
         fillTable();
 
         TableVB.getChildren().add(AppointmentTable);

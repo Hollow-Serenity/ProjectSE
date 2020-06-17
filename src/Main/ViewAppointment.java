@@ -81,6 +81,7 @@ public class ViewAppointment {
 
     private void fillTable() {
         try {
+            DataList.clear();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             setPrestatement(formatter);
             int count = 1;
@@ -141,9 +142,9 @@ public class ViewAppointment {
 
             prestatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Record Deleted Succesfully");
-            ViewAppointment();
+            fillTable();
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Database Error in Saving Record");
+            JOptionPane.showMessageDialog(null, "Database Error in Deleting Record");
             e.printStackTrace();
         }
     }
