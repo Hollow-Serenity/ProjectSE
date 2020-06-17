@@ -1,5 +1,8 @@
 package Main;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javafx.application.Application;
@@ -27,7 +30,11 @@ public class Login extends Application {
 	private static Boolean isDoctor = false;
 	private static String StoreUName;
 
-	private static Database db = new Database();
+	private static Database db = Database.getDatabase();
+
+	private static Connection Connect = Database.getConnection();
+	private static PreparedStatement prestatement = Database.getPrestatement();
+	private static ResultSet resultSet = Database.getResultSet();
 
 	private static Stage Window;
 	private static Scene Scn;
@@ -128,7 +135,7 @@ public class Login extends Application {
 	}
 
 	private void doctorCheck() throws SQLException {
-		if (db.resultSet.getString("isDoctor").equals("T")) {
+		if (resultSet.getString("isDoctor").equals("T")) {
 			isDoctor = true;
 		}
 	}
@@ -140,15 +147,15 @@ public class Login extends Application {
 	}
 
 	private Boolean loginCheck() throws SQLException {
-		return  Password.getText().equals(db.resultSet.getString("password"));
+		return  Password.getText().equals(resultSet.getString("password"));
 	}
 
 	private void loginAttempt() {
 		try {
-			db.prestatement = db.Connect.prepareStatement("select * from users where userName = ?");
-			db.prestatement.setString(1, UName.getText());
-			db.resultSet = db.prestatement.executeQuery();
-			while (db.resultSet.next()) {
+			prestatement = Connect.prepareStatement("select * from users where userName = ?");
+			prestatement.setString(1, UName.getText());
+			resultSet = prestatement.executeQuery();
+			while (resultSet.next()) {
 				if(loginCheck()) {
 					saveInfo();
 					Password.setText("");

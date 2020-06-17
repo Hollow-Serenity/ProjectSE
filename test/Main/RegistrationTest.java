@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RegistrationTest {
     JFXPanel fxPanel = new JFXPanel();
-    Database db = new Database();
     Registration R = new Registration("TesterFirst", "TesterLast", "TesterUName", "TesterPW", "TesterPW");
 
     @Test
@@ -38,8 +37,8 @@ public class RegistrationTest {
     @Test
     @Order(3)
     void testCheckUName() throws SQLException {
-        assertEquals(false, R.checkUName(db, "UNameUpdate"));
-        assertEquals(true, R.checkUName(db, "TesterUName"));
+        assertEquals(false, R.checkUName("UNameUpdate"));
+        assertEquals(true, R.checkUName("TesterUName"));
     }
 
     @Test

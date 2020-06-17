@@ -1,5 +1,8 @@
 package Main;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -13,7 +16,9 @@ public class Registration {
 
 	private static VBox Center;
 
-	private static Database db = new Database();
+	private static Connection Connect = Database.getConnection();
+	private static PreparedStatement prestatement = Database.getPrestatement();
+	private static ResultSet resultSet = Database.getResultSet();
 
 	private static Text Status = new Text();
 
@@ -28,15 +33,15 @@ public class Registration {
 	private static Button Register = new Button("Register");
 	private static Button UpdateBtn = new Button("Update account");
 
-	public Boolean checkUName(Database db, String username) {
+	public Boolean checkUName(String username) {
 		if (!UName.getText().equals(Login.getUName())) {
 			try {
 				String res = null;
-				db.prestatement = db.Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
-				db.prestatement.setString(1, username);
-				db.resultSet = db.prestatement.executeQuery();
-				while (db.resultSet.next()) {
-					res = db.resultSet.getString(1);
+				prestatement = Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
+				prestatement.setString(1, username);
+				resultSet = prestatement.executeQuery();
+				while (resultSet.next()) {
+					res = resultSet.getString(1);
 				}
 				return res == null;
 			} catch (SQLException e) {
@@ -85,7 +90,7 @@ public class Registration {
 				&& !UName.getText().equals("")
 				&& !First.getText().equals("")
 				&& !Last.getText().equals("")
-				&& checkUName(db, UName.getText());
+				&& checkUName(UName.getText());
 	}
 
 	public void checkPasswordFault() {
@@ -97,7 +102,7 @@ public class Registration {
 				Status.setText("PW must be between 7 and 20 characters");
 			}
 			else {
-				if (!checkUName(db, UName.getText())) {
+				if (!checkUName(UName.getText())) {
 					Status.setText("This username already exists");
 				}
 				else {
@@ -108,13 +113,13 @@ public class Registration {
 	}
 
 	public void databaseInsert() throws SQLException {
-		db.prestatement = db.Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?)");
-		db.prestatement.setString(1, UName.getText());
-		db.prestatement.setString(2, First.getText());
-		db.prestatement.setString(3, Last.getText());
-		db.prestatement.setString(4, Password.getText());
-		db.prestatement.setString(5, isDoctorToString(Doctor.getValue()));
-		db.prestatement.executeUpdate();
+		prestatement = Connect.prepareStatement("INSERT INTO users VALUES(?,?,?,?,?)");
+		prestatement.setString(1, UName.getText());
+		prestatement.setString(2, First.getText());
+		prestatement.setString(3, Last.getText());
+		prestatement.setString(4, Password.getText());
+		prestatement.setString(5, isDoctorToString(Doctor.getValue()));
+		prestatement.executeUpdate();
 	}
 
 	public void startRegistration() {
@@ -139,15 +144,15 @@ public class Registration {
 	}
 
 	public void showAccountDetails() throws SQLException {
-		db.prestatement = db.Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
-		db.prestatement.setString(1, Login.getUName());
-		db.resultSet = db.prestatement.executeQuery();
-		while (db.resultSet.next()) {
-			UName.setText(db.resultSet.getString(1));
-			First.setText(db.resultSet.getString(2));
-			Last.setText(db.resultSet.getString(3));
-			Password.setText(db.resultSet.getString(4));
-			if(db.resultSet.getString(5).equals("T")) {
+		prestatement = Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
+		prestatement.setString(1, Login.getUName());
+		resultSet = prestatement.executeQuery();
+		while (resultSet.next()) {
+			UName.setText(resultSet.getString(1));
+			First.setText(resultSet.getString(2));
+			Last.setText(resultSet.getString(3));
+			Password.setText(resultSet.getString(4));
+			if(resultSet.getString(5).equals("T")) {
 				Doctor.setValue("Doctor");
 			}
 			else {
@@ -158,25 +163,25 @@ public class Registration {
 	}
 
 	public void updateAccountDetails() throws SQLException{
-		db.prestatement = db.Connect.prepareStatement(""
+		prestatement = Connect.prepareStatement(""
 				+ "UPDATE users SET userName=?,"
 				+ "firstName=?, lastName=?,"
 				+ "`password`=?, isDoctor =? WHERE userName = ?");
-		db.prestatement.setString(1, UName.getText());
-		db.prestatement.setString(2, First.getText());
-		db.prestatement.setString(3, Last.getText());
-		db.prestatement.setString(4, Password.getText());
-		db.prestatement.setString(5, isDoctorToString(Doctor.getValue()));
-		db.prestatement.setString(6, Login.getUName());
-		db.prestatement.executeUpdate();
+		prestatement.setString(1, UName.getText());
+		prestatement.setString(2, First.getText());
+		prestatement.setString(3, Last.getText());
+		prestatement.setString(4, Password.getText());
+		prestatement.setString(5, isDoctorToString(Doctor.getValue()));
+		prestatement.setString(6, Login.getUName());
+		prestatement.executeUpdate();
 		Login.setUName(UName.getText());
 	}
 
 	public void deleteAccount() {
 		try {
-			db.prestatement = db.Connect.prepareStatement("DELETE FROM users WHERE userName = ?");
-			db.prestatement.setString(1, Login.getUName());
-			db.prestatement.execute();
+			prestatement = Connect.prepareStatement("DELETE FROM users WHERE userName = ?");
+			prestatement.setString(1, Login.getUName());
+			prestatement.execute();
 		} catch (SQLException e1) {
 			System.out.println(e1.getMessage());
 			Status.setText("Error while updating data in Users!");

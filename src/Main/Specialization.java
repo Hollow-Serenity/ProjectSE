@@ -6,10 +6,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Specialization {
-    private static final Database db = new Database();
+    private static Connection Connect = Database.getConnection();
+    private static PreparedStatement prestatement = Database.getPrestatement();
+    private static ResultSet resultSet = Database.getResultSet();
+
     private static final Label addSpecializationTXT = new Label("Please specify your specialization");
     private static final ChoiceBox<String> specializationBox = addSpecializationChoiceBox();
     private static final Button confirmAdd = new Button("Add");
@@ -18,10 +24,10 @@ public class Specialization {
     public static ChoiceBox<String> addSpecializationChoiceBox() {
         ChoiceBox<String> specializations = new ChoiceBox<>();
         try {
-            db.prestatement = db.Connect.prepareStatement("select * from specialization");
-            db.resultSet = db.prestatement.executeQuery();
-            while (db.resultSet.next()) {
-                specializations.getItems().add(db.resultSet.getString("name"));
+            prestatement = Connect.prepareStatement("select * from specialization");
+            resultSet = prestatement.executeQuery();
+            while (resultSet.next()) {
+                specializations.getItems().add(resultSet.getString("name"));
             }
             specializations.getSelectionModel().selectFirst();
         }
@@ -55,10 +61,10 @@ public class Specialization {
 
     public void addSpecialization() {
         try {
-            db.prestatement = db.Connect.prepareStatement("INSERT INTO user_specialization VALUES (?,?)");
-            db.prestatement.setString(1, specializationBox.getValue());
-            db.prestatement.setString(2, Login.getUName());
-            db.prestatement.executeUpdate();
+            prestatement = Connect.prepareStatement("INSERT INTO user_specialization VALUES (?,?)");
+            prestatement.setString(1, specializationBox.getValue());
+            prestatement.setString(2, Login.getUName());
+            prestatement.executeUpdate();
             Home H = new Home();
             H.Homes();
         }
@@ -69,10 +75,10 @@ public class Specialization {
 
     public void removeSpecialization() {
         try{
-            db.prestatement = db.Connect.prepareStatement("DELETE FROM user_specialization WHERE specializationID = ? AND userID = ?");
-            db.prestatement.setString(1, specializationBox.getValue());
-            db.prestatement.setString(2, Login.getUName());
-            db.prestatement.execute();
+            prestatement = Connect.prepareStatement("DELETE FROM user_specialization WHERE specializationID = ? AND userID = ?");
+            prestatement.setString(1, specializationBox.getValue());
+            prestatement.setString(2, Login.getUName());
+            prestatement.execute();
             Home H = new Home();
             H.Homes();
         }

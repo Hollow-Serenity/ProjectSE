@@ -20,13 +20,17 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.sql.Time;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Home {
-    HBox tableVBox = new HBox();
+    private HBox tableVBox = new HBox();
+
+    private static Connection Connect = Database.getConnection();
+    private static PreparedStatement prestatement = Database.getPrestatement();
+    private static ResultSet resultSet = Database.getResultSet();
+
     @SuppressWarnings("static-access")
     public void Homes() throws SQLException {
         Button InventoryBtn = new Button("Add Inventory");
@@ -218,28 +222,27 @@ public class Home {
 
 
         try {
-            Database db = new Database();
             String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE ASC";
-            db.prestatement = db.Connect.prepareStatement(query);
-            db.prestatement.setString(1, Login.getUName());
+            prestatement = Connect.prepareStatement(query);
+            prestatement.setString(1, Login.getUName());
 
-            db.resultSet = db.prestatement.executeQuery();
+            resultSet = prestatement.executeQuery();
             int count = 1;
-            while (db.resultSet.next() && count < 4) {
+            while (resultSet.next() && count < 4) {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Appointment app = new Appointment();
                 app.setAppCount(count);
 
-                Date dd = db.resultSet.getDate(1);
+                Date dd = resultSet.getDate(1);
                 String appDate = formatter.format(dd);
                 app.setDate(appDate);
-                app.setTime(db.resultSet.getTime(2));
-                app.setDateTime(appDate, db.resultSet.getTime(2));
-                app.setEndTime(db.resultSet.getTime(3));
+                app.setTime(resultSet.getTime(2));
+                app.setDateTime(appDate, resultSet.getTime(2));
+                app.setEndTime(resultSet.getTime(3));
 
 
-                String firstName = db.resultSet.getString(4);
-                String lastName = db.resultSet.getString(5);
+                String firstName = resultSet.getString(4);
+                String lastName = resultSet.getString(5);
 
                 String patientName = firstName + " " + lastName;
                 app.setPatientName(patientName);

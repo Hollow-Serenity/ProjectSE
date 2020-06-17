@@ -9,6 +9,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static java.lang.String.valueOf;
@@ -16,7 +19,10 @@ import static java.lang.String.valueOf;
 public class AddProducts {
 
     public static Stage Window;
-    Database db = new Database();
+
+    private static Connection Connect = Database.getConnection();
+    private static PreparedStatement prestatement = Database.getPrestatement();
+    private static ResultSet resultSet = Database.getResultSet();
 
     @SuppressWarnings("unchecked")
     public void AddProduct() {
@@ -39,17 +45,17 @@ public class AddProducts {
         Price.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         try {
-            db.prestatement = db.Connect.prepareStatement("SELECT * FROM livestock WHERE owner = ?");
-            db.prestatement.setString(1, Login.getUName());
-            db.resultSet = db.prestatement.executeQuery();
-            while (db.resultSet.next()) {
+            prestatement = Connect.prepareStatement("SELECT * FROM livestock WHERE owner = ?");
+            prestatement.setString(1, Login.getUName());
+            resultSet = prestatement.executeQuery();
+            while (resultSet.next()) {
                 DataList.add(new LiveStock(
-                        db.resultSet.getInt(1),
-                        db.resultSet.getInt(2),
-                        db.resultSet.getString(3),
-                        db.resultSet.getString(4),
-                        db.resultSet.getInt(5),
-                        db.resultSet.getDouble(6)
+                        resultSet.getInt(1),
+                        resultSet.getInt(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getDouble(6)
                 ));
             }
         } catch (SQLException e1) {
@@ -116,14 +122,14 @@ public class AddProducts {
         Button EnterBtn = new Button("Enter");
         EnterBtn.setOnAction(e -> {
             try {
-                db.prestatement = db.Connect.prepareStatement("INSERT INTO LiveStock(quantity, dateAdded, details, weight, price, owner) VALUES(?,?,?,?,?,?)");
-                db.prestatement.setString(1, QuantityField.getText());
-                db.prestatement.setString(2, DateField.getText());
-                db.prestatement.setString(3, DetailsField.getText());
-                db.prestatement.setString(4, WeightField.getText());
-                db.prestatement.setString(5, PriceField.getText());
-                db.prestatement.setString(6, Login.getUName());
-                db.prestatement.executeUpdate();
+                prestatement = Connect.prepareStatement("INSERT INTO LiveStock(quantity, dateAdded, details, weight, price, owner) VALUES(?,?,?,?,?,?)");
+                prestatement.setString(1, QuantityField.getText());
+                prestatement.setString(2, DateField.getText());
+                prestatement.setString(3, DetailsField.getText());
+                prestatement.setString(4, WeightField.getText());
+                prestatement.setString(5, PriceField.getText());
+                prestatement.setString(6, Login.getUName());
+                prestatement.executeUpdate();
                 DialogStage.hide();
                 AddProduct();
             } catch (SQLException e1) {
@@ -190,16 +196,16 @@ public class AddProducts {
             Button UpdateBtn = new Button("Update");
             UpdateBtn.setOnAction(e -> {
                 try {
-                    db.prestatement = db.Connect.prepareStatement(""
+                    prestatement = Connect.prepareStatement(""
                             + "UPDATE LiveStock SET Quantity=?,"
                             + "dateAdded=?, Details=?, Weight=?, Price=? WHERE idlive_stock = ?");
-                    db.prestatement.setString(1, QuantityField.getText());
-                    db.prestatement.setString(2, DateField.getText());
-                    db.prestatement.setString(3, DetailsField.getText());
-                    db.prestatement.setString(4, WeightField.getText());
-                    db.prestatement.setString(5, PriceField.getText());
-                    db.prestatement.setInt(6, P.idlive_stock);
-                    db.prestatement.executeUpdate();
+                    prestatement.setString(1, QuantityField.getText());
+                    prestatement.setString(2, DateField.getText());
+                    prestatement.setString(3, DetailsField.getText());
+                    prestatement.setString(4, WeightField.getText());
+                    prestatement.setString(5, PriceField.getText());
+                    prestatement.setInt(6, P.idlive_stock);
+                    prestatement.executeUpdate();
                     DialogStage.hide();
                     AddProduct();
                 } catch (SQLException e1) {
@@ -235,9 +241,9 @@ public class AddProducts {
     public void DeleteProduct(LiveStock P) {
         if (P != null) {
             try {
-                db.prestatement = db.Connect.prepareStatement("DELETE FROM LiveStock WHERE idlive_stock = ?");
-                db.prestatement.setInt(1, P.idlive_stock);
-                db.prestatement.executeUpdate();
+                prestatement = Connect.prepareStatement("DELETE FROM LiveStock WHERE idlive_stock = ?");
+                prestatement.setInt(1, P.idlive_stock);
+                prestatement.executeUpdate();
                 AddProduct();
             } catch (SQLException e1) {
                 System.out.println("Error while deleteing data from LiveStock!");

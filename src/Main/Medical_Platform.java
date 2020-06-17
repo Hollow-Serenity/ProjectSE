@@ -6,11 +6,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 
 public class Medical_Platform {
     private Pane layout = new Pane();
 
-    private Database db = new Database();
+    private static Connection Connect = Database.getConnection();
+    private static PreparedStatement prestatement = Database.getPrestatement();
+    private static ResultSet resultSet = Database.getResultSet();
 
     private ListView<String> afflictionList = new ListView();
 
@@ -75,11 +81,11 @@ public class Medical_Platform {
     private void setAfflictions(String UName) {
         afflictionList.getItems().clear();
         try {
-            db.prestatement = db.Connect.prepareStatement("SELECT * FROM `condition` WHERE userId = ?");
-            db.prestatement.setString(1, UName);
-            db.resultSet = db.prestatement.executeQuery();
-            while (db.resultSet.next()) {
-                String condition = db.resultSet.getString("conditionId");
+            prestatement = Connect.prepareStatement("SELECT * FROM `condition` WHERE userId = ?");
+            prestatement.setString(1, UName);
+            resultSet = prestatement.executeQuery();
+            while (resultSet.next()) {
+                String condition = resultSet.getString("conditionId");
                 afflictionList.getItems().addAll(condition);
             }
         } catch (Exception e) {

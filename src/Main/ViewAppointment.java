@@ -12,8 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.sql.SQLException;
-import java.sql.Time;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
@@ -25,7 +24,9 @@ import static java.lang.String.valueOf;
 
 public class ViewAppointment {
 
-    Database db = new Database();
+    private static Connection Connect = Database.getConnection();
+    private static PreparedStatement prestatement = Database.getPrestatement();
+    private static ResultSet resultSet = Database.getResultSet();
 
     @SuppressWarnings("unchecked")
     public void ViewAppointment() {
@@ -47,32 +48,32 @@ public class ViewAppointment {
         passed.setCellValueFactory(new PropertyValueFactory<>("passed"));
 
         try {
-            db.prestatement = db.Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ? AND DATE >= ?");
-            db.prestatement.setString(1, Login.getUName());
-            DateFormat DATE_FORMATDB = new SimpleDateFormat("yyyy-MM-dd");
+            prestatement = Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ? AND DATE >= ?");
+            prestatement.setString(1, Login.getUName());
+            SimpleDateFormat DATE_FORMATDB = new SimpleDateFormat("yyyy-MM-dd");
             Date now = new Date();
-            db.prestatement.setDate(2, java.sql.Date.valueOf(DATE_FORMATDB.format(now)));
-            db.resultSet = db.prestatement.executeQuery();
+            prestatement.setDate(2, java.sql.Date.valueOf(DATE_FORMATDB.format(now)));
+            resultSet = prestatement.executeQuery();
             int count = 1;
-            while (db.resultSet.next()) {
+            while (resultSet.next()) {
             	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
             	Appointment app = new Appointment();
             	app.setAppCount(count);
-            	app.setAppointmentId(db.resultSet.getInt(1));
-            	String firstName = db.resultSet.getString(7);
-            	String lastName = db.resultSet.getString(8);
+            	app.setAppointmentId(resultSet.getInt(1));
+            	String firstName = resultSet.getString(7);
+            	String lastName = resultSet.getString(8);
             	
             	String dName = firstName + " " + lastName;
             	app.setDoctorName(dName);
-            	app.setDoctorId(db.resultSet.getString(2));
-            	app.setSpecilizationName(db.resultSet.getString(3));
+            	app.setDoctorId(resultSet.getString(2));
+            	app.setSpecilizationName(resultSet.getString(3));
             	
-            	Date dd = db.resultSet.getDate(4);
+            	Date dd = resultSet.getDate(4);
             	String appDate = formatter.format(dd);
             	app.setDate(appDate);
-            	Time temp = db.resultSet.getTime(5);
+            	Time temp = resultSet.getTime(5);
             	app.setTime(temp);
-            	app.setPatientId(db.resultSet.getString(6));
+            	app.setPatientId(resultSet.getString(6));
             	app.setDateTime(appDate, temp);
             	app.setPassed();
             	DataList.add(app);
@@ -97,7 +98,11 @@ public class ViewAppointment {
         New.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-            	addApp.AddAppointment(null, DataList, -1);
+                try {
+                    addApp.AddAppointment(null, DataList, -1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         
@@ -108,8 +113,12 @@ public class ViewAppointment {
             	Object object =  AppointmentTable.getSelectionModel().selectedItemProperty().get();
             	int index = AppointmentTable.getSelectionModel().selectedIndexProperty().get();
             	if(index > -1) {
-            		addApp.AddAppointment("update", DataList, index);
-            	}else {
+                    try {
+                        addApp.AddAppointment("update", DataList, index);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }else {
             		Alert a = new Alert(AlertType.NONE,  
                             "Please Select Row From Table",ButtonType.OK);
         			a.show();
@@ -152,13 +161,12 @@ public class ViewAppointment {
     
     private void deleteAppointment(int selectedAppId) {
     	try {
-    		Database db = new Database();
     		String query = " DELETE FROM appointment WHERE appointmentId = ? ";
-    		db.prestatement = db.Connect.prepareStatement(query);
-    		db.prestatement.setInt(1, selectedAppId);
+    		prestatement = Connect.prepareStatement(query);
+    		prestatement.setInt(1, selectedAppId);
     		
     		
-    		db.prestatement.executeUpdate();
+    		prestatement.executeUpdate();
     		JOptionPane.showMessageDialog(null, "Record Deleted Succesfully");
     		ViewAppointment();
     	}catch(Exception e) {

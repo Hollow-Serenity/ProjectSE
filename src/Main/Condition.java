@@ -8,10 +8,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Condition {
-    private static final Database db = new Database();
+    private static Connection Connect = Database.getConnection();
+    private static PreparedStatement prestatement = Database.getPrestatement();
+    private static ResultSet resultSet = Database.getResultSet();
 
     private static final Label conditionTXT = new Label("Please specify the condition");
     private static final Label patientIDTXT = new Label("Please enter your patient's username");
@@ -50,10 +55,10 @@ public class Condition {
 
     public void addCondition() {
         try {
-            db.prestatement = db.Connect.prepareStatement("INSERT INTO `condition` VALUES (?,?)");
-            db.prestatement.setString(1, conditionTF.getText());
-            db.prestatement.setString(2, patientIDTF.getText());
-            db.prestatement.executeUpdate();
+            prestatement = Connect.prepareStatement("INSERT INTO `condition` VALUES (?,?)");
+            prestatement.setString(1, conditionTF.getText());
+            prestatement.setString(2, patientIDTF.getText());
+            prestatement.executeUpdate();
             try {
                 new Medical_Platform();
             } catch (Exception ex) {
@@ -67,10 +72,10 @@ public class Condition {
 
     public void removeCondition() {
         try{
-            db.prestatement = db.Connect.prepareStatement("DELETE FROM `condition` WHERE conditionId = ? AND userId = ?");
-            db.prestatement.setString(1, conditionTF.getText());
-            db.prestatement.setString(2, patientIDTF.getText());
-            db.prestatement.execute();
+            prestatement = Connect.prepareStatement("DELETE FROM `condition` WHERE conditionId = ? AND userId = ?");
+            prestatement.setString(1, conditionTF.getText());
+            prestatement.setString(2, patientIDTF.getText());
+            prestatement.execute();
             try {
                 new Medical_Platform();
             } catch (Exception ex) {
