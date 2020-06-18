@@ -32,7 +32,7 @@ public class ContactTypeGui {
 
         personButton.setOnAction(actionEvent -> {
             try {
-                new UserAddContactPersonGui();
+                new UserAddContactPersonGui(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -114,8 +114,9 @@ public class UserAddContactPersonGui {
         vBox.setMinSize(800, 800);
     }
 
-    public UserAddContactPersonGui() throws Exception {
+    public UserAddContactPersonGui(BorderPane layout) throws Exception {
         setLayout();
+        this.Layout = layout;
         if(tableView.getItems().isEmpty()) {
             populate(tableView);
         }
