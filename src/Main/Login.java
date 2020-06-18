@@ -60,6 +60,7 @@ public class Login extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		initiate();
 		primaryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
 		Window = primaryStage;
 		login();
@@ -189,7 +190,6 @@ public class Login extends Application {
 
 	public static void login() {
 		setStyles();
-
 		VBox CompanyInformation = getCompanyInfoBox();
 		VBox LoginBox = getLoginBox();
 		HBox CenterBox = getCenterBox(CompanyInformation, LoginBox);
@@ -197,7 +197,7 @@ public class Login extends Application {
 		Layout.setTop(m.Menu());
 		Layout.setCenter(CenterBox);
 
-		initiate();
+
 
 		Password.addEventHandler(KeyEvent.KEY_PRESSED, e -> keyEvent(e));
 		UName.addEventHandler(KeyEvent.KEY_PRESSED, e -> keyEvent(e));

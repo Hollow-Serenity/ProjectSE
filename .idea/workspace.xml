@@ -32,62 +32,22 @@
   <component name="ChangeListManager">
     <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="'fixed' the login bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Appointment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Company.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Condition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Contact.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ContactTypeGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DisplayReading.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DisplayWritingAssignment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Eduplatform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/LittleFoxStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ManageContact.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Market.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Mathematics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Medical_Platform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/PurpleMouseStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Question.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Reading.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ReadingAssignment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/TheSnailStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/TwoMiceStory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/WritingAssignment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/QuestionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/QuestionTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/RegistrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/RegistrationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/TestCalculations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/TestCalculations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/AddAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AddProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/AddProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/ContactTypeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/DisplayReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayReading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Eduplatform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/META-INF/ProjectSE_1.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/META-INF/ProjectSE_1.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddProducts$LiveStock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddProducts.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DbUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Registration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Specialization.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/UserAddContactCompanyGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/UserAddContactPersonGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ViewAppointment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/ManageContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ManageContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Mathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Mathematics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Medical_Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Reading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Reading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Specialization.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/ViewAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/ViewAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/WritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/WritingAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main/QuestionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/QuestionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main/RegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/RegistrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main/TestCalculations.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/TestCalculations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Registration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +86,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SE-OPT-3" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -137,7 +97,19 @@
       <recent name="Main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Login">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Login" />
       <module name="ProjectSE_1" />
@@ -151,9 +123,57 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="QuestionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectSE_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Main.QuestionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectSE_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Main.RegistrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCalculations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectSE_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Main.TestCalculations" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegistrationTest" />
         <item itemvalue="Application.Login" />
+        <item itemvalue="JUnit.TestCalculations" />
+        <item itemvalue="JUnit.QuestionTest" />
         <item itemvalue="Application.Login" />
       </list>
     </recent_temporary>
