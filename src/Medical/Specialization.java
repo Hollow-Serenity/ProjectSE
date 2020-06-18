@@ -7,6 +7,7 @@ import Main.Menu;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -19,6 +20,8 @@ public class Specialization {
     private static final Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
+
+    private static BorderPane Layout;
 
     private static final Label addSpecializationTXT = new Label("Please specify your specialization");
     private static final ChoiceBox<String> specializationBox = addSpecializationChoiceBox();
@@ -41,7 +44,8 @@ public class Specialization {
         return specializations;
     }
 
-    public Specialization() throws Exception {
+    public Specialization(BorderPane layout) throws Exception {
+        this.Layout = layout;
         VBox Center = new VBox(20);
         HBox hBox = new HBox(40);
 
@@ -55,8 +59,8 @@ public class Specialization {
         Center.setMaxHeight(400);
         hBox.setMaxSize(400,20);
 
-        Login.getLayout().setTop(Menu.getMenu());
-        Login.getLayout().setCenter(Center);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(Center);
 
         confirmAdd.setOnAction(e -> addSpecialization());
         confirmRemove.setOnAction(e -> removeSpecialization());
@@ -69,7 +73,7 @@ public class Specialization {
             prestatement.setString(2, Menu.getUName());
             prestatement.executeUpdate();
             Home H = new Home();
-            H.Homes();
+            H.Homes(Layout);
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
@@ -83,7 +87,7 @@ public class Specialization {
             prestatement.setString(2, Menu.getUName());
             prestatement.execute();
             Home H = new Home();
-            H.Homes();
+            H.Homes(Layout);
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");

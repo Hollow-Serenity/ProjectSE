@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 import java.sql.Connection;
@@ -16,6 +17,7 @@ import java.sql.ResultSet;
 
 public class Medical_Platform {
     private Pane layout = new Pane();
+    private static BorderPane Layout;
 
     private static Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
@@ -97,20 +99,21 @@ public class Medical_Platform {
         }
     }
 
-    public Medical_Platform() throws Exception {
+    public Medical_Platform(BorderPane layout) throws Exception {
+        this.Layout = layout;
         setStyle();
         setLayout();
         setAfflictions(Menu.getUName());
 
-        Login.getLayout().setTop(Menu.getMenu());
-        Login.getLayout().setCenter(layout);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(layout);
 
         ViewAppointment viewApp = new ViewAppointment();
-        appointmentdBtn.setOnAction(event -> viewApp.ViewAppointment());
+        appointmentdBtn.setOnAction(event -> viewApp.ViewAppointment(Layout));
 
         conditionsBtn.setOnAction(event -> {
             try {
-                new Condition();
+                new Condition(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }

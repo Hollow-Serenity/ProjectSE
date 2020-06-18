@@ -17,6 +17,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -26,6 +27,8 @@ public class AddAppointment {
 	private static final Connection Connect = Database.getConnection();
 	private static PreparedStatement prestatement = Database.getPrestatement();
 	private static ResultSet resultSet = Database.getResultSet();
+
+	private static BorderPane Layout;
 
 	private final ObservableList<Appointment> DataList = FXCollections.observableArrayList();
 	private final TableView<Appointment> AppointmentTable = new TableView<>(DataList);
@@ -107,8 +110,8 @@ public class AddAppointment {
 		cbSelectDoctor.getItems().clear();
 		getDoctors();
 
-		Login.getLayout().setTop(Menu.getMenu());
-		Login.getLayout().setCenter(mainVB);
+		Layout.setTop(Menu.getMenu(Layout));
+		Layout.setCenter(mainVB);
 	}
 
 	private void setFullLayout() {
@@ -157,7 +160,8 @@ public class AddAppointment {
 		}
 	}
 
-    public void AddAppointment(String updateCheck, ObservableList<Appointment> DataList, int selectedIndex) {
+    public void AddAppointment(String updateCheck, ObservableList<Appointment> DataList, int selectedIndex, BorderPane layout) {
+		this.Layout = layout;
 		this.updateCheck = updateCheck;
 		setFullLayout();
 		
@@ -198,7 +202,7 @@ public class AddAppointment {
 
 	private void openViewApp() {
 		ViewAppointment vApp = new ViewAppointment();
-		vApp.ViewAppointment();
+		vApp.ViewAppointment(Layout);
 	}
 
 	private String getTime() {
@@ -374,8 +378,8 @@ public class AddAppointment {
         TableVB.setMinWidth(250);
         CenterRes.getChildren().addAll(TableVB);
 
-		Login.getLayout().setTop(Menu.getMenu());
-		Login.getLayout().setCenter(CenterRes);
+		Layout.setTop(Menu.getMenu(Layout));
+		Layout.setCenter(CenterRes);
     }
 
 	private boolean validateFieldsForCheckReserved() {

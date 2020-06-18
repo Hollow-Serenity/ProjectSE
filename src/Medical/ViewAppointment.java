@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -26,6 +27,8 @@ public class ViewAppointment {
     private static Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
+
+    private static BorderPane Layout;
 
     private ObservableList<Appointment> DataList = FXCollections.observableArrayList();
     private TableView<Appointment> AppointmentTable = new TableView<>(DataList);
@@ -97,7 +100,7 @@ public class ViewAppointment {
     private void addAppointmentAction(String updateCheck, int selectedIndex) {
         AddAppointment addApp = new AddAppointment();
         try {
-            addApp.AddAppointment(updateCheck, DataList, selectedIndex);
+            addApp.AddAppointment(updateCheck, DataList, selectedIndex, Layout);
         } catch (Exception e) {
             System.out.println("Error while opening addAppointment");
             e.printStackTrace();
@@ -155,10 +158,11 @@ public class ViewAppointment {
         ButtonB.setSpacing(10);
 
         Center.getChildren().addAll(TableVB, ButtonB);
-        Login.getLayout().setCenter(Center);
+        Layout.setCenter(Center);
     }
 
-    public void ViewAppointment() {
+    public void ViewAppointment(BorderPane layout) {
+        this.Layout = layout;
         setTable();
         fillTable();
         setLayout();

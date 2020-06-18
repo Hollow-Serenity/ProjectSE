@@ -19,6 +19,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
@@ -36,6 +37,7 @@ public class Home {
     private TableView<Appointment> AppointmentTable = new TableView<Appointment>(DataList);
 
     private Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+    private static BorderPane Layout;
 
     private VBox Center = new VBox(20);
     private HBox tableVBox = new HBox();
@@ -68,7 +70,7 @@ public class Home {
         setButtonLooks(InventoryBtn, "../Images/AddProduct.png", "Add Products");
         InventoryBtn.setOnAction(event -> {
             AddProducts ap = new AddProducts();
-            ap.AddProduct();
+            ap.AddProduct(Layout);
         });
     }
 
@@ -76,7 +78,7 @@ public class Home {
         setButtonLooks(EditUser, "../Images/AddUser.png", "Edit User");
         EditUser.setOnAction(event -> {
             try {
-                new Registration();
+                new Registration(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -96,14 +98,14 @@ public class Home {
     private void setMarketBtn() {
         setButtonLooks(MarketBtn, "../Images/AddProduct.png", "Market");
         Market mr = new Market();
-        MarketBtn.setOnAction(event -> mr.Market());
+        MarketBtn.setOnAction(event -> mr.Market(Layout));
     }
 
     private void setMedicalPlatformbtn() {
         setButtonLooks(MedicalPlatformbtn, "", "Medical Platform");
         MedicalPlatformbtn.setOnAction(e -> {
             try {
-                new Medical_Platform();
+                new Medical_Platform(Layout);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -114,7 +116,7 @@ public class Home {
         setButtonLooks(EduPlatformbtn, "", "Education Platform");
         EduPlatformbtn.setOnAction(e -> {
             try {
-                new Eduplatform();
+                new Eduplatform(Layout);
             }
             catch (Exception ex){
                 ex.printStackTrace();
@@ -126,7 +128,7 @@ public class Home {
         UserAddBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         UserAddBtn.setOnAction(event -> {
             try {
-                new ContactTypeGui();
+                new ContactTypeGui(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -162,7 +164,8 @@ public class Home {
         Center.setMaxHeight(screenBounds.getHeight() * 0.75);
     }
 
-    public void Homes() throws SQLException {
+    public void Homes(BorderPane layout) throws SQLException {
+        this.Layout = layout;
         setButtons();
         setLayout();
         showReservedSlots();
@@ -171,8 +174,8 @@ public class Home {
             tableVBox.setVisible(false);
         }
 
-        Login.getLayout().setTop(Menu.getMenu());
-        Login.getLayout().setCenter(Center);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(Center);
     }
 
     private void setReservedTable() {

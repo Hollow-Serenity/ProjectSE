@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -15,8 +16,9 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 public class Eduplatform {
-    public Stage stage;
-    public Eduplatform() throws SQLException{
+    private static BorderPane Layout;
+    public Eduplatform(BorderPane layout) throws SQLException{
+        this.Layout = layout;
         Button Reading = new Button("Reading");
         Button Writing = new Button("Writing");
         Button Math = new Button("Math");
@@ -31,7 +33,7 @@ public class Eduplatform {
         Reading.setTooltip(new Tooltip("Add Products"));
         AddProducts ap = new AddProducts();
         Reading.setOnAction(event -> {
-            new DisplayReading();
+            new DisplayReading(Layout);
         });
 
         Writing.getStyleClass().addAll("HomeBtn", "LightGreen");
@@ -42,7 +44,7 @@ public class Eduplatform {
         Writing.setGraphic(AUIV);
         Writing.setTooltip(new Tooltip("Edit User"));
         Writing.setOnAction(event -> {
-            new DisplayWritingAssignment();
+            new DisplayWritingAssignment(Layout);
         });
 
         Math.getStyleClass().addAll("HomeBtn", "LightGreen");
@@ -55,7 +57,7 @@ public class Eduplatform {
         //Market mr = new Market();//
         Math.setOnAction(e -> {
             try {
-                new Mathematics();
+                new Mathematics(Layout);
             }
             catch (Exception ex){
                 ex.printStackTrace();
@@ -79,8 +81,8 @@ public class Eduplatform {
         Center.setMaxHeight(600 * 0.75);
         Center.setSpacing(20);
 
-        Login.getLayout().setTop(Menu.getMenu());
-        Login.getLayout().setCenter(Center);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(Center);
 //
 
     }

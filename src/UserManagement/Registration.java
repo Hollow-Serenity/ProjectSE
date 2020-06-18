@@ -12,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -21,6 +22,7 @@ public class Registration {
 
 	private static VBox Center;
 	private static HBox Buttons = new HBox(30);
+	private static BorderPane Layout;
 
 	private static Connection Connect = Database.getConnection();
 	private static PreparedStatement prestatement = Database.getPrestatement();
@@ -85,8 +87,8 @@ public class Registration {
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
 		Center.setMaxHeight(400);
-		Login.getLayout().setTop(Menu.getMenu());
-		Login.getLayout().setCenter(Center);
+		Layout.setTop(Menu.getMenu(Layout));
+		Layout.setCenter(Center);
 	}
 
 	public Boolean checkPassword() {
@@ -135,8 +137,7 @@ public class Registration {
 				try {
 					databaseInsert();
 					Menu.setIsDoctor(Doctor.getValue().equals("Doctor"));
-					Login D = new Login();
-					D.login();
+					Login.login();
 				}
 				catch (SQLException e1) {
 					Status.setText("Error while adding user");
@@ -201,7 +202,7 @@ public class Registration {
 				Home H = new Home();
 				try {
 					updateAccountDetails();
-					H.Homes();
+					H.Homes(Layout);
 				} catch (SQLException throwables) {
 					throwables.printStackTrace();
 				}
@@ -223,7 +224,8 @@ public class Registration {
 		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, Buttons);
 	}
 
-	public Registration() throws Exception {
+	public Registration(BorderPane layout) throws Exception {
+		this.Layout = layout;
 		setStyles();
 		setVBox();
 

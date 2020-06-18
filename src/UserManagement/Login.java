@@ -35,18 +35,17 @@ public class Login extends Application {
 	private static ResultSet resultSet = Database.getResultSet();
 
 	private static Stage Window;
-	private static Scene Scn;
-	private static BorderPane Layout = new BorderPane();
+	private static final BorderPane Layout = new BorderPane();
 
-	private static Label CName = new Label("Welcome to zeroXess");
-	private static Label LoginLbl = new Label("Login");
+	private static final Label CName = new Label("Welcome to zeroXess");
+	private static final Label LoginLbl = new Label("Login");
 
-	private static Text Status = new Text();
-	private static TextField UName = new TextField();
-	private static PasswordField Password = new PasswordField();
+	private static final Text Status = new Text();
+	private static final TextField UName = new TextField();
+	private static final PasswordField Password = new PasswordField();
 
-	private static Button LoginBtn = new Button("Login");
-	private static Button Register = new Button("Sign up");
+	private static final Button LoginBtn = new Button("Login");
+	private static final Button Register = new Button("Sign up");
 
 	public static void main(String[] args) {
 		launch(args);
@@ -54,7 +53,6 @@ public class Login extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-
 		primaryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
 		Window = primaryStage;
 		initiate();
@@ -119,10 +117,9 @@ public class Login extends Application {
 	}
 
 	private static void initiate() {
-		Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-		Scn = new Scene(Layout, 800, 600);
-		Scn.getStylesheets().add(Login.class.getResource("../css/application.css").toExternalForm());
-		Window.setScene(Scn);
+		Scene scn = new Scene(Layout, 800, 600);
+		scn.getStylesheets().add(Login.class.getResource("../css/application.css").toExternalForm());
+		Window.setScene(scn);
 		Window.setMaximized(false);
 		Window.show();
 	}
@@ -161,7 +158,7 @@ public class Login extends Application {
 					UName.setText("");
 					Status.setText("");
 					Home h = new Home();
-					h.Homes();
+					h.Homes(Layout);
 					break;
 				}
 				else {
@@ -177,7 +174,7 @@ public class Login extends Application {
 
 	private static void startRegistration() {
 		try {
-			new Registration();
+			new Registration(Layout);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -189,10 +186,8 @@ public class Login extends Application {
 		VBox LoginBox = getLoginBox();
 		HBox CenterBox = getCenterBox(CompanyInformation, LoginBox);
 
-		Layout.setTop(Menu.getMenu());
+		Layout.setTop(Menu.getMenu(Layout));
 		Layout.setCenter(CenterBox);
-
-
 
 		Password.addEventHandler(KeyEvent.KEY_PRESSED, e -> keyEvent(e));
 		UName.addEventHandler(KeyEvent.KEY_PRESSED, e -> keyEvent(e));
@@ -200,9 +195,5 @@ public class Login extends Application {
 
 		LoginBtn.setOnAction(e -> loginAttempt());
 		Register.setOnAction(e -> startRegistration());
-	}
-
-	public static BorderPane getLayout() {
-		return Layout;
 	}
 }

@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -14,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserAddContactPersonGui {
+    private static BorderPane Layout;
+
     private final HBox hBoxFirstName = new HBox(20);
     private final HBox hBoxLastName = new HBox(20);
     private final HBox hBoxPhoneNumber = new HBox(20);
@@ -120,8 +123,8 @@ public class UserAddContactPersonGui {
         addContactButton.setOnAction(actionEvent -> addContactButtonAction());
         deleteContactButton.setOnAction(actionEvent -> deleteContactButtonAction());
 
-        Login.getLayout().setTop(Menu.getMenu());
-        Login.getLayout().setCenter(vBox);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(vBox);
     }
 }
 

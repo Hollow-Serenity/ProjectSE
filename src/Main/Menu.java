@@ -8,12 +8,14 @@ import UserManagement.Login;
 import UserManagement.Registration;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class Menu {
 	private static Menu singleton = null;
 
 	private static final VBox PageTop = new VBox();
+	private static BorderPane Layout;
 
 	private static final MenuBar myMenu = new MenuBar();
 	private static final MenuBar loginMenu = new MenuBar();
@@ -34,14 +36,15 @@ public class Menu {
 	private static Boolean isDoctor = false;
 	private static String StoreUName;
 
-	private Menu() {
+	private Menu(BorderPane layout) {
+		this.Layout = layout;
 		setLayout();
 		setButtonActions();
 	}
 
-	public static VBox getMenu() {
+	public static VBox getMenu(BorderPane layout) {
 		if (singleton == null) {
-			singleton = new Menu();
+			singleton = new Menu(layout);
 		}
 		setMenu();
 		return PageTop;
@@ -60,14 +63,14 @@ public class Menu {
 	private static void setAddProductButtonAction() {
 		AddProduct.setOnAction(e -> {
 			AddProducts ap = new AddProducts();
-			ap.AddProduct();
+			ap.AddProduct(Layout);
 		});
 	}
 
 	private static void setAddUserButtonAction() {
 		AddUser.setOnAction(e -> {
 			try {
-				Registration logon = new Registration();
+				new Registration(Layout);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
@@ -78,7 +81,7 @@ public class Menu {
 		Home.setOnAction(e -> {
 			try {
 				Home h = new Home();
-				h.Homes();
+				h.Homes(Layout);
 			} catch (SQLException e1) {
 				System.out.println("SQL Error");
 			}
@@ -88,7 +91,7 @@ public class Menu {
 	private static void setSpecializationsButtonAction() {
 		Specializations.setOnAction(e -> {
 			try {
-				new Specialization();
+				new Specialization(Layout);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
