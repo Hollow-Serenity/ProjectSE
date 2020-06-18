@@ -231,4 +231,3 @@ public class Login extends Application {
 		isDoctor = doctor;
 	}
 }
-//
