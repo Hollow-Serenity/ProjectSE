@@ -32,18 +32,7 @@
   <component name="ChangeListManager">
     <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="'fixed' the login bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/META-INF/ProjectSE_1.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/META-INF/ProjectSE_1.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddAppointment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddProducts$LiveStock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/AddProducts.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DbUtil.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Registration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Specialization.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/UserAddContactCompanyGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/UserAddContactPersonGui.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ViewAppointment.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" afterDir="false" />
@@ -62,6 +51,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="development" />
@@ -170,8 +160,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegistrationTest" />
         <item itemvalue="Application.Login" />
+        <item itemvalue="JUnit.RegistrationTest" />
         <item itemvalue="JUnit.TestCalculations" />
         <item itemvalue="JUnit.QuestionTest" />
         <item itemvalue="Application.Login" />
@@ -230,7 +220,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592420023668</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Login rootpane error fixed">
+      <created>1592480013934</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592480013934</updated>
+    </task>
+    <task id="LOCAL-00007" summary="'fixed' the login bug">
+      <created>1592480116655</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592480116655</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +258,7 @@
     <MESSAGE value="working on addapointment refactoring" />
     <MESSAGE value="addapointment gerefactored" />
     <MESSAGE value="home refactored" />
+    <MESSAGE value="Login rootpane error fixed" />
     <MESSAGE value="'fixed' the login bug" />
     <option name="LAST_COMMIT_MESSAGE" value="'fixed' the login bug" />
   </component>

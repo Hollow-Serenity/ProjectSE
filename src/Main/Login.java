@@ -60,9 +60,10 @@ public class Login extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		initiate();
+
 		primaryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
 		Window = primaryStage;
+		initiate();
 		login();
 		Window.setTitle("ZeroXess");
 	}
