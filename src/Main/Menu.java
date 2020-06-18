@@ -2,6 +2,9 @@ package Main;
 
 import java.sql.SQLException;
 
+import LiveStock.AddProducts;
+import Medical.Specialization;
+import UserManagement.Registration;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
@@ -14,7 +17,6 @@ public class Menu {
 		MenuItem Exit = new MenuItem("_Exit");
 		Exit.setOnAction(e -> System.exit(0));
 		VBox PageTop = new VBox();
-		Login d = new Login();
 		if (Login.getIsLogin()) {
 			javafx.scene.control.Menu Manage = new javafx.scene.control.Menu("_Manage");
 
@@ -56,16 +58,16 @@ public class Menu {
 				Login.setUName(null);
 				Login.setIsLogin(false);
 				Login.setIsDoctor(false);
-				d.login();
+				Login.login();
 			});
 			Action.getItems().addAll(Home, Specializations, Logout, Exit);
 			Manage.getItems().addAll(AddProduct, AddUser);
 			myMenu.getMenus().addAll(Action, Manage);
 			PageTop.getChildren().add(myMenu);
 		} else {
-			MenuItem Login = new MenuItem("_Login");
-			Login.setOnAction(e -> d.login());
-			Action.getItems().addAll(Login, Exit);
+			MenuItem login = new MenuItem("_Login");
+			login.setOnAction(e -> Login.login());
+			Action.getItems().addAll(login, Exit);
 			myMenu.getMenus().add(Action);
 			PageTop.getChildren().add(myMenu);
 		}

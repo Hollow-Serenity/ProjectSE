@@ -3,17 +3,35 @@ package Main;
 import java.sql.*;
 
 public class Database {
-    public Connection Connect = null;
-    public PreparedStatement prestatement = null;
-    public ResultSet resultSet = null;
+    private static Database singleton = null;
+    private static Connection Connect = null;
+    private static PreparedStatement prestatement = null;
+    private static ResultSet resultSet = null;
     private final static String CONNECTION_URL = "jdbc:mysql://localhost:3306/zeroxess";
 
     //private final static String CONNECTION_URL = "jdbc:mysql://localhost/zeroxess?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    public Database() {
+    private Database() {
         try {
-            Connect = DriverManager.getConnection(CONNECTION_URL, "root", "test1234");
+            Connect = DriverManager.getConnection(CONNECTION_URL, "root", "d1i2n3o4");
         } catch (SQLException e) {
             System.out.println("Cannot Connect to the Database:  " + e.getMessage());
         }
+    }
+
+    public static Database getDatabase() {
+        if(singleton == null) {
+            singleton = new Database();
+        }
+        return singleton;
+    }
+
+    public static Connection getConnection() {
+        return Connect;
+    }
+    public static PreparedStatement getPrestatement() {
+        return prestatement;
+    }
+    public static ResultSet getResultSet() {
+        return resultSet;
     }
 }
