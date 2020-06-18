@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import LiveStock.AddProducts;
 import Main.Menu;
 import Main.Database;
-import Main.Login;
+import UserManagement.Login;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -192,7 +192,7 @@ public class AddAppointment {
 		prestatement.setString(2, cbSpecialization.getSelectionModel().getSelectedItem());
 		prestatement.setDate(3, java.sql.Date.valueOf(txtDate.getValue()));
 		prestatement.setTime(4, java.sql.Time.valueOf(time));
-		prestatement.setString(5, Login.getUName());
+		prestatement.setString(5, Menu.getUName());
 		prestatement.executeUpdate();
 	}
 

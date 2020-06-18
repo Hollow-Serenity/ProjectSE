@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import Main.Database;
 import Main.Home;
-import Main.Login;
 import Main.Menu;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -42,7 +41,7 @@ public class Registration {
 	private static Button DeleteBtn = new Button ("Delete Account");
 
 	public Boolean checkUName(String username) {
-		if (!UName.getText().equals(Login.getUName())) {
+		if (!UName.getText().equals(Menu.getUName())) {
 			try {
 				String res = null;
 				prestatement = Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
@@ -135,7 +134,7 @@ public class Registration {
 			if(checkPassword()) {
 				try {
 					databaseInsert();
-					Login.setIsDoctor(Doctor.getValue().equals("Doctor"));
+					Menu.setIsDoctor(Doctor.getValue().equals("Doctor"));
 					Login D = new Login();
 					D.login();
 				}
@@ -152,7 +151,7 @@ public class Registration {
 
 	public void showAccountDetails() throws SQLException {
 		prestatement = Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
-		prestatement.setString(1, Login.getUName());
+		prestatement.setString(1, Menu.getUName());
 		resultSet = prestatement.executeQuery();
 		while (resultSet.next()) {
 			UName.setText(resultSet.getString(1));
@@ -179,15 +178,15 @@ public class Registration {
 		prestatement.setString(3, Last.getText());
 		prestatement.setString(4, Password.getText());
 		prestatement.setString(5, isDoctorToString(Doctor.getValue()));
-		prestatement.setString(6, Login.getUName());
+		prestatement.setString(6, Menu.getUName());
 		prestatement.executeUpdate();
-		Login.setUName(UName.getText());
+		Menu.setUName(UName.getText());
 	}
 
 	public void deleteAccount() {
 		try {
 			prestatement = Connect.prepareStatement("DELETE FROM users WHERE userName = ?");
-			prestatement.setString(1, Login.getUName());
+			prestatement.setString(1, Menu.getUName());
 			prestatement.execute();
 		} catch (SQLException e1) {
 			System.out.println(e1.getMessage());
@@ -228,7 +227,7 @@ public class Registration {
 		setStyles();
 		setVBox();
 
-		if(!Login.getIsLogin()) {
+		if(!Menu.getIsLogin()) {
 			startRegistration();
 		}
 		else {

@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import LiveStock.AddProducts;
 import Medical.Specialization;
+import UserManagement.Login;
 import UserManagement.Registration;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -28,6 +29,10 @@ public class Menu {
 	private static final MenuItem Home = new MenuItem("_Home");
 	private static final MenuItem Specializations = new MenuItem("_Specialization");
 	private static final MenuItem Logout = new MenuItem("_Logout");
+
+	private static Boolean isLogin = false;
+	private static Boolean isDoctor = false;
+	private static String StoreUName;
 
 	private Menu() {
 		setLayout();
@@ -92,9 +97,9 @@ public class Menu {
 
 	private static void setLogoutButtonAction() {
 		Logout.setOnAction(e -> {
-			Login.setUName(null);
-			Login.setIsLogin(false);
-			Login.setIsDoctor(false);
+			StoreUName = null;
+			isLogin = false;
+			isDoctor = false;
 			Login.login();
 		});
 	}
@@ -108,7 +113,7 @@ public class Menu {
 	}
 
 	private static void setMenu() {
-		if(Login.getIsLogin()) {
+		if(isLogin) {
 			PageTop.getChildren().clear();
 			PageTop.getChildren().add(myMenu);
 		}
@@ -116,8 +121,31 @@ public class Menu {
 			PageTop.getChildren().clear();
 			PageTop.getChildren().add(loginMenu);
 		}
-		if (!Login.getIsDoctor()) {
+		if (isDoctor) {
+			Specializations.setVisible(true);
+		}
+		else {
 			Specializations.setVisible(false);
 		}
+	}
+
+	public static String getUName() {
+		return StoreUName;
+	}
+	public static Boolean getIsLogin() {
+		return isLogin;
+	}
+	public static Boolean getIsDoctor() {
+		return isDoctor;
+	}
+
+	public static void setUName(String UName) {
+		StoreUName = UName;
+	}
+	public static void setIsLogin(Boolean login) {
+		isLogin = login;
+	}
+	public static void setIsDoctor(Boolean doctor) {
+		isDoctor = doctor;
 	}
 }

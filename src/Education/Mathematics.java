@@ -1,6 +1,6 @@
 package Education;
 
-import Main.Login;
+import UserManagement.Login;
 import Main.Menu;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

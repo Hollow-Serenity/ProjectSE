@@ -6,6 +6,7 @@ import LiveStock.Market;
 import Medical.Appointment;
 import Medical.Medical_Platform;
 import UserManagement.ContactTypeGui;
+import UserManagement.Login;
 import UserManagement.Registration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,12 +22,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Home {
     private static Connection Connect = Database.getConnection();
@@ -87,9 +86,9 @@ public class Home {
     private void setLogoutBtn() {
         setButtonLooks(LogoutBtn, "../Images/Logout.png", "Logout");
         LogoutBtn.setOnAction(e -> {
-            Login.setUName(null);
-            Login.setIsLogin(false);
-            Login.setIsDoctor(false);
+            Menu.setUName(null);
+            Menu.setIsLogin(false);
+            Menu.setIsDoctor(false);
             Login.login();
         });
     }
@@ -168,7 +167,7 @@ public class Home {
         setLayout();
         showReservedSlots();
 
-        if(!Login.getIsDoctor()) {
+        if(!Menu.getIsDoctor()) {
             tableVBox.setVisible(false);
         }
 
@@ -195,7 +194,7 @@ public class Home {
     private void setPrestatement() throws SQLException {
         String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE ASC";
         prestatement = Connect.prepareStatement(query);
-        prestatement.setString(1, Login.getUName());
+        prestatement.setString(1, Menu.getUName());
         resultSet = prestatement.executeQuery();
     }
 

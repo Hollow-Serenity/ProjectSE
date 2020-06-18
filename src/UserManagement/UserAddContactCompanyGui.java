@@ -1,7 +1,6 @@
 package UserManagement;
 
 import Main.DbUtil;
-import Main.Login;
 import Main.Menu;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

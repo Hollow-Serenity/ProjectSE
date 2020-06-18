@@ -2,24 +2,19 @@ package Medical;
 
 import LiveStock.AddProducts;
 import Main.Database;
-import Main.Login;
+import Main.Menu;
+import UserManagement.Login;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.sql.*;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -63,7 +58,7 @@ public class ViewAppointment {
 
     private void setPrestatement(SimpleDateFormat formatter) throws SQLException {
         prestatement = Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ? AND DATE >= ?");
-        prestatement.setString(1, Login.getUName());
+        prestatement.setString(1, Menu.getUName());
         Date now = new Date();
         prestatement.setDate(2, java.sql.Date.valueOf(formatter.format(now)));
         resultSet = prestatement.executeQuery();

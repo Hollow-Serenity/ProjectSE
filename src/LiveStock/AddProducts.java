@@ -1,7 +1,8 @@
 package LiveStock;
 
 import Main.Database;
-import Main.Login;
+import Main.Menu;
+import UserManagement.Login;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
@@ -56,7 +57,7 @@ public class AddProducts {
 
         try {
             prestatement = Connect.prepareStatement("SELECT * FROM livestock WHERE owner = ?");
-            prestatement.setString(1, Login.getUName());
+            prestatement.setString(1, Menu.getUName());
             resultSet = prestatement.executeQuery();
             while (resultSet.next()) {
                 DataList.add(new LiveStock(
@@ -134,7 +135,7 @@ public class AddProducts {
                 prestatement.setString(3, DetailsField.getText());
                 prestatement.setString(4, WeightField.getText());
                 prestatement.setString(5, PriceField.getText());
-                prestatement.setString(6, Login.getUName());
+                prestatement.setString(6, Menu.getUName());
                 prestatement.executeUpdate();
                 DialogStage.hide();
                 AddProduct();

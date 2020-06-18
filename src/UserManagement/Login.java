@@ -1,4 +1,4 @@
-package Main;
+package UserManagement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import Main.Database;
 import Main.Home;
 import Main.Menu;
-import UserManagement.Registration;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -28,10 +27,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Login extends Application {
-
-	private static Boolean isLogin = false;
-	private static Boolean isDoctor = false;
-	private static String StoreUName;
 
 	private static Database db = Database.getDatabase();
 
@@ -140,13 +135,13 @@ public class Login extends Application {
 
 	private static void doctorCheck() throws SQLException {
 		if (resultSet.getString("isDoctor").equals("T")) {
-			isDoctor = true;
+			Menu.setIsDoctor(true);
 		}
 	}
 
 	private static void saveInfo() throws SQLException {
-		StoreUName = UName.getText();
-		isLogin = true;
+		Menu.setUName(UName.getText());
+		Menu.setIsLogin(true);
 		doctorCheck();
 	}
 
@@ -207,27 +202,7 @@ public class Login extends Application {
 		Register.setOnAction(e -> startRegistration());
 	}
 
-	public static String getUName() {
-		return StoreUName;
-	}
-	public static Boolean getIsLogin() {
-		return isLogin;
-	}
-	public static Boolean getIsDoctor() {
-		return isDoctor;
-	}
-
 	public static BorderPane getLayout() {
 		return Layout;
-	}
-
-	public static void setUName(String UName) {
-		StoreUName = UName;
-	}
-	public static void setIsLogin(Boolean login) {
-		isLogin = login;
-	}
-	public static void setIsDoctor(Boolean doctor) {
-		isDoctor = doctor;
 	}
 }

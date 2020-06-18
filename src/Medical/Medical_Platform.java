@@ -2,7 +2,7 @@ package Medical;
 
 import Main.Database;
 import Main.Menu;
-import Main.Login;
+import UserManagement.Login;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -61,7 +61,7 @@ public class Medical_Platform {
         layout.setMaxWidth(600);
         layout.setMaxHeight(400);
 
-        if (!Login.getIsDoctor()) {
+        if (!Menu.getIsDoctor()) {
             patientUName.setVisible(false);
             patientUNameTXT.setVisible(false);
             conditionsBtn.setVisible(false);
@@ -100,7 +100,7 @@ public class Medical_Platform {
     public Medical_Platform() throws Exception {
         setStyle();
         setLayout();
-        setAfflictions(Login.getUName());
+        setAfflictions(Menu.getUName());
 
         Login.getLayout().setTop(Menu.getMenu());
         Login.getLayout().setCenter(layout);
