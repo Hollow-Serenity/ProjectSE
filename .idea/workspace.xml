@@ -32,11 +32,30 @@
   <component name="ChangeListManager">
     <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="'fixed' the login bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/META-INF/ProjectSE_1.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/META-INF/ProjectSE_1.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Home.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Home.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/DisplayReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayReading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Eduplatform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/Mathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Mathematics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LiveStock/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/Market.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/AddAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Specialization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/ManageContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ManageContact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +77,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1dJLO8FAMjQMY4iwY3mz2M6ixvl" />
   <component name="ProjectViewState">
@@ -86,18 +104,6 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Main" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Login">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -245,13 +251,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ViewAppointment refactored" />
@@ -267,6 +272,10 @@
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592242232521" />
+    <state x="807" y="425" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592480500650">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="807" y="425" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592480500650" />
     <state x="585" y="113" key="CommitChangelistDialog2" timestamp="1592392969284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -276,28 +285,28 @@
     </state>
     <state x="557" y="158" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592386960931" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592242278459" />
-    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1592475120164">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592483250524">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592483250524" />
     <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
-    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1592475120164">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592483250523">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592483250523" />
     <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
-    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1592475120164">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592483250523">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592483250523" />
     <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
-    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1592475120164">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592483250524">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592483250524" />
     <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
     <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
     <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1592412766356">
@@ -316,6 +325,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="2005" height="376" key="GridCell.Tab.1.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592412766356" />
+    <state x="198" y="94" key="MergeDialog" timestamp="1592480341422">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="198" y="94" key="MergeDialog/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592480341422" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1592242280367">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -328,9 +341,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="754" y="448" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592254523430" />
-    <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592391253184">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="820" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592480334465">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state x="820" y="467" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592480334465" />
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1592391253184" />
     <state x="755" y="317" key="extract.method.dialog" timestamp="1592398642418">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -342,7 +356,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main/Home.java</url>
-          <line>189</line>
+          <line>188</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

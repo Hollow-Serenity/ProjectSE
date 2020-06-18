@@ -16,8 +16,7 @@ public class Market {
     Scene sceneHome, sceneSell, sceneSellConfirm, sceneBuy, bidConfirm;
 
     public void Market() {
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
 
         window = new Stage();
         Label label1 = new Label("Marketplace");

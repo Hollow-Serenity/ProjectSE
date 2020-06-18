@@ -107,8 +107,7 @@ public class AddAppointment {
 		cbSelectDoctor.getItems().clear();
 		getDoctors();
 
-		Menu m = new Menu();
-		Login.getLayout().setTop(m.Menu());
+		Login.getLayout().setTop(Menu.getMenu());
 		Login.getLayout().setCenter(mainVB);
 	}
 
@@ -375,8 +374,7 @@ public class AddAppointment {
         TableVB.setMinWidth(250);
         CenterRes.getChildren().addAll(TableVB);
 
-		Menu m = new Menu();
-		Login.getLayout().setTop(m.Menu());
+		Login.getLayout().setTop(Menu.getMenu());
 		Login.getLayout().setCenter(CenterRes);
     }
 

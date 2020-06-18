@@ -86,8 +86,7 @@ public class Registration {
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
 		Center.setMaxHeight(400);
-		Menu m = new Menu();
-		Login.getLayout().setTop(m.Menu());
+		Login.getLayout().setTop(Menu.getMenu());
 		Login.getLayout().setCenter(Center);
 	}
 

@@ -1,4 +1,4 @@
-package UserManagement;
+package Main;
 
 import java.sql.*;
 

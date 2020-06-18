@@ -25,8 +25,7 @@ public class ContactTypeGui {
         hBox.getChildren().addAll(personButton, companyButton);
         vBox.getChildren().addAll(chooseLabel, hBox);
 
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
         Login.getLayout().setCenter(vBox);
 
         personButton.setOnAction(actionEvent -> {

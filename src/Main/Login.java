@@ -42,7 +42,6 @@ public class Login extends Application {
 	private static Stage Window;
 	private static Scene Scn;
 	private static BorderPane Layout = new BorderPane();
-	private static Menu m = new Menu();
 
 	private static Label CName = new Label("Welcome to zeroXess");
 	private static Label LoginLbl = new Label("Login");
@@ -195,7 +194,7 @@ public class Login extends Application {
 		VBox LoginBox = getLoginBox();
 		HBox CenterBox = getCenterBox(CompanyInformation, LoginBox);
 
-		Layout.setTop(m.Menu());
+		Layout.setTop(Menu.getMenu());
 		Layout.setCenter(CenterBox);
 
 

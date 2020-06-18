@@ -44,8 +44,7 @@ public class Mathematics implements EventHandler<ActionEvent> {
             error.setLayoutY(190);
             mathExpression.setLayoutX(158.0);
             mathExpression.setLayoutY(166.0);
-            Menu m = new Menu();
-            Login.getLayout().setTop(m.Menu());
+            Login.getLayout().setTop(Menu.getMenu());
         }
         @Override
         public void handle(ActionEvent event) {

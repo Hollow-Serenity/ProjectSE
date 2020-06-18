@@ -172,8 +172,7 @@ public class Home {
             tableVBox.setVisible(false);
         }
 
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
         Login.getLayout().setCenter(Center);
     }
 

@@ -67,7 +67,6 @@ public class DisplayReading {
         hBox.getChildren().add(vBox);
 
         Login.getLayout().setCenter(hBox);
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
     }
 }

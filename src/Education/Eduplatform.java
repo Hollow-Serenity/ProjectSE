@@ -79,8 +79,7 @@ public class Eduplatform {
         Center.setMaxHeight(600 * 0.75);
         Center.setSpacing(20);
 
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
         Login.getLayout().setCenter(Center);
 //
 

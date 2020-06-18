@@ -1,5 +1,6 @@
 package UserManagement;
 
+import Main.DbUtil;
 import Main.Login;
 import Main.Menu;
 import javafx.geometry.Insets;
@@ -120,8 +121,7 @@ public class UserAddContactPersonGui {
         addContactButton.setOnAction(actionEvent -> addContactButtonAction());
         deleteContactButton.setOnAction(actionEvent -> deleteContactButtonAction());
 
-        Main.Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
         Login.getLayout().setCenter(vBox);
     }
 }

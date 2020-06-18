@@ -55,7 +55,6 @@ public class DisplayWritingAssignment {
         gridPane.add(hBox1, 3, 2);
 
         Login.getLayout().setCenter(gridPane);
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
     }
 }

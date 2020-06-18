@@ -102,8 +102,7 @@ public class Medical_Platform {
         setLayout();
         setAfflictions(Login.getUName());
 
-        Main.Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Login.getLayout().setTop(Menu.getMenu());
         Login.getLayout().setCenter(layout);
 
         ViewAppointment viewApp = new ViewAppointment();

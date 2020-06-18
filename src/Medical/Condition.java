@@ -46,9 +46,8 @@ public class Condition {
         Center.setMaxHeight(400);
         hBox.setMaxSize(400,20);
 
-        Menu m = new Menu();
         BorderPane layout = Login.getLayout();
-        layout.setTop(m.Menu());
+        layout.setTop(Menu.getMenu());
         layout.setCenter(Center);
 
         confirmAdd.setOnAction(e -> addCondition());
