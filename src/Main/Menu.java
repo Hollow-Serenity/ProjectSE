@@ -2,6 +2,9 @@ package Main;
 
 import java.sql.SQLException;
 
+import LiveStock.AddProducts;
+import Medical.Specialization;
+import UserManagement.Registration;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;

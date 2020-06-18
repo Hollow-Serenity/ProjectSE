@@ -1,5 +1,6 @@
 package Main;
 
+import Education.Question;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,7 +9,7 @@ public class TestCalculations {
 
     @Test
     public void TestPlus(){
-        assertEquals(5,Question.calculateMathExpression(4,1,'+'));
+        assertEquals(5, Question.calculateMathExpression(4,1,'+'));
         assertEquals(1728,Question.calculateMathExpression(657,1071,'+'));
     }
 

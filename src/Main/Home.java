@@ -1,5 +1,12 @@
 package Main;
 
+import Education.Eduplatform;
+import LiveStock.AddProducts;
+import LiveStock.Market;
+import Medical.Appointment;
+import Medical.Medical_Platform;
+import UserManagement.ContactTypeGui;
+import UserManagement.Registration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;

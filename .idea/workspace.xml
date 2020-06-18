@@ -32,9 +32,62 @@
   <component name="ChangeListManager">
     <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="'fixed' the login bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/UserAddContactCompanyGui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/UserAddContactCompanyGui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Appointment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Company.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Condition.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Contact.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ContactTypeGui.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DisplayReading.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/DisplayWritingAssignment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Eduplatform.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/LittleFoxStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ManageContact.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Market.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Mathematics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Medical_Platform.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/PurpleMouseStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Question.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Reading.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/ReadingAssignment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/TheSnailStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/TwoMiceStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/WritingAssignment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/QuestionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/QuestionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/RegistrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/RegistrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/TestCalculations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ProjectSE_1/Main/TestCalculations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/AddAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AddProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/AddProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/ContactTypeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/DbUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DisplayReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayReading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Eduplatform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/ManageContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ManageContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Mathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Mathematics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Medical_Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Reading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Reading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Specialization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/ViewAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/ViewAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/WritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/WritingAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Main/QuestionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/QuestionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Main/RegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/RegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Main/TestCalculations.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/TestCalculations.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +131,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Main" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -163,12 +221,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ViewAppointment refactored" />
@@ -192,30 +251,30 @@
     </state>
     <state x="557" y="158" key="FileChooserDialogImpl/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592386960931" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592242278459" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592423967007">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1592475120164">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
     <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
-    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574895" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592423967007">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1592475120164">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
     <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
-    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592423967007">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1592475120164">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
     <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
-    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592423967007">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1592475120164">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592423967007" />
     <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592242632345" />
-    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592392574894" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592475120164" />
     <state width="2005" height="376" key="GridCell.Tab.1.bottom" timestamp="1592412766356">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
