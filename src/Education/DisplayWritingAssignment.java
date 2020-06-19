@@ -28,7 +28,7 @@ public class DisplayWritingAssignment {
         gridPane.setVgap(10);
         gridPane.setMinSize(800, 800);
 
-        Button randomizeButton = new Button("randomize");
+        Button randomizeButton = new Button("next");
         randomizeButton.setOnAction(actionEvent -> {
             if(!checkLabel.getText().equals("")) {
                 questionLabel.setText(writingAssignment.getRandomQuestion().getText());

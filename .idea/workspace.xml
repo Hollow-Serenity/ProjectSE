@@ -28,8 +28,10 @@
     <list default="true" id="f593677a-8a80-42f1-bdf9-295c033067d0" name="Default Changelist" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/WritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/WritingAssignment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main/TestCalculations.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/TestCalculations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Medical/AppointmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Medical/AppointmentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +62,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="JUnit.TestCalculations">
+  <component name="RunManager" selected="Application.Login (1)">
     <configuration name="Login (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UserManagement.Login" />
       <module name="ProjectSE_1" />
@@ -139,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Login (1)" />
         <item itemvalue="JUnit.TestCalculations" />
         <item itemvalue="JUnit.TestCalculations.TestMinus" />
         <item itemvalue="JUnit.TestCalculations.WrongTestMinus" />
         <item itemvalue="JUnit.TestCalculations.TestPlus" />
-        <item itemvalue="Application.Login (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -203,28 +205,32 @@
     <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state width="618" height="163" key="GridCell.Tab.0.bottom" timestamp="1592583043473">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1220" height="172" key="GridCell.Tab.0.bottom" timestamp="1592583966127">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="173" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state width="618" height="163" key="GridCell.Tab.0.center" timestamp="1592583043473">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1220" height="172" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
+    <state width="1220" height="172" key="GridCell.Tab.0.center" timestamp="1592583966127">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="173" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state width="618" height="163" key="GridCell.Tab.0.left" timestamp="1592583043473">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1220" height="172" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
+    <state width="1220" height="172" key="GridCell.Tab.0.left" timestamp="1592583966127">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="173" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state width="618" height="163" key="GridCell.Tab.0.right" timestamp="1592583043473">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1220" height="172" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
+    <state width="1220" height="172" key="GridCell.Tab.0.right" timestamp="1592583966127">
+      <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="173" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
+    <state width="1220" height="172" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1592560849763" />
     <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
+    <state x="355" y="252" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592583719291">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="355" y="252" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.720@0.0.1280.720" timestamp="1592583719291" />
     <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592582793198">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

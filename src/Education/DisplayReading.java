@@ -51,7 +51,7 @@ public class DisplayReading {
             isCorrectLabel.setText(isCorrect);
         });
 
-        Button randomize = new Button("randomize");
+        Button randomize = new Button("next");
         randomize.setOnAction(actionEvent -> {
             reading.getRandomReadingAssignment();
             story.setText(reading.getCurrentReadingAssignment().getStory());

@@ -25,13 +25,6 @@ public class WritingAssignment {
         questions.add(new Question("chief or cheif", "chief"));
     }
 
-    public void addQuestion(Question question) {
-        questions.add(question);
-    }
-    public ArrayList<Question> getQuestions() {
-        return questions;
-    }
-
     private void setCurrentQuestion(Question question) {
         currentQuestion = question;
     }
@@ -47,10 +40,5 @@ public class WritingAssignment {
         setCurrentQuestion(question);
 
         return question;
-    }
-
-    public Question getQuestion(int i) {
-        currentQuestion = questions.get(i);
-        return currentQuestion;
     }
 }
