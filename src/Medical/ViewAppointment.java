@@ -2,24 +2,20 @@ package Medical;
 
 import LiveStock.AddProducts;
 import Main.Database;
-import Main.Login;
+import Main.Menu;
+import UserManagement.Login;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.sql.*;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -31,6 +27,8 @@ public class ViewAppointment {
     private static Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
+
+    private static BorderPane Layout;
 
     private ObservableList<Appointment> DataList = FXCollections.observableArrayList();
     private TableView<Appointment> AppointmentTable = new TableView<>(DataList);
@@ -63,7 +61,7 @@ public class ViewAppointment {
 
     private void setPrestatement(SimpleDateFormat formatter) throws SQLException {
         prestatement = Connect.prepareStatement("SELECT appointment.*, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.doctorName WHERE patientId = ? AND DATE >= ?");
-        prestatement.setString(1, Login.getUName());
+        prestatement.setString(1, Menu.getUName());
         Date now = new Date();
         prestatement.setDate(2, java.sql.Date.valueOf(formatter.format(now)));
         resultSet = prestatement.executeQuery();
@@ -102,7 +100,7 @@ public class ViewAppointment {
     private void addAppointmentAction(String updateCheck, int selectedIndex) {
         AddAppointment addApp = new AddAppointment();
         try {
-            addApp.AddAppointment(updateCheck, DataList, selectedIndex);
+            addApp.AddAppointment(updateCheck, DataList, selectedIndex, Layout);
         } catch (Exception e) {
             System.out.println("Error while opening addAppointment");
             e.printStackTrace();
@@ -160,10 +158,11 @@ public class ViewAppointment {
         ButtonB.setSpacing(10);
 
         Center.getChildren().addAll(TableVB, ButtonB);
-        Login.getLayout().setCenter(Center);
+        Layout.setCenter(Center);
     }
 
-    public void ViewAppointment() {
+    public void ViewAppointment(BorderPane layout) {
+        this.Layout = layout;
         setTable();
         fillTable();
         setLayout();

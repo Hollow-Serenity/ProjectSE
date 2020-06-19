@@ -1,18 +1,22 @@
 package Education;
 
-import Main.Login;
+import UserManagement.Login;
 import Main.Menu;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class DisplayReading {
-    public DisplayReading() {
+    private static BorderPane Layout;
+
+    public DisplayReading(BorderPane layout) {
+        this.Layout = layout;
         Reading reading = new Reading();
         reading.getRandomReadingAssignment();
         ReadingAssignment readingAssignment = reading.getCurrentReadingAssignment();
@@ -66,8 +70,7 @@ public class DisplayReading {
         vBox.getChildren().addAll(question1Label, response1TextField, question2Label, response2TextField, question3Label, response3TextField, checkHBox, randomize);
         hBox.getChildren().add(vBox);
 
-        Login.getLayout().setCenter(hBox);
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
+        Layout.setCenter(hBox);
+        Layout.setTop(Menu.getMenu(Layout));
     }
 }

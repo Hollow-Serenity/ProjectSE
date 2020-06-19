@@ -1,15 +1,17 @@
 package UserManagement;
 
-import Main.Login;
 import Main.Menu;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public class ContactTypeGui {
-    public ContactTypeGui() throws Exception {
+    private static BorderPane Layout;
+    public ContactTypeGui(BorderPane layout) throws Exception {
+        this.Layout = layout;
         VBox vBox = new VBox(20);
         vBox.setAlignment(Pos.CENTER);
 
@@ -25,13 +27,12 @@ public class ContactTypeGui {
         hBox.getChildren().addAll(personButton, companyButton);
         vBox.getChildren().addAll(chooseLabel, hBox);
 
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
-        Login.getLayout().setCenter(vBox);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(vBox);
 
         personButton.setOnAction(actionEvent -> {
             try {
-                new UserAddContactPersonGui();
+                new UserAddContactPersonGui(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -39,7 +40,7 @@ public class ContactTypeGui {
 
         companyButton.setOnAction(actionEvent -> {
             try {
-                new UserAddContactCompanyGui();
+                new UserAddContactCompanyGui(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }

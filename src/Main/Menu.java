@@ -4,74 +4,151 @@ import java.sql.SQLException;
 
 import LiveStock.AddProducts;
 import Medical.Specialization;
+import UserManagement.Login;
 import UserManagement.Registration;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class Menu {
+	private static Menu singleton = null;
 
-	public VBox Menu() {
-		MenuBar myMenu = new MenuBar();
-		javafx.scene.control.Menu Action = new javafx.scene.control.Menu("_Action");
-		MenuItem Exit = new MenuItem("_Exit");
-		Exit.setOnAction(e -> System.exit(0));
-		VBox PageTop = new VBox();
-		if (Login.getIsLogin()) {
-			javafx.scene.control.Menu Manage = new javafx.scene.control.Menu("_Manage");
+	private static final VBox PageTop = new VBox();
+	private static BorderPane Layout;
 
-			AddProducts ap = new AddProducts();
-			MenuItem AddProduct = new MenuItem("_Add Products");
-			AddProduct.setOnAction(e -> {
-				ap.AddProduct();
-			});
-			MenuItem AddUser = new MenuItem("_Edit Profile");
-			AddUser.setOnAction(e -> {
-				try {
-					Registration logon = new Registration();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			});
-			MenuItem Home = new MenuItem("_Home");
-			Home.setOnAction(e -> {
-				try {
-					Home h = new Home();
-					h.Homes();
-				} catch (SQLException e1) {
-					System.out.println("SQL Error");
-				}
-			});
-			MenuItem Specializations = new MenuItem("_Specialization");
-			Specializations.setOnAction(e -> {
-				try {
-					new Specialization();
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			});
-			if (!Login.getIsDoctor()) {
-				Specializations.setVisible(false);
-			}
-			MenuItem Logout = new MenuItem("_Logout");
-			Logout.setOnAction(e -> {
-				Login.setUName(null);
-				Login.setIsLogin(false);
-				Login.setIsDoctor(false);
-				Login.login();
-			});
-			Action.getItems().addAll(Home, Specializations, Logout, Exit);
-			Manage.getItems().addAll(AddProduct, AddUser);
-			myMenu.getMenus().addAll(Action, Manage);
-			PageTop.getChildren().add(myMenu);
-		} else {
-			MenuItem login = new MenuItem("_Login");
-			login.setOnAction(e -> Login.login());
-			Action.getItems().addAll(login, Exit);
-			myMenu.getMenus().add(Action);
-			PageTop.getChildren().add(myMenu);
+	private static final MenuBar myMenu = new MenuBar();
+	private static final MenuBar loginMenu = new MenuBar();
+
+	private static final javafx.scene.control.Menu Menu = new javafx.scene.control.Menu("_Menu");
+	private static final javafx.scene.control.Menu MenuLogin = new javafx.scene.control.Menu("_Menu");
+	private static final javafx.scene.control.Menu Manage = new javafx.scene.control.Menu("_Manage");
+
+	private static final MenuItem Exit = new MenuItem("_Exit");
+	private static final MenuItem Exit1 = new MenuItem("_Exit");
+	private static final MenuItem AddProduct = new MenuItem("_Add Products");
+	private static final MenuItem AddUser = new MenuItem("_Edit Profile");
+	private static final MenuItem Home = new MenuItem("_Home");
+	private static final MenuItem Specializations = new MenuItem("_Specialization");
+	private static final MenuItem Logout = new MenuItem("_Logout");
+
+	private static Boolean isLogin = false;
+	private static Boolean isDoctor = false;
+	private static String StoreUName;
+
+	private Menu(BorderPane layout) {
+		this.Layout = layout;
+		setLayout();
+		setButtonActions();
+	}
+
+	public static VBox getMenu(BorderPane layout) {
+		if (singleton == null) {
+			singleton = new Menu(layout);
 		}
+		setMenu();
 		return PageTop;
 	}
 
+	private static void setButtonActions() {
+		Exit.setOnAction(e -> System.exit(0));
+		Exit1.setOnAction(e -> System.exit(0));
+		setAddProductButtonAction();
+		setAddUserButtonAction();
+		setHomeButtonAction();
+		setSpecializationsButtonAction();
+		setLogoutButtonAction();
+	}
+
+	private static void setAddProductButtonAction() {
+		AddProduct.setOnAction(e -> {
+			AddProducts ap = new AddProducts();
+			ap.AddProduct(Layout);
+		});
+	}
+
+	private static void setAddUserButtonAction() {
+		AddUser.setOnAction(e -> {
+			try {
+				new Registration(Layout);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		});
+	}
+
+	private static void setHomeButtonAction() {
+		Home.setOnAction(e -> {
+			try {
+				Home h = new Home();
+				h.Homes(Layout);
+			} catch (SQLException e1) {
+				System.out.println("SQL Error");
+			}
+		});
+	}
+
+	private static void setSpecializationsButtonAction() {
+		Specializations.setOnAction(e -> {
+			try {
+				new Specialization(Layout);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		});
+	}
+
+	private static void setLogoutButtonAction() {
+		Logout.setOnAction(e -> {
+			StoreUName = null;
+			isLogin = false;
+			isDoctor = false;
+			Login.login();
+		});
+	}
+
+	private static void setLayout() {
+		Menu.getItems().addAll(Home, Specializations, Logout, Exit);
+		Manage.getItems().addAll(AddProduct, AddUser);
+		myMenu.getMenus().addAll(Menu, Manage);
+		MenuLogin.getItems().addAll(Exit1);
+		loginMenu.getMenus().add(MenuLogin);
+	}
+
+	private static void setMenu() {
+		if(isLogin) {
+			PageTop.getChildren().clear();
+			PageTop.getChildren().add(myMenu);
+		}
+		else {
+			PageTop.getChildren().clear();
+			PageTop.getChildren().add(loginMenu);
+		}
+		if (isDoctor) {
+			Specializations.setVisible(true);
+		}
+		else {
+			Specializations.setVisible(false);
+		}
+	}
+
+	public static String getUName() {
+		return StoreUName;
+	}
+	public static Boolean getIsLogin() {
+		return isLogin;
+	}
+	public static Boolean getIsDoctor() {
+		return isDoctor;
+	}
+
+	public static void setUName(String UName) {
+		StoreUName = UName;
+	}
+	public static void setIsLogin(Boolean login) {
+		isLogin = login;
+	}
+	public static void setIsDoctor(Boolean doctor) {
+		isDoctor = doctor;
+	}
 }

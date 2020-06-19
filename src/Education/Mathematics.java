@@ -1,6 +1,6 @@
 package Education;
 
-import Main.Login;
+import UserManagement.Login;
 import Main.Menu;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,12 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Mathematics implements EventHandler<ActionEvent> {
     public Stage stage;
+    private static BorderPane Layout;
     private Pane layout = new Pane(mathExpression,answer,submit,error);
     private Scene scene = new Scene(layout,600, 400);
     private static Label mathExpression = new Label();
@@ -23,12 +25,13 @@ public class Mathematics implements EventHandler<ActionEvent> {
     private static Question math = new Question();
 
 
-    public Mathematics(){
+    public Mathematics(BorderPane layout1){
+        this.Layout = layout1;
         math.makeMathExpression();
         mathExpression.setText(math.getText());
         frontend();
         layout.getStyleClass().add("hbox");
-        Login.getLayout().setCenter(layout);
+        Layout.setCenter(layout);
         submit.setOnAction(this);
     }
 
@@ -44,8 +47,7 @@ public class Mathematics implements EventHandler<ActionEvent> {
             error.setLayoutY(190);
             mathExpression.setLayoutX(158.0);
             mathExpression.setLayoutY(166.0);
-            Menu m = new Menu();
-            Login.getLayout().setTop(m.Menu());
+            Layout.setTop(Menu.getMenu(Layout));
         }
         @Override
         public void handle(ActionEvent event) {

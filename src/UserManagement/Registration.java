@@ -7,12 +7,12 @@ import java.sql.SQLException;
 
 import Main.Database;
 import Main.Home;
-import Main.Login;
 import Main.Menu;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -22,6 +22,7 @@ public class Registration {
 
 	private static VBox Center;
 	private static HBox Buttons = new HBox(30);
+	private static BorderPane Layout;
 
 	private static Connection Connect = Database.getConnection();
 	private static PreparedStatement prestatement = Database.getPrestatement();
@@ -42,7 +43,7 @@ public class Registration {
 	private static Button DeleteBtn = new Button ("Delete Account");
 
 	public Boolean checkUName(String username) {
-		if (!UName.getText().equals(Login.getUName())) {
+		if (!UName.getText().equals(Menu.getUName())) {
 			try {
 				String res = null;
 				prestatement = Connect.prepareStatement("SELECT userName FROM users WHERE userName = ?");
@@ -86,9 +87,8 @@ public class Registration {
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
 		Center.setMaxHeight(400);
-		Menu m = new Menu();
-		Login.getLayout().setTop(m.Menu());
-		Login.getLayout().setCenter(Center);
+		Layout.setTop(Menu.getMenu(Layout));
+		Layout.setCenter(Center);
 	}
 
 	public Boolean checkPassword() {
@@ -136,9 +136,8 @@ public class Registration {
 			if(checkPassword()) {
 				try {
 					databaseInsert();
-					Login.setIsDoctor(Doctor.getValue().equals("Doctor"));
-					Login D = new Login();
-					D.login();
+					Menu.setIsDoctor(Doctor.getValue().equals("Doctor"));
+					Login.login();
 				}
 				catch (SQLException e1) {
 					Status.setText("Error while adding user");
@@ -153,7 +152,7 @@ public class Registration {
 
 	public void showAccountDetails() throws SQLException {
 		prestatement = Connect.prepareStatement("SELECT * FROM users WHERE userName = ?");
-		prestatement.setString(1, Login.getUName());
+		prestatement.setString(1, Menu.getUName());
 		resultSet = prestatement.executeQuery();
 		while (resultSet.next()) {
 			UName.setText(resultSet.getString(1));
@@ -180,15 +179,15 @@ public class Registration {
 		prestatement.setString(3, Last.getText());
 		prestatement.setString(4, Password.getText());
 		prestatement.setString(5, isDoctorToString(Doctor.getValue()));
-		prestatement.setString(6, Login.getUName());
+		prestatement.setString(6, Menu.getUName());
 		prestatement.executeUpdate();
-		Login.setUName(UName.getText());
+		Menu.setUName(UName.getText());
 	}
 
 	public void deleteAccount() {
 		try {
 			prestatement = Connect.prepareStatement("DELETE FROM users WHERE userName = ?");
-			prestatement.setString(1, Login.getUName());
+			prestatement.setString(1, Menu.getUName());
 			prestatement.execute();
 		} catch (SQLException e1) {
 			System.out.println(e1.getMessage());
@@ -203,7 +202,7 @@ public class Registration {
 				Home H = new Home();
 				try {
 					updateAccountDetails();
-					H.Homes();
+					H.Homes(Layout);
 				} catch (SQLException throwables) {
 					throwables.printStackTrace();
 				}
@@ -225,11 +224,12 @@ public class Registration {
 		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, Buttons);
 	}
 
-	public Registration() throws Exception {
+	public Registration(BorderPane layout) throws Exception {
+		this.Layout = layout;
 		setStyles();
 		setVBox();
 
-		if(!Login.getIsLogin()) {
+		if(!Menu.getIsLogin()) {
 			startRegistration();
 		}
 		else {

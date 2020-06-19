@@ -1,5 +1,6 @@
 package Main;
 
+import UserManagement.Login;
 import UserManagement.Registration;
 import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.MethodOrderer;
@@ -19,7 +20,7 @@ public class RegistrationTest {
     @Order(1)
     void testDatabaseInsert() throws SQLException {
         R.databaseInsert();
-        Login.setUName(R.checkCurrentUName());
+        Menu.setUName(R.checkCurrentUName());
         R.resetTextFields();
         R.showAccountDetails();
         assertEquals("TesterUName", R.checkCurrentUName(), "checks out");
@@ -72,7 +73,7 @@ public class RegistrationTest {
     @Order(6)
     void testDeleteAccount() throws SQLException {
         R.deleteAccount();
-        Login.setUName(R.checkCurrentUName());
+        Menu.setUName(R.checkCurrentUName());
         R.resetTextFields();
         R.showAccountDetails();
         assertEquals("", R.checkCurrentUName(), "checks out");

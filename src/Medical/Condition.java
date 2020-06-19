@@ -2,7 +2,7 @@ package Medical;
 
 import Main.Database;
 import Main.Menu;
-import Main.Login;
+import UserManagement.Login;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -20,6 +20,8 @@ public class Condition {
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
 
+    private static BorderPane Layout;
+
     private static final Label conditionTXT = new Label("Please specify the condition");
     private static final Label patientIDTXT = new Label("Please enter your patient's username");
 
@@ -29,7 +31,8 @@ public class Condition {
     private static final Button confirmAdd = new Button("Add");
     private static final Button confirmRemove = new Button("Remove");
 
-    public Condition() {
+    public Condition(BorderPane layout) {
+        this.Layout = layout;
         VBox Center = new VBox(20);
         HBox hBox = new HBox(40);
 
@@ -46,10 +49,8 @@ public class Condition {
         Center.setMaxHeight(400);
         hBox.setMaxSize(400,20);
 
-        Menu m = new Menu();
-        BorderPane layout = Login.getLayout();
-        layout.setTop(m.Menu());
-        layout.setCenter(Center);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(Center);
 
         confirmAdd.setOnAction(e -> addCondition());
         confirmRemove.setOnAction(e -> removeCondition());
@@ -62,7 +63,7 @@ public class Condition {
             prestatement.setString(2, patientIDTF.getText());
             prestatement.executeUpdate();
             try {
-                new Medical_Platform();
+                new Medical_Platform(Layout);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -79,7 +80,7 @@ public class Condition {
             prestatement.setString(2, patientIDTF.getText());
             prestatement.execute();
             try {
-                new Medical_Platform();
+                new Medical_Platform(Layout);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

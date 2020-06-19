@@ -1,12 +1,14 @@
 package LiveStock;
 
 import Main.Database;
-import Main.Login;
+import Main.Menu;
+import UserManagement.Login;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,8 +21,7 @@ import java.sql.SQLException;
 import static java.lang.String.valueOf;
 
 public class AddProducts {
-
-    public static Stage Window;
+    private static BorderPane Layout;
 
     private static Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
@@ -35,7 +36,8 @@ public class AddProducts {
     }
 
     @SuppressWarnings("unchecked")
-    public void AddProduct() {
+    public void AddProduct(BorderPane layout) {
+        this.Layout = layout;
 
         ObservableList<LiveStock> DataList = FXCollections.observableArrayList();
         TableView<LiveStock> ProductTable = new TableView<LiveStock>(DataList);
@@ -56,7 +58,7 @@ public class AddProducts {
 
         try {
             prestatement = Connect.prepareStatement("SELECT * FROM livestock WHERE owner = ?");
-            prestatement.setString(1, Login.getUName());
+            prestatement.setString(1, Menu.getUName());
             resultSet = prestatement.executeQuery();
             while (resultSet.next()) {
                 DataList.add(new LiveStock(
@@ -95,7 +97,7 @@ public class AddProducts {
         VBox Center = createCenter(20, 800, 1000);
         Center.getChildren().addAll(TableVB, ButtonB);
 
-        Login.getLayout().setCenter(Center);
+        Layout.setCenter(Center);
     }
 
     public void NewProduct() {
@@ -134,10 +136,10 @@ public class AddProducts {
                 prestatement.setString(3, DetailsField.getText());
                 prestatement.setString(4, WeightField.getText());
                 prestatement.setString(5, PriceField.getText());
-                prestatement.setString(6, Login.getUName());
+                prestatement.setString(6, Menu.getUName());
                 prestatement.executeUpdate();
                 DialogStage.hide();
-                AddProduct();
+                AddProduct(Layout);
             } catch (SQLException e1) {
                 System.out.println(e1.getMessage());
             }
@@ -209,7 +211,7 @@ public class AddProducts {
                     prestatement.setInt(6, P.idlive_stock);
                     prestatement.executeUpdate();
                     DialogStage.hide();
-                    AddProduct();
+                    AddProduct(Layout);
                 } catch (SQLException e1) {
                     System.out.println(e1.getMessage());
                 }
@@ -232,7 +234,7 @@ public class AddProducts {
             DialogStage.setTitle("Add New LiveStock");
             DialogStage.show();
         } else {
-            AddProduct();
+            AddProduct(Layout);
         }
     }
 
@@ -242,12 +244,12 @@ public class AddProducts {
                 prestatement = Connect.prepareStatement("DELETE FROM LiveStock WHERE idlive_stock = ?");
                 prestatement.setInt(1, P.idlive_stock);
                 prestatement.executeUpdate();
-                AddProduct();
+                AddProduct(Layout);
             } catch (SQLException e1) {
                 System.out.println("Error while deleteing data from LiveStock!");
             }
         } else {
-            AddProduct();
+            AddProduct(Layout);
         }
     }
 

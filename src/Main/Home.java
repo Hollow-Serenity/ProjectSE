@@ -6,6 +6,7 @@ import LiveStock.Market;
 import Medical.Appointment;
 import Medical.Medical_Platform;
 import UserManagement.ContactTypeGui;
+import UserManagement.Login;
 import UserManagement.Registration;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,15 +19,14 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
 
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Home {
     private static Connection Connect = Database.getConnection();
@@ -37,6 +37,7 @@ public class Home {
     private TableView<Appointment> AppointmentTable = new TableView<Appointment>(DataList);
 
     private Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+    private static BorderPane Layout;
 
     private VBox Center = new VBox(20);
     private HBox tableVBox = new HBox();
@@ -69,7 +70,7 @@ public class Home {
         setButtonLooks(InventoryBtn, "../Images/AddProduct.png", "Add Products");
         InventoryBtn.setOnAction(event -> {
             AddProducts ap = new AddProducts();
-            ap.AddProduct();
+            ap.AddProduct(Layout);
         });
     }
 
@@ -77,7 +78,7 @@ public class Home {
         setButtonLooks(EditUser, "../Images/AddUser.png", "Edit User");
         EditUser.setOnAction(event -> {
             try {
-                new Registration();
+                new Registration(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -87,9 +88,9 @@ public class Home {
     private void setLogoutBtn() {
         setButtonLooks(LogoutBtn, "../Images/Logout.png", "Logout");
         LogoutBtn.setOnAction(e -> {
-            Login.setUName(null);
-            Login.setIsLogin(false);
-            Login.setIsDoctor(false);
+            Menu.setUName(null);
+            Menu.setIsLogin(false);
+            Menu.setIsDoctor(false);
             Login.login();
         });
     }
@@ -97,14 +98,14 @@ public class Home {
     private void setMarketBtn() {
         setButtonLooks(MarketBtn, "../Images/AddProduct.png", "Market");
         Market mr = new Market();
-        MarketBtn.setOnAction(event -> mr.Market());
+        MarketBtn.setOnAction(event -> mr.Market(Layout));
     }
 
     private void setMedicalPlatformbtn() {
         setButtonLooks(MedicalPlatformbtn, "", "Medical Platform");
         MedicalPlatformbtn.setOnAction(e -> {
             try {
-                new Medical_Platform();
+                new Medical_Platform(Layout);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -115,7 +116,7 @@ public class Home {
         setButtonLooks(EduPlatformbtn, "", "Education Platform");
         EduPlatformbtn.setOnAction(e -> {
             try {
-                new Eduplatform();
+                new Eduplatform(Layout);
             }
             catch (Exception ex){
                 ex.printStackTrace();
@@ -127,7 +128,7 @@ public class Home {
         UserAddBtn.getStyleClass().addAll("HomeBtn", "LightGreen");
         UserAddBtn.setOnAction(event -> {
             try {
-                new ContactTypeGui();
+                new ContactTypeGui(Layout);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -163,18 +164,18 @@ public class Home {
         Center.setMaxHeight(screenBounds.getHeight() * 0.75);
     }
 
-    public void Homes() throws SQLException {
+    public void Homes(BorderPane layout) throws SQLException {
+        this.Layout = layout;
         setButtons();
         setLayout();
         showReservedSlots();
 
-        if(!Login.getIsDoctor()) {
+        if(!Menu.getIsDoctor()) {
             tableVBox.setVisible(false);
         }
 
-        Menu m = new Menu();
-        Login.getLayout().setTop(m.Menu());
-        Login.getLayout().setCenter(Center);
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(Center);
     }
 
     private void setReservedTable() {
@@ -196,7 +197,7 @@ public class Home {
     private void setPrestatement() throws SQLException {
         String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE ASC";
         prestatement = Connect.prepareStatement(query);
-        prestatement.setString(1, Login.getUName());
+        prestatement.setString(1, Menu.getUName());
         resultSet = prestatement.executeQuery();
     }
 
