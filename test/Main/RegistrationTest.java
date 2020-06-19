@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RegistrationTest {
+    Database db = Database.getDatabase();
     JFXPanel fxPanel = new JFXPanel();
     Registration R = new Registration("TesterFirst", "TesterLast", "TesterUName", "TesterPW", "TesterPW");
 

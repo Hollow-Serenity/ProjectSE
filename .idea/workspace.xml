@@ -25,13 +25,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f593677a-8a80-42f1-bdf9-295c033067d0" name="Default Changelist" comment=".">
+    <list default="true" id="f593677a-8a80-42f1-bdf9-295c033067d0" name="Default Changelist" comment="randomize button is now next.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Education/WritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/WritingAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Medical/AppointmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Medical/AppointmentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +57,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Login (1)">
+  <component name="RunManager" selected="JUnit.RegistrationTest">
     <configuration name="Login (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UserManagement.Login" />
       <module name="ProjectSE_1" />
@@ -72,6 +67,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectSE_1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="Main.RegistrationTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,22 +117,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCalculations.TestPlus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ProjectSE_1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Main" />
-      <option name="MAIN_CLASS_NAME" value="Main.TestCalculations" />
-      <option name="METHOD_NAME" value="TestPlus" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestCalculations.WrongTestMinus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectSE_1" />
       <extension name="coverage">
@@ -141,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegistrationTest" />
         <item itemvalue="Application.Login (1)" />
         <item itemvalue="JUnit.TestCalculations" />
         <item itemvalue="JUnit.TestCalculations.TestMinus" />
         <item itemvalue="JUnit.TestCalculations.WrongTestMinus" />
-        <item itemvalue="JUnit.TestCalculations.TestPlus" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592317827276</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="randomize button is now next.">
+      <created>1592585373754</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592585373754</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,35 +199,40 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Resolution for addContact" />
     <MESSAGE value="Resolution for ReadingAssignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolution for ReadingAssignment" />
+    <MESSAGE value="randomize button is now next." />
+    <option name="LAST_COMMIT_MESSAGE" value="randomize button is now next." />
   </component>
   <component name="WindowStateProjectService">
     <state x="338" y="0" width="617" height="720" key="#Login" timestamp="1592560849763" />
     <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state width="1220" height="172" key="GridCell.Tab.0.bottom" timestamp="1592583966127">
+    <state width="1220" height="172" key="GridCell.Tab.0.bottom" timestamp="1592585314717">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="172" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="1220" height="172" key="GridCell.Tab.0.center" timestamp="1592583966127">
+    <state width="1220" height="172" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592585314717" />
+    <state width="1220" height="172" key="GridCell.Tab.0.center" timestamp="1592585314716">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="172" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="1220" height="172" key="GridCell.Tab.0.left" timestamp="1592583966127">
+    <state width="1220" height="172" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592585314716" />
+    <state width="1220" height="172" key="GridCell.Tab.0.left" timestamp="1592585314716">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="172" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="1220" height="172" key="GridCell.Tab.0.right" timestamp="1592583966127">
+    <state width="1220" height="172" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592585314716" />
+    <state width="1220" height="172" key="GridCell.Tab.0.right" timestamp="1592585314716">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state width="618" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592583043473" />
-    <state width="1220" height="172" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
+    <state width="1220" height="172" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592585314716" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1592560849763" />
     <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
+    <state x="239" y="80" key="Vcs.Push.Dialog.v2" timestamp="1592585380658">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="239" y="80" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1592585380658" />
     <state x="355" y="252" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592583719291">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
