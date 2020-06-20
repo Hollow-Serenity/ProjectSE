@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class Eduplatform {
     private static BorderPane Layout;
     public Eduplatform(BorderPane layout) throws SQLException{
-        this.Layout = layout;
+        Layout = layout;
         Button Reading = new Button("Reading");
         Button Writing = new Button("Writing");
         Button Math = new Button("Math");

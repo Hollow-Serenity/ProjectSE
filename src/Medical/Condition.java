@@ -5,6 +5,7 @@ import Main.Menu;
 import UserManagement.Login;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -22,8 +23,8 @@ public class Condition {
 
     private static BorderPane Layout;
 
-    private static final VBox Center = new VBox(20);
-    private static final HBox hBox = new HBox(40);
+    private final VBox Center = new VBox(20);
+    private final HBox hBox = new HBox(40);
 
     private static final Label conditionTXT = new Label("Please specify the condition");
     private static final Label patientIDTXT = new Label("Please enter your patient's username");
@@ -61,41 +62,70 @@ public class Condition {
     }
 
     public Condition(BorderPane layout) {
-        this.Layout = layout;
+        Layout = layout;
         setLayout();
 
         confirmAdd.setOnAction(e -> {
-            addCondition();
-            returnToMedPlat();
+            if(addCondition()) {
+                returnToMedPlat();
+            }
         });
 
         confirmRemove.setOnAction(e -> {
-            removeCondition();
-            returnToMedPlat();
+            if(removeCondition()) {
+                returnToMedPlat();
+            }
         });
     }
 
-    public void addCondition() {
+    public static boolean addCondition() {
         try {
             prestatement = Connect.prepareStatement("INSERT INTO `condition` VALUES (?,?)");
             prestatement.setString(1, conditionTF.getText());
             prestatement.setString(2, patientIDTF.getText());
             prestatement.executeUpdate();
+            return true;
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
+            return false;
         }
     }
 
-    public void removeCondition() {
+    public static boolean removeCondition() {
         try{
             prestatement = Connect.prepareStatement("DELETE FROM `condition` WHERE conditionId = ? AND userId = ?");
             prestatement.setString(1, conditionTF.getText());
             prestatement.setString(2, patientIDTF.getText());
             prestatement.execute();
+            return true;
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
+            return false;
         }
+    }
+
+    public static ListView<String> getConditions(String UName, ListView<String> conditionsList) {
+        conditionsList.getItems().clear();
+        try {
+            prestatement = Connect.prepareStatement("SELECT * FROM `condition` WHERE userId = ?");
+            prestatement.setString(1, UName);
+            resultSet = prestatement.executeQuery();
+            while (resultSet.next()) {
+                String condition = resultSet.getString("conditionId");
+                conditionsList.getItems().addAll(condition);
+            }
+        } catch (Exception e) {
+            System.out.println("Error while fetching data");
+            e.printStackTrace();
+        }
+        return conditionsList;
+    }
+
+    //for testing purposes
+    public static void setTF() {
+        conditionTF.setText("testcondition");
+        patientIDTF.setText("UNameUpdate");
     }
 }

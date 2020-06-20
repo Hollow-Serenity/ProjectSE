@@ -37,7 +37,7 @@ public class AddProducts {
 
     @SuppressWarnings("unchecked")
     public void AddProduct(BorderPane layout) {
-        this.Layout = layout;
+        Layout = layout;
 
         ObservableList<LiveStock> DataList = FXCollections.observableArrayList();
         TableView<LiveStock> ProductTable = new TableView<LiveStock>(DataList);

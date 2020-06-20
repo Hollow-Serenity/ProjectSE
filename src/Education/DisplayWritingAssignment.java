@@ -19,7 +19,7 @@ public class DisplayWritingAssignment {
     private Label checkAnswerFirstLabel = new Label();
 
     public DisplayWritingAssignment(BorderPane layout) {
-        this.Layout = layout;
+        Layout = layout;
         HBox hBox = new HBox(10);
         HBox hBox1 = new HBox(5);
         GridPane gridPane = new GridPane();

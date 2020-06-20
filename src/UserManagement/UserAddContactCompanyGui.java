@@ -108,7 +108,7 @@ public class UserAddContactCompanyGui {
     }
 
     public UserAddContactCompanyGui(BorderPane layout) throws Exception {
-        this.Layout = layout;
+        Layout = layout;
         setLayout();
         if(tableView.getItems().isEmpty()) {
             populate(tableView);

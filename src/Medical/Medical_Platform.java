@@ -19,20 +19,20 @@ public class Medical_Platform {
     private Pane pane = new Pane();
     private static BorderPane Layout;
 
-    private static Connection Connect = Database.getConnection();
-    private static PreparedStatement prestatement = Database.getPrestatement();
-    private static ResultSet resultSet = Database.getResultSet();
+    private static final Connection Connect = Database.getConnection();
+    private static final PreparedStatement prestatement = Database.getPrestatement();
+    private static final ResultSet resultSet = Database.getResultSet();
 
     private ListView<String> afflictionList = new ListView();
 
-    private Label afflictions = new Label("Your afflictions:");
-    private Label patientUNameTXT = new Label("Check Patient's Afflictions");
+    private final Label afflictions = new Label("Your afflictions:");
+    private final Label patientUNameTXT = new Label("Check Patient's Afflictions");
 
-    private TextField patientUName = new TextField();
+    private final TextField patientUName = new TextField();
 
-    private Button appointmentdBtn = new Button("Appointments");
-    private Button patientAfflictionsBtn = new Button("Get Afflictions");
-    private Button conditionsBtn = new Button("Diagnose");
+    private final Button appointmentdBtn = new Button("Appointments");
+    private final Button patientAfflictionsBtn = new Button("Get Afflictions");
+    private final Button conditionsBtn = new Button("Diagnose");
 
     private void setLayout() {
         patientUNameTXT.setLayoutX(350);
@@ -83,27 +83,11 @@ public class Medical_Platform {
         pane.getStyleClass().add("hbox");
     }
 
-    private void setAfflictions(String UName) {
-        afflictionList.getItems().clear();
-        try {
-            prestatement = Connect.prepareStatement("SELECT * FROM `condition` WHERE userId = ?");
-            prestatement.setString(1, UName);
-            resultSet = prestatement.executeQuery();
-            while (resultSet.next()) {
-                String condition = resultSet.getString("conditionId");
-                afflictionList.getItems().addAll(condition);
-            }
-        } catch (Exception e) {
-            System.out.println("Error while fetching data");
-            e.printStackTrace();
-        }
-    }
-
     public Medical_Platform(BorderPane layout) throws Exception {
-        this.Layout = layout;
+        Layout = layout;
+        Condition.getConditions(Menu.getUName(), afflictionList);
         setStyle();
         setLayout();
-        setAfflictions(Menu.getUName());
 
         Layout.setTop(Menu.getMenu(Layout));
         Layout.setCenter(pane);
@@ -123,7 +107,7 @@ public class Medical_Platform {
 
         patientAfflictionsBtn.setOnAction(event -> {
             afflictions.setText("Your patient's afflictions:");
-            setAfflictions(patientUName.getText());
+            Condition.getConditions(patientUName.getText(), afflictionList);
         });
 
     }

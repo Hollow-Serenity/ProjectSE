@@ -165,7 +165,7 @@ public class Home {
     }
 
     public void Homes(BorderPane layout) throws SQLException {
-        this.Layout = layout;
+        Layout = layout;
         setButtons();
         setLayout();
         showReservedSlots();

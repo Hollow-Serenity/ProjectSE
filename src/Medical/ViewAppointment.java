@@ -162,7 +162,7 @@ public class ViewAppointment {
     }
 
     public void ViewAppointment(BorderPane layout) {
-        this.Layout = layout;
+        Layout = layout;
         setTable();
         fillTable();
         setLayout();

@@ -8,6 +8,11 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -25,8 +30,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f593677a-8a80-42f1-bdf9-295c033067d0" name="Default Changelist" comment="Tests helemaal af">
+    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="Fixed the borderpane error in med platform">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Home.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Home.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/DisplayReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayReading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Eduplatform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Education/Mathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Mathematics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LiveStock/AddProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/AddProducts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LiveStock/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/Market.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/AddAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Specialization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Medical/ViewAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/ViewAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Main/ConditionTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/Main/RegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/RegistrationConditionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +83,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Login (1)">
+  <component name="RunManager" selected="JUnit.RegistrationConditionSpecializationTest">
     <configuration name="Login (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UserManagement.Login" />
       <module name="ProjectSE_1" />
@@ -71,7 +97,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationConditionSpecializationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ProjectSE_1" />
       <extension name="coverage">
         <pattern>
@@ -80,7 +106,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Main" />
-      <option name="MAIN_CLASS_NAME" value="Main.RegistrationTest" />
+      <option name="MAIN_CLASS_NAME" value="Main.RegistrationConditionSpecializationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -135,8 +161,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegistrationConditionSpecializationTest" />
         <item itemvalue="Application.Login (1)" />
-        <item itemvalue="JUnit.RegistrationTest" />
         <item itemvalue="JUnit.TestCalculations" />
         <item itemvalue="JUnit.TestCalculations.TestMinus" />
         <item itemvalue="JUnit.TestCalculations.WrongTestMinus" />
@@ -199,35 +225,52 @@
     <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state width="618" height="163" key="GridCell.Tab.0.bottom" timestamp="1592588464064">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592671556581">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
     <state width="618" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592588464064" />
     <state width="1220" height="172" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="618" height="163" key="GridCell.Tab.0.center" timestamp="1592588464064">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592671556581">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
     <state width="618" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592588464064" />
     <state width="1220" height="172" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="618" height="163" key="GridCell.Tab.0.left" timestamp="1592588464063">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592671556581">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
     <state width="618" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592588464063" />
     <state width="1220" height="172" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="618" height="163" key="GridCell.Tab.0.right" timestamp="1592588464064">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592671556581">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
     <state width="618" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592588464064" />
     <state width="1220" height="172" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1592560849763" />
     <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1592663470677">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592663470677" />
     <state x="355" y="252" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592583719291">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
     <state x="355" y="252" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1280.720@0.0.1280.720" timestamp="1592583719291" />
-    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592582793198">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="720" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592663488442">
+      <screen x="0" y="0" width="2048" height="1112" />
     </state>
+    <state x="720" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592663488442" />
     <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1592582793198" />
+    <state x="97" y="6" width="1818" height="948" key="find.popup" timestamp="1592672538459">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="97" y="6" width="1818" height="948" key="find.popup/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592672538459" />
+    <state x="681" y="210" width="670" height="676" key="search.everywhere.popup" timestamp="1592672974111">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="681" y="210" width="670" height="676" key="search.everywhere.popup/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592672974111" />
   </component>
 </project>

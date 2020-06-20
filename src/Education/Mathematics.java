@@ -27,7 +27,7 @@ public class Mathematics implements EventHandler<ActionEvent> {
     private static int counterNumber = 0;
 
     public Mathematics(BorderPane layout1){
-        this.Layout = layout1;
+        Layout = layout1;
         math.makeMathExpression();
         mathExpression.setText(math.getText());
         frontend();

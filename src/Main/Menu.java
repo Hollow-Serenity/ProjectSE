@@ -37,7 +37,7 @@ public class Menu {
 	private static String StoreUName;
 
 	private Menu(BorderPane layout) {
-		this.Layout = layout;
+		Layout = layout;
 		setLayout();
 		setButtonActions();
 	}

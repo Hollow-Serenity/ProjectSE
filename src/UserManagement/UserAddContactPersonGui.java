@@ -116,7 +116,7 @@ public class UserAddContactPersonGui {
 
     public UserAddContactPersonGui(BorderPane layout) throws Exception {
         setLayout();
-        this.Layout = layout;
+        Layout = layout;
         if(tableView.getItems().isEmpty()) {
             populate(tableView);
         }

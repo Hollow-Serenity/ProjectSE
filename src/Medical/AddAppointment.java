@@ -159,7 +159,7 @@ public class AddAppointment {
     }
 
     public void AddAppointment(String updateCheck, ObservableList<Appointment> DataList, int selectedIndex, BorderPane layout) {
-        this.Layout = layout;
+        Layout = layout;
         this.updateCheck = updateCheck;
         setFullLayout();
 

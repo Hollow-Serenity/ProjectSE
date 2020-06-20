@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 public class ContactTypeGui {
     private static BorderPane Layout;
     public ContactTypeGui(BorderPane layout) throws Exception {
-        this.Layout = layout;
+        Layout = layout;
         VBox vBox = new VBox(20);
         vBox.setAlignment(Pos.CENTER);
 

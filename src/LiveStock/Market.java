@@ -17,7 +17,7 @@ public class Market {
     private static BorderPane Layout;
 
     public void Market(BorderPane layout) {
-        this.Layout = layout;
+        Layout = layout;
         Layout.setTop(Menu.getMenu(Layout));
 
         window = new Stage();

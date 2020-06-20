@@ -21,26 +21,26 @@ import javafx.scene.text.Text;
 public class Registration {
 
 	private static VBox Center;
-	private static HBox Buttons = new HBox(30);
+	private static final HBox Buttons = new HBox(30);
 	private static BorderPane Layout;
 
-	private static Connection Connect = Database.getConnection();
+	private static final Connection Connect = Database.getConnection();
 	private static PreparedStatement prestatement = Database.getPrestatement();
 	private static ResultSet resultSet = Database.getResultSet();
 
-	private static Text Status = new Text();
+	private static final Text Status = new Text();
 
-	private static TextField First = new TextField();
-	private static TextField Last = new TextField();
-	private static TextField UName = new TextField();
-	private static TextField Password = new TextField();
-	private static TextField PasswordCheck = new TextField();
+	private static final TextField First = new TextField();
+	private static final TextField Last = new TextField();
+	private static final TextField UName = new TextField();
+	private static final TextField Password = new TextField();
+	private static final TextField PasswordCheck = new TextField();
 
-	private static ChoiceBox<String> Doctor = new ChoiceBox<>();
+	private static final ChoiceBox<String> Doctor = new ChoiceBox<>();
 
-	private static Button RegisterBtn = new Button("Register");
-	private static Button UpdateBtn = new Button("Update account");
-	private static Button DeleteBtn = new Button ("Delete Account");
+	private static final Button RegisterBtn = new Button("Register");
+	private static final Button UpdateBtn = new Button("Update account");
+	private static final Button DeleteBtn = new Button ("Delete Account");
 
 	public Boolean checkUName(String username) {
 		if (!UName.getText().equals(Menu.getUName())) {
@@ -225,7 +225,7 @@ public class Registration {
 	}
 
 	public Registration(BorderPane layout) throws Exception {
-		this.Layout = layout;
+		Layout = layout;
 		setStyles();
 		setVBox();
 

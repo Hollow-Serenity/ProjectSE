@@ -16,7 +16,7 @@ public class DisplayReading {
     private static BorderPane Layout;
 
     public DisplayReading(BorderPane layout) {
-        this.Layout = layout;
+        Layout = layout;
         Reading reading = new Reading();
         reading.getRandomReadingAssignment();
         ReadingAssignment readingAssignment = reading.getCurrentReadingAssignment();
