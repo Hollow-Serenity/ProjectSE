@@ -12,7 +12,7 @@ public class Database {
 
     private Database() {
         try {
-            Connect = DriverManager.getConnection(CONNECTION_URL, "root", "Vlekkie15");
+            Connect = DriverManager.getConnection(CONNECTION_URL, "root", "DbPassword123");
         } catch (SQLException e) {
             System.out.println("Cannot Connect to the Database:  " + e.getMessage());
         }
