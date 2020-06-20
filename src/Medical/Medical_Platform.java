@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 
 
 public class Medical_Platform {
-    private Pane layout = new Pane();
+    private Pane pane = new Pane();
     private static BorderPane Layout;
 
     private static Connection Connect = Database.getConnection();
@@ -59,9 +59,9 @@ public class Medical_Platform {
         afflictions.setLayoutX(350);
         afflictions.setLayoutY(150);
 
-        layout.getChildren().addAll(afflictionList, appointmentdBtn, conditionsBtn, afflictions, patientUNameTXT, patientUName, patientAfflictionsBtn);
-        layout.setMaxWidth(600);
-        layout.setMaxHeight(400);
+        pane.getChildren().addAll(afflictionList, appointmentdBtn, conditionsBtn, afflictions, patientUNameTXT, patientUName, patientAfflictionsBtn);
+        pane.setMaxWidth(600);
+        pane.setMaxHeight(400);
 
         if (!Menu.getIsDoctor()) {
             patientUName.setVisible(false);
@@ -80,7 +80,7 @@ public class Medical_Platform {
 
         patientUName.setPromptText("Patient's username");
 
-        layout.getStyleClass().add("hbox");
+        pane.getStyleClass().add("hbox");
     }
 
     private void setAfflictions(String UName) {
@@ -108,8 +108,10 @@ public class Medical_Platform {
         Layout.setTop(Menu.getMenu(Layout));
         Layout.setCenter(layout);
 
-        ViewAppointment viewApp = new ViewAppointment();
-        appointmentdBtn.setOnAction(event -> viewApp.ViewAppointment(Layout));
+        appointmentdBtn.setOnAction(event -> {
+            ViewAppointment viewApp = new ViewAppointment();
+            viewApp.ViewAppointment(Layout);
+        });
 
         conditionsBtn.setOnAction(event -> {
             try {

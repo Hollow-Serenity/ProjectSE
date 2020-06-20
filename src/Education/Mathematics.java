@@ -14,10 +14,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Mathematics implements EventHandler<ActionEvent> {
-    public Stage stage;
     private static BorderPane Layout;
     private Pane layout = new Pane(mathExpression,answer,submit,error);
-    private Scene scene = new Scene(layout,600, 400);
     private static Label mathExpression = new Label();
     private static Label error = new Label("Your answer is incorrect");
     private static TextField answer = new TextField();
@@ -49,6 +47,7 @@ public class Mathematics implements EventHandler<ActionEvent> {
             mathExpression.setLayoutY(166.0);
             Layout.setTop(Menu.getMenu(Layout));
         }
+
         @Override
         public void handle(ActionEvent event) {
             if(event.getSource() == submit){

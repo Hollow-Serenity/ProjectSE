@@ -1,6 +1,5 @@
 package Main;
 
-import UserManagement.Login;
 import UserManagement.Registration;
 import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.MethodOrderer;

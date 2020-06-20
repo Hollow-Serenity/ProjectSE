@@ -22,6 +22,9 @@ public class Condition {
 
     private static BorderPane Layout;
 
+    private static final VBox Center = new VBox(20);
+    private static final HBox hBox = new HBox(40);
+
     private static final Label conditionTXT = new Label("Please specify the condition");
     private static final Label patientIDTXT = new Label("Please enter your patient's username");
 
@@ -31,11 +34,7 @@ public class Condition {
     private static final Button confirmAdd = new Button("Add");
     private static final Button confirmRemove = new Button("Remove");
 
-    public Condition(BorderPane layout) {
-        this.Layout = layout;
-        VBox Center = new VBox(20);
-        HBox hBox = new HBox(40);
-
+    private void setLayout() {
         conditionTF.setPromptText("your patient's condition");
         patientIDTF.setPromptText("your patient's username");
 
@@ -51,9 +50,29 @@ public class Condition {
 
         Layout.setTop(Menu.getMenu(Layout));
         Layout.setCenter(Center);
+    }
 
-        confirmAdd.setOnAction(e -> addCondition());
-        confirmRemove.setOnAction(e -> removeCondition());
+    private void returnToMedPlat() {
+        try {
+            new Medical_Platform(Layout);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public Condition(BorderPane layout) {
+        this.Layout = layout;
+        setLayout();
+
+        confirmAdd.setOnAction(e -> {
+            addCondition();
+            returnToMedPlat();
+        });
+
+        confirmRemove.setOnAction(e -> {
+            removeCondition();
+            returnToMedPlat();
+        });
     }
 
     public void addCondition() {
@@ -62,11 +81,6 @@ public class Condition {
             prestatement.setString(1, conditionTF.getText());
             prestatement.setString(2, patientIDTF.getText());
             prestatement.executeUpdate();
-            try {
-                new Medical_Platform(Layout);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
@@ -79,11 +93,6 @@ public class Condition {
             prestatement.setString(1, conditionTF.getText());
             prestatement.setString(2, patientIDTF.getText());
             prestatement.execute();
-            try {
-                new Medical_Platform(Layout);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
         }
         catch (SQLException e1) {
             System.out.println("Error while fetching data");
