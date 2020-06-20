@@ -30,29 +30,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="Fixed the borderpane error in med platform">
+    <list default="true" id="125a04a9-44a2-4ae8-913f-e9fb727ac622" name="Default Changelist" comment="Did some refactoring and finished the condition and Specialization tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Home.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Home.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProjectSE_1/Main/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Education/DisplayReading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayReading.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/DisplayWritingAssignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Education/Eduplatform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Eduplatform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Education/Mathematics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Education/Mathematics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LiveStock/AddProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/AddProducts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LiveStock/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LiveStock/Market.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medical/AddAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/AddAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medical/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Medical_Platform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medical/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/Specialization.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Medical/ViewAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Medical/ViewAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/ContactTypeGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserManagement/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactCompanyGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserManagement/UserAddContactPersonGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main/ConditionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Main/RegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Main/RegistrationConditionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +63,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="JUnit.RegistrationConditionSpecializationTest">
+  <component name="RunManager" selected="Application.Login (1)">
     <configuration name="Login (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="UserManagement.Login" />
       <module name="ProjectSE_1" />
@@ -161,8 +141,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegistrationConditionSpecializationTest" />
         <item itemvalue="Application.Login (1)" />
+        <item itemvalue="JUnit.RegistrationConditionSpecializationTest" />
         <item itemvalue="JUnit.TestCalculations" />
         <item itemvalue="JUnit.TestCalculations.TestMinus" />
         <item itemvalue="JUnit.TestCalculations.WrongTestMinus" />
@@ -197,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592317827276</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Did some refactoring and finished the condition and Specialization tests">
+      <created>1592673339637</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592673339637</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,43 +205,44 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Resolution for addContact" />
     <MESSAGE value="Resolution for ReadingAssignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolution for ReadingAssignment" />
+    <MESSAGE value="Did some refactoring and finished the condition and Specialization tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Did some refactoring and finished the condition and Specialization tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="338" y="0" width="617" height="720" key="#Login" timestamp="1592560849763" />
     <state x="338" y="0" width="617" height="720" key="#Login/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl" timestamp="1592560849763" />
     <state x="348" y="102" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592671556581">
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom" timestamp="1592673561560">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
+    <state width="2005" height="305" key="GridCell.Tab.0.bottom/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592673561560" />
     <state width="618" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1592588464064" />
     <state width="1220" height="172" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592671556581">
+    <state width="2005" height="305" key="GridCell.Tab.0.center" timestamp="1592673561560">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
+    <state width="2005" height="305" key="GridCell.Tab.0.center/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592673561560" />
     <state width="618" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1592588464064" />
     <state width="1220" height="172" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592671556581">
+    <state width="2005" height="305" key="GridCell.Tab.0.left" timestamp="1592673561560">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
+    <state width="2005" height="305" key="GridCell.Tab.0.left/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592673561560" />
     <state width="618" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1592588464063" />
     <state width="1220" height="172" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
-    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592671556581">
+    <state width="2005" height="305" key="GridCell.Tab.0.right" timestamp="1592673561560">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592671556581" />
+    <state width="2005" height="305" key="GridCell.Tab.0.right/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592673561560" />
     <state width="618" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1592588464064" />
     <state width="1220" height="172" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1592583966127" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1592560849763" />
     <state x="121" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1592560849763" />
-    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1592663470677">
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2" timestamp="1592673351401">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="617" y="289" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592663470677" />
+    <state x="617" y="289" key="Vcs.Push.Dialog.v2/-1920.164.1920.1030/0.0.2048.1112/2560.179.1920.1040@0.0.2048.1112" timestamp="1592673351401" />
     <state x="355" y="252" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592583719291">
       <screen x="0" y="0" width="1280" height="720" />
     </state>

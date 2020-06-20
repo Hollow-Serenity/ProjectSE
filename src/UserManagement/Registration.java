@@ -20,8 +20,8 @@ import javafx.scene.text.Text;
 
 public class Registration {
 
-	private static VBox Center;
-	private static final HBox Buttons = new HBox(30);
+	private VBox Center;
+	private final HBox Buttons = new HBox(30);
 	private static BorderPane Layout;
 
 	private static final Connection Connect = Database.getConnection();
@@ -82,7 +82,7 @@ public class Registration {
 		PasswordCheck.setPromptText("Repeat Password");
 	}
 
-	public static void setVBox() {
+	public void setVBox() {
 		Center = new VBox(10);
 		Center.getStyleClass().add("hbox");
 		Center.setMaxWidth(400);
