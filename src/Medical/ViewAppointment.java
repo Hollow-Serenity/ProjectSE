@@ -3,7 +3,6 @@ package Medical;
 import LiveStock.AddProducts;
 import Main.Database;
 import Main.Menu;
-import UserManagement.Login;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
@@ -18,28 +17,24 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.JOptionPane;
-
-import static java.lang.String.valueOf;
-
 public class ViewAppointment {
 
-    private static Connection Connect = Database.getConnection();
+    private static final Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
 
     private static BorderPane Layout;
 
-    private ObservableList<Appointment> DataList = FXCollections.observableArrayList();
-    private TableView<Appointment> AppointmentTable = new TableView<>(DataList);
+    private final ObservableList<Appointment> DataList = FXCollections.observableArrayList();
+    private final TableView<Appointment> AppointmentTable = new TableView<>(DataList);
 
-    private VBox TableVB = new VBox();
-    private VBox Center = AddProducts.createCenter(20, 800, 1000);
-    private HBox ButtonB = new HBox();
+    private final VBox TableVB = new VBox();
+    private final VBox Center = AddProducts.createCenter(20, 800, 1000);
+    private final HBox ButtonB = new HBox();
 
-    private Button New = new Button("Make New Appointment");
-    private Button update = new Button("Update Appointment");
-    private Button deleteButton = new Button("Delete Appointment");
+    private final Button New = new Button("Make New Appointment");
+    private final Button update = new Button("Update Appointment");
+    private final Button deleteButton = new Button("Delete Appointment");
 
     private void setTable() {
         TableColumn<Appointment, Integer> appointment_id = new TableColumn<>("Sr.#");
@@ -98,13 +93,7 @@ public class ViewAppointment {
     }
 
     private void addAppointmentAction(String updateCheck, int selectedIndex) {
-        AddAppointment addApp = new AddAppointment();
-        try {
-            addApp.AddAppointment(updateCheck, DataList, selectedIndex, Layout);
-        } catch (Exception e) {
-            System.out.println("Error while opening addAppointment");
-            e.printStackTrace();
-        }
+        new AddAppointment(updateCheck, DataList, selectedIndex, Layout);
     }
 
     private void updateAppointmentAction() {
@@ -140,12 +129,10 @@ public class ViewAppointment {
             String query = " DELETE FROM appointment WHERE appointmentId = ? ";
             prestatement = Connect.prepareStatement(query);
             prestatement.setInt(1, selectedAppId);
-
             prestatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Record Deleted Succesfully");
             fillTable();
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Database Error in Deleting Record");
+            System.out.println("Database Error in Deleting Record");
             e.printStackTrace();
         }
     }
@@ -161,7 +148,7 @@ public class ViewAppointment {
         Layout.setCenter(Center);
     }
 
-    public void ViewAppointment(BorderPane layout) {
+    public ViewAppointment(BorderPane layout) {
         Layout = layout;
         setTable();
         fillTable();

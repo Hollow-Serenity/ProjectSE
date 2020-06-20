@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Reading {
-    private ArrayList<ReadingAssignment> readingAssignments = new ArrayList<>();
+    private final ArrayList<ReadingAssignment> readingAssignments = new ArrayList<>();
     private ReadingAssignment currentReadingAssignment = new ReadingAssignment();
 
     public Reading() {
@@ -18,11 +18,10 @@ public class Reading {
         readingAssignments.addAll(readingAssignmentList);
     }
 
-    public ReadingAssignment getRandomReadingAssignment() {
+    public void getRandomReadingAssignment() {
         Random random = new Random();
         int randomNumber = random.nextInt(readingAssignments.size());
         currentReadingAssignment = readingAssignments.get(randomNumber);
-        return currentReadingAssignment;
     }
 
     public ReadingAssignment getCurrentReadingAssignment() {

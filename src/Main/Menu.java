@@ -1,7 +1,5 @@
 package Main;
 
-import java.sql.SQLException;
-
 import LiveStock.AddProducts;
 import Medical.Specialization;
 import UserManagement.Login;
@@ -79,12 +77,8 @@ public class Menu {
 
 	private static void setHomeButtonAction() {
 		Home.setOnAction(e -> {
-			try {
-				Home h = new Home();
-				h.Homes(Layout);
-			} catch (SQLException e1) {
-				System.out.println("SQL Error");
-			}
+			Home h = new Home();
+			h.Homes(Layout);
 		});
 	}
 
@@ -124,12 +118,7 @@ public class Menu {
 			PageTop.getChildren().clear();
 			PageTop.getChildren().add(loginMenu);
 		}
-		if (isDoctor) {
-			Specializations.setVisible(true);
-		}
-		else {
-			Specializations.setVisible(false);
-		}
+		Specializations.setVisible(isDoctor);
 	}
 
 	public static String getUName() {

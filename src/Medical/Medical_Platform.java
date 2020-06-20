@@ -2,7 +2,6 @@ package Medical;
 
 import Main.Database;
 import Main.Menu;
-import UserManagement.Login;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,34 +34,37 @@ public class Medical_Platform {
     private final Button conditionsBtn = new Button("Diagnose");
 
     private void setLayout() {
-        patientUNameTXT.setLayoutX(350);
-        patientUNameTXT.setLayoutY(20);
-
-        patientUName.setLayoutX(350);
-        patientUName.setLayoutY(50);
-
         patientAfflictionsBtn.setLayoutX(350);
         patientAfflictionsBtn.setLayoutY(90);
-
         appointmentdBtn.setLayoutX(100);
         appointmentdBtn.setLayoutY(225);
-
         conditionsBtn.setLayoutX(100);
         conditionsBtn.setLayoutY(25);
 
         afflictionList.setLayoutX(350);
         afflictionList.setLayoutY(175);
-
         afflictionList.setMaxHeight(200);
         afflictionList.setMaxWidth(200);
 
         afflictions.setLayoutX(350);
         afflictions.setLayoutY(150);
+    }
 
-        pane.getChildren().addAll(afflictionList, appointmentdBtn, conditionsBtn, afflictions, patientUNameTXT, patientUName, patientAfflictionsBtn);
+    private void setFinalLayout() {
+        patientUNameTXT.setLayoutX(350);
+        patientUNameTXT.setLayoutY(20);
+        patientUName.setLayoutX(350);
+        patientUName.setLayoutY(50);
+
         pane.setMaxWidth(600);
         pane.setMaxHeight(400);
+        pane.getChildren().addAll(afflictionList, appointmentdBtn, conditionsBtn, afflictions, patientUNameTXT, patientUName, patientAfflictionsBtn);
 
+        Layout.setTop(Menu.getMenu(Layout));
+        Layout.setCenter(pane);
+    }
+
+    private void setDoctorVisibility() {
         if (!Menu.getIsDoctor()) {
             patientUName.setVisible(false);
             patientUNameTXT.setVisible(false);
@@ -83,32 +85,20 @@ public class Medical_Platform {
         pane.getStyleClass().add("hbox");
     }
 
-    public Medical_Platform(BorderPane layout) throws Exception {
+    public Medical_Platform(BorderPane layout) {
         Layout = layout;
+
         Condition.getConditions(Menu.getUName(), afflictionList);
+        setDoctorVisibility();
         setStyle();
         setLayout();
+        setFinalLayout();
 
-        Layout.setTop(Menu.getMenu(Layout));
-        Layout.setCenter(pane);
-
-        appointmentdBtn.setOnAction(event -> {
-            ViewAppointment viewApp = new ViewAppointment();
-            viewApp.ViewAppointment(Layout);
-        });
-
-        conditionsBtn.setOnAction(event -> {
-            try {
-                new Condition(Layout);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
+        appointmentdBtn.setOnAction(event -> new ViewAppointment(Layout));
+        conditionsBtn.setOnAction(event -> new Condition(Layout));
         patientAfflictionsBtn.setOnAction(event -> {
             afflictions.setText("Your patient's afflictions:");
             Condition.getConditions(patientUName.getText(), afflictionList);
         });
-
     }
 }

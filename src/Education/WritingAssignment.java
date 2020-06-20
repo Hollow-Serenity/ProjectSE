@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class WritingAssignment {
-    private ArrayList<Question> questions = new ArrayList<>();
+    private final ArrayList<Question> questions = new ArrayList<>();
     private Question currentQuestion;
 
     public WritingAssignment() {

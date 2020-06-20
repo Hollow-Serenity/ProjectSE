@@ -2,7 +2,6 @@ package Medical;
 
 import Main.Database;
 import Main.Menu;
-import UserManagement.Login;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -17,7 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Condition {
-    private static Connection Connect = Database.getConnection();
+    private static final Connection Connect = Database.getConnection();
     private static PreparedStatement prestatement = Database.getPrestatement();
     private static ResultSet resultSet = Database.getResultSet();
 
@@ -40,14 +39,13 @@ public class Condition {
         patientIDTF.setPromptText("your patient's username");
 
         hBox.getChildren().addAll(confirmAdd, confirmRemove);
-        Center.getChildren().addAll(conditionTXT, conditionTF, patientIDTXT, patientIDTF, hBox);
-
-        Center.getStyleClass().add("hbox");
         hBox.getStyleClass().add("hbox");
+        hBox.setMaxSize(400,20);
 
+        Center.getChildren().addAll(conditionTXT, conditionTF, patientIDTXT, patientIDTF, hBox);
+        Center.getStyleClass().add("hbox");
         Center.setMaxWidth(400);
         Center.setMaxHeight(400);
-        hBox.setMaxSize(400,20);
 
         Layout.setTop(Menu.getMenu(Layout));
         Layout.setCenter(Center);
@@ -106,7 +104,7 @@ public class Condition {
         }
     }
 
-    public static ListView<String> getConditions(String UName, ListView<String> conditionsList) {
+    public static void getConditions(String UName, ListView<String> conditionsList) {
         conditionsList.getItems().clear();
         try {
             prestatement = Connect.prepareStatement("SELECT * FROM `condition` WHERE userId = ?");
@@ -120,7 +118,6 @@ public class Condition {
             System.out.println("Error while fetching data");
             e.printStackTrace();
         }
-        return conditionsList;
     }
 
     //for testing purposes

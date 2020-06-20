@@ -10,25 +10,30 @@ import javafx.scene.layout.VBox;
 
 public class ContactTypeGui {
     private static BorderPane Layout;
-    public ContactTypeGui(BorderPane layout) throws Exception {
-        Layout = layout;
-        VBox vBox = new VBox(20);
-        vBox.setAlignment(Pos.CENTER);
+    private final VBox vBox = new VBox(20);
+    private final HBox hBox = new HBox(40);
 
-        HBox hBox = new HBox(40);
+    private static final Label chooseLabel = new Label("What kind of contact would you like to add");
+
+    private static final Button personButton = new Button("Person");
+    private static final Button companyButton = new Button("Company");
+
+    private void setLayout() {
+        vBox.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(chooseLabel, hBox);
+
         hBox.setMaxHeight(400);
         hBox.setMaxWidth(400);
         hBox.setAlignment(Pos.CENTER);
-
-        Label chooseLabel = new Label("What kind of contact would you like to add");
-
-        Button personButton = new Button("Person");
-        Button companyButton = new Button("Company");
         hBox.getChildren().addAll(personButton, companyButton);
-        vBox.getChildren().addAll(chooseLabel, hBox);
 
         Layout.setTop(Menu.getMenu(Layout));
         Layout.setCenter(vBox);
+    }
+
+    public ContactTypeGui(BorderPane layout) throws Exception {
+        Layout = layout;
+        setLayout();
 
         personButton.setOnAction(actionEvent -> {
             try {

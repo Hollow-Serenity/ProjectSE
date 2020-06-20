@@ -43,12 +43,12 @@ public class AddAppointment {
     private final HBox hBoxCheckReserveButt = new HBox();
 
     private final Label lblSelectDoctor = new Label("Select Doctor:");
-    private final Label lblSpecilization = new Label("Select Specialization:");
+    private final Label lblSpecialization = new Label("Select Specialization:");
     private final Label lblDate = new Label("Select Date:");
     private final Label lblTime = new Label("Time:");
     private final Label lblHH = new Label(" HH ");
     private final Label lblMM = new Label(" MM ");
-    private static javafx.scene.text.Text status = new Text();
+    private static final javafx.scene.text.Text status = new Text();
 
     private final ComboBox cbSelectDoctor = new ComboBox();
     private final ChoiceBox<String> cbSpecialization = Specialization.addSpecializationChoiceBox();
@@ -63,7 +63,7 @@ public class AddAppointment {
 
     private void setBoxes() {
         hBox1.getChildren().addAll(lblSelectDoctor, cbSelectDoctor);
-        hBox2.getChildren().addAll(lblSpecilization, cbSpecialization);
+        hBox2.getChildren().addAll(lblSpecialization, cbSpecialization);
         hBox3.getChildren().addAll(lblDate, txtDate);
         hBox4.getChildren().addAll(lblTime, spinnerHH, lblHH, spinnerMM, lblMM);
         hBoxSaveButt.getChildren().addAll(btnSave);
@@ -78,7 +78,7 @@ public class AddAppointment {
     }
 
     private void setAlignment() {
-        lblSpecilization.setPadding(new Insets(0, 20, 0, 190));
+        lblSpecialization.setPadding(new Insets(0, 20, 0, 190));
         lblSelectDoctor.setPadding(new Insets(0, 69, 0, 190));
         lblDate.setPadding(new Insets(0, 83, 0, 190));
         lblTime.setPadding(new Insets(0, 129, 0, 190));
@@ -158,7 +158,7 @@ public class AddAppointment {
         }
     }
 
-    public void AddAppointment(String updateCheck, ObservableList<Appointment> DataList, int selectedIndex, BorderPane layout) {
+    public AddAppointment(String updateCheck, ObservableList<Appointment> DataList, int selectedIndex, BorderPane layout) {
         Layout = layout;
         this.updateCheck = updateCheck;
         setFullLayout();
@@ -199,8 +199,7 @@ public class AddAppointment {
     }
 
     private void openViewApp() {
-        ViewAppointment vApp = new ViewAppointment();
-        vApp.ViewAppointment(Layout);
+        new ViewAppointment(Layout);
     }
 
     private String getTime() {
@@ -324,7 +323,7 @@ public class AddAppointment {
         status.setText("");
     }
 
-    private void setReservedTable() {
+    public static void setReservedTable(TableView<Appointment> temp) {
         TableColumn<Appointment, Integer> srNo = new TableColumn<>("Sr.#");
         TableColumn<Appointment, String> date = new TableColumn<>("Date");
         TableColumn<Appointment, Time> sTime = new TableColumn<>("Start Time");
@@ -334,7 +333,7 @@ public class AddAppointment {
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
         sTime.setCellValueFactory(new PropertyValueFactory<>("time"));
         eTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-        AppointmentTable.getColumns().addAll(srNo, date, sTime, eTime);
+        temp.getColumns().addAll(srNo, date, sTime, eTime);
     }
 
     private void setPrestatement() throws SQLException {
@@ -369,7 +368,7 @@ public class AddAppointment {
     }
 
     public void showReservedSlots() {
-        setReservedTable();
+        setReservedTable(AppointmentTable);
         fillTable();
 
         TableVB.getChildren().add(AppointmentTable);

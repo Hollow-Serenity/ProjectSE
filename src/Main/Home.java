@@ -1,8 +1,9 @@
 package Main;
 
-import Education.Eduplatform;
+import Education.EduPlatform;
 import LiveStock.AddProducts;
 import LiveStock.Market;
+import Medical.AddAppointment;
 import Medical.Appointment;
 import Medical.Medical_Platform;
 import UserManagement.ContactTypeGui;
@@ -13,10 +14,8 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -29,30 +28,29 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Home {
-    private static Connection Connect = Database.getConnection();
-    private static PreparedStatement prestatement = Database.getPrestatement();
+    private static final Connection Connect = Database.getConnection();
     private static ResultSet resultSet = Database.getResultSet();
 
-    private ObservableList<Appointment> DataList = FXCollections.observableArrayList();
-    private TableView<Appointment> AppointmentTable = new TableView<Appointment>(DataList);
+    private final ObservableList<Appointment> DataList = FXCollections.observableArrayList();
+    private final TableView<Appointment> AppointmentTable = new TableView<>(DataList);
 
-    private Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+    private final Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
     private static BorderPane Layout;
 
-    private VBox Center = new VBox(20);
-    private HBox tableVBox = new HBox();
-    private HBox RowOne = new HBox(20);
-    private HBox RowTwo = new HBox(20);
-    private HBox RowThree = new HBox(20);
-    private HBox RowFour = new HBox(20);
+    private final VBox Center = new VBox(20);
+    private final HBox tableVBox = new HBox();
+    private final HBox RowOne = new HBox(20);
+    private final HBox RowTwo = new HBox(20);
+    private final HBox RowThree = new HBox(20);
+    private final HBox RowFour = new HBox(20);
 
-    private Button InventoryBtn = new Button("Add Inventory");
-    private Button EditUser = new Button("Edit Profile");
-    private Button LogoutBtn = new Button("Logout");
-    private Button MarketBtn = new Button("Market");
-    private Button UserAddBtn = new Button("Add User");
-    private Button MedicalPlatformbtn = new Button("Medical Platform");
-    private Button EduPlatformbtn = new Button("Eduplatform");
+    private final Button InventoryBtn = new Button("Add Inventory");
+    private final Button EditUser = new Button("Edit Profile");
+    private final Button LogoutBtn = new Button("Logout");
+    private final Button MarketBtn = new Button("Market");
+    private final Button UserAddBtn = new Button("Add User");
+    private final Button MedicalPlatformbtn = new Button("Medical Platform");
+    private final Button EduPlatformbtn = new Button("Eduplatform");
 
     private void setButtonLooks(Button button, String image, String tooltip) {
         button.getStyleClass().addAll("HomeBtn", "LightGreen");
@@ -116,7 +114,7 @@ public class Home {
         setButtonLooks(EduPlatformbtn, "", "Education Platform");
         EduPlatformbtn.setOnAction(e -> {
             try {
-                new Eduplatform(Layout);
+                new EduPlatform(Layout);
             }
             catch (Exception ex){
                 ex.printStackTrace();
@@ -164,7 +162,7 @@ public class Home {
         Center.setMaxHeight(screenBounds.getHeight() * 0.75);
     }
 
-    public void Homes(BorderPane layout) throws SQLException {
+    public void Homes(BorderPane layout) {
         Layout = layout;
         setButtons();
         setLayout();
@@ -178,25 +176,9 @@ public class Home {
         Layout.setCenter(Center);
     }
 
-    private void setReservedTable() {
-        TableColumn<Appointment, Integer> srNo = new TableColumn<Appointment, Integer>("Sr.#");
-        TableColumn<Appointment, String> date = new TableColumn<Appointment, String>("Date");
-        TableColumn<Appointment, Time> sTime = new TableColumn<Appointment, Time>("Start Time");
-        TableColumn<Appointment, Time> eTime = new TableColumn<Appointment, Time>("End Time");
-        TableColumn<Appointment, String> pName = new TableColumn<Appointment, String>("Patient Name");
-
-        srNo.setCellValueFactory(new PropertyValueFactory<>("appCount"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        sTime.setCellValueFactory(new PropertyValueFactory<>("time"));
-        eTime.setCellValueFactory(new PropertyValueFactory<>("endTime"));
-        pName.setCellValueFactory(new PropertyValueFactory<>("patientName"));
-
-        AppointmentTable.getColumns().addAll(srNo, pName, date, sTime, eTime);
-    }
-
     private void setPrestatement() throws SQLException {
         String query = "SELECT appointment.date, appointment.TIME, appointment.TIME + INTERVAL 45 MINUTE AS endTime, users.firstName, users.lastName FROM appointment LEFT JOIN users ON users.userName = appointment.patientId WHERE doctorName = ? ORDER BY DATE ASC";
-        prestatement = Connect.prepareStatement(query);
+        PreparedStatement prestatement = Connect.prepareStatement(query);
         prestatement.setString(1, Menu.getUName());
         resultSet = prestatement.executeQuery();
     }
@@ -218,7 +200,7 @@ public class Home {
     }
 
     public void showReservedSlots() {
-        setReservedTable();
+        AddAppointment.setReservedTable(AppointmentTable);
         try {
             setPrestatement();
             int count = 1;

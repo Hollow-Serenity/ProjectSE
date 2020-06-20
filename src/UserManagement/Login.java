@@ -28,10 +28,9 @@ import javafx.stage.Stage;
 
 public class Login extends Application {
 
-	private static Database db = Database.getDatabase();
+	private static final Database db = Database.getDatabase();
 
-	private static Connection Connect = Database.getConnection();
-	private static PreparedStatement prestatement = Database.getPrestatement();
+	private static final Connection Connect = Database.getConnection();
 	private static ResultSet resultSet = Database.getResultSet();
 
 	private static Stage Window;
@@ -148,7 +147,7 @@ public class Login extends Application {
 
 	private static void loginAttempt() {
 		try {
-			prestatement = Connect.prepareStatement("select * from users where userName = ?");
+			PreparedStatement prestatement = Connect.prepareStatement("select * from users where userName = ?");
 			prestatement.setString(1, UName.getText());
 			resultSet = prestatement.executeQuery();
 			while (resultSet.next()) {

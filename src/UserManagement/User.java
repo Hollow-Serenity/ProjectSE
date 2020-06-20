@@ -19,7 +19,7 @@ public class User {
         }
     }
 
-    public User() throws SQLException {
+    public User() {
     }
 
     public static void addPerson(Person person) throws SQLException {

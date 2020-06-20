@@ -61,7 +61,7 @@ public class Question {
     }
 
     public Boolean checkAnswer(String response) {
-        return response.equals(answer);
+        return response.equalsIgnoreCase(answer);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Question {
 
 class ReadingAssignment extends Question {
     private String story;
-    private ArrayList<Question> questions = new  ArrayList<>();
+    private final ArrayList<Question> questions = new  ArrayList<>();
 
     public String getStory() {
         return story;

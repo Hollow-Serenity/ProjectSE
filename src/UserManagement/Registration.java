@@ -130,23 +130,25 @@ public class Registration {
 		prestatement.executeUpdate();
 	}
 
+	private void registerBtnAction() {
+		if(checkPassword()) {
+			try {
+				databaseInsert();
+				Menu.setIsDoctor(Doctor.getValue().equals("Doctor"));
+				Login.login();
+			}
+			catch (SQLException e1) {
+				Status.setText("Error while adding user");
+			}
+		}
+		else {
+			checkPasswordFault();
+		}
+	}
+
 	public void startRegistration() {
 		RegisterBtn.setAlignment(Pos.BASELINE_CENTER);
-		RegisterBtn.setOnAction(e -> {
-			if(checkPassword()) {
-				try {
-					databaseInsert();
-					Menu.setIsDoctor(Doctor.getValue().equals("Doctor"));
-					Login.login();
-				}
-				catch (SQLException e1) {
-					Status.setText("Error while adding user");
-				}
-			}
-			else {
-				checkPasswordFault();
-			}
-		});
+		RegisterBtn.setOnAction(e -> registerBtnAction());
 		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, RegisterBtn);
 	}
 
@@ -165,7 +167,6 @@ public class Registration {
 			else {
 				Doctor.setValue("Standard user");
 			}
-
 		}
 	}
 
@@ -195,31 +196,37 @@ public class Registration {
 		}
 	}
 
+	private void updateBtnAction() {
+		if(checkPassword()) {
+			Home H = new Home();
+			try {
+				updateAccountDetails();
+				H.Homes(Layout);
+			} catch (SQLException throwables) {
+				throwables.printStackTrace();
+			}
+		}
+		else {
+			checkPasswordFault();
+		}
+	}
+
+	private void deleteBtnAction() {
+		if(checkPassword()) {
+			deleteAccount();
+			Login.login();
+		}
+		else {
+			checkPasswordFault();
+		}
+	}
+
 	public void startEditAccount() throws SQLException {
 		showAccountDetails();
-		UpdateBtn.setOnAction(e -> {
-			if(checkPassword()) {
-				Home H = new Home();
-				try {
-					updateAccountDetails();
-					H.Homes(Layout);
-				} catch (SQLException throwables) {
-					throwables.printStackTrace();
-				}
-			}
-			else {
-				checkPasswordFault();
-			}
-		});
-		DeleteBtn.setOnAction(event -> {
-			if(checkPassword()) {
-				deleteAccount();
-				Login.login();
-			}
-			else {
-				checkPasswordFault();
-			}
-		});
+
+		UpdateBtn.setOnAction(e -> updateBtnAction());
+		DeleteBtn.setOnAction(event -> deleteBtnAction());
+
 		Buttons.getChildren().addAll(UpdateBtn, DeleteBtn);
 		Center.getChildren().addAll(First, Last, UName, Password, PasswordCheck, Doctor, Status, Buttons);
 	}
