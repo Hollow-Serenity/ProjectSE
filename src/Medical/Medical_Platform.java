@@ -106,7 +106,7 @@ public class Medical_Platform {
         setAfflictions(Menu.getUName());
 
         Layout.setTop(Menu.getMenu(Layout));
-        Layout.setCenter(layout);
+        Layout.setCenter(pane);
 
         appointmentdBtn.setOnAction(event -> {
             ViewAppointment viewApp = new ViewAppointment();
