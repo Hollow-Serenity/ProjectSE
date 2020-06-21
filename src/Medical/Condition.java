@@ -51,6 +51,11 @@ public class Condition {
         Layout.setCenter(Center);
     }
 
+    private void clearFields() {
+        conditionTF.setText("");
+        patientIDTF.setText("");
+    }
+
     private void returnToMedPlat() {
         try {
             new Medical_Platform(Layout);
@@ -62,6 +67,7 @@ public class Condition {
     public Condition(BorderPane layout) {
         Layout = layout;
         setLayout();
+        clearFields();
 
         confirmAdd.setOnAction(e -> {
             if(addCondition()) {

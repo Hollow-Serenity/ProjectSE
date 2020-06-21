@@ -11,6 +11,7 @@ import Main.Menu;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -69,9 +70,18 @@ public class Registration {
 		}
 	}
 
+	public void clearFields() {
+		First.setText("");
+		Last.setText("");
+		UName.setText("");
+		Password.setText("");
+		PasswordCheck.setText("");
+	}
+
 	public void setStyles(){
 		Status.setFill(Color.RED);
 
+		Doctor.getItems().clear();
 		Doctor.getItems().addAll("Standard user","Doctor");
 		Doctor.setValue("Standard user");
 
@@ -235,6 +245,7 @@ public class Registration {
 		Layout = layout;
 		setStyles();
 		setVBox();
+		clearFields();
 
 		if(!Menu.getIsLogin()) {
 			startRegistration();
